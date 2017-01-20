@@ -1,0 +1,485 @@
+
+/* YOUR CSS STYLES */
+body {
+    display: block;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Mercury Text G1 A","Mercury Text G1 B","Georgia","Times New Roman","Times",sans-serif;
+    background-color: #e3eaec;
+}
+
+.ack {
+    font-style: italic;
+}
+
+.themap {
+    fill-opacity: .5;
+}
+
+.r-arrow {
+    font-size: 10em;
+    color: orange;
+    position: fixed;
+    display: inline-block;
+}
+.l-arrow {
+    font-size: 10em;
+    color: orange;
+    position: fixed;
+}
+
+.story-text {
+    padding: 15px;
+    color:black;
+    font-size: 2em;
+    text-align: center;
+}
+
+.congress-label {
+    font-size: 25px;
+    font-weight: bolder;
+    /*fill-opacity: .5;*/
+}
+
+.congress-title {
+    font-size: 35px;
+    font-weight: bolder;
+    /*fill-opacity: .5;*/
+}
+
+.repLabels, .senLabels {
+    font-weight: bold;
+}
+#state-name, #congress-name {
+    color: red;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#title {
+    font-size: 4em;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.top-bar {
+    opacity: 1;
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.spacer{
+    padding:20px;
+    text-align: center;
+}
+
+#boring-chart {
+    margin-left:15%;
+    margin-top:20px;
+    border: solid;
+    padding:10px;
+    border-radius: 25px;
+}
+.brightness {
+    background-color: #268ede;
+    display: inline-block;
+
+}
+.brightness img:hover {
+    opacity: .7;
+}
+
+
+#footprint-vis {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: #5bc0de;
+}
+
+.carbon-sidebar {
+    background-color: #5bc0de;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.nav {
+    background-color: #a4d1de;
+    padding-bottom: 0px !important;
+}
+
+.nav-pills > li.active > a
+.nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #ebebe6;
+    background-color: #797979;
+}
+
+.nav-pills > li > a, .nav-pills > li > a:focus {
+    color: black;
+}
+
+.nav-pills > li > a:hover {
+    color:black;
+}
+
+#sections {
+    position: relative;
+    display: inline-block;
+    width: 338px;
+    top: 0px;
+    z-index: 90;
+    scroll-snap-type: mandatory;
+    scroll-snap-destination: 0 100%;
+}
+
+.step {
+    margin-top: 20px;
+    height: 530px;
+    overflow:auto;
+    width:338px;
+    background-color: lightgrey;
+    opacity: .7;
+    border-radius: 25px;
+
+}
+
+.step-text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 300px;
+    width:338px;
+    background-color: darkgray;
+    opacity: .95;
+    border-radius: 25px;
+}
+
+#titleFootprints{
+    text-anchor: middle;
+    font-weight: bold;
+    position: fixed;
+    top:50px;
+    z-index: 89;
+
+}
+
+#fixed-footprints-container {
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    z-index: 1;
+    padding-left: 10px;
+    opacity: .7;
+    height: 550px;
+    width: 710px;
+    background-color: #ddd;
+    border-radius: 25px;
+    margin-left: 20px;
+}
+
+#dataSelectFootprint {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.country-label {
+    text-anchor: middle;
+    font-weight: bold;
+    text-shadow:
+            -1px -1px 0 white,
+            1px -1px 0 white,
+            -1px 1px 0 white,
+            1px 1px 0 white;
+}
+
+.Africa {fill: #fffb00;}
+.Asia {fill: #70df00;}
+.Europe {fill: #00b669;}
+.North-America {fill: #00ccd0;}
+.Oceania {fill: #0084c4;}
+.South-America {fill: #3b00d8;}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+/*********************/
+/*  TOOLTIP OVERLAY  */
+/*********************/
+
+.tooltip-title {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    pointer-events: none!important;
+    z-index: 100;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+
+.state-border {
+    stroke: #fff;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+
+/* switch css from http://thestizmedia.com/radio-buttons-as-toggle-buttons-with-css/*/
+.switch-field {
+    /*padding: 40px;*/
+    overflow: hidden;
+}
+
+.switch-title {
+    margin-bottom: 6px;
+}
+
+.switch-field input {
+    display: none;
+}
+
+.switch-field label {
+    float: left;
+}
+
+.switch-field label {
+    display: inline-block;
+    width: 35px;
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: none;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition:    all 0.1s ease-in-out;
+    -ms-transition:     all 0.1s ease-in-out;
+    -o-transition:      all 0.1s ease-in-out;
+    transition:         all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked + label {
+    background-color: darkslategrey;
+    color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+/* Meg's CSS for checkboxes */
+.material-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+/*Meg other stuff: */
+.spacing {
+    padding: 10px;
+}
+
+#state-hover,#congress-hover {
+    text-align: center;
+}
+
+#state-hover {
+    padding-top: 20px;
+}
+#congress-hover {
+    margin-top: -30px;
+}
+
+#percentslider .slider-selection {
+    background: #BABABA;
+}
+
+#percentslider {
+    width: 100px;
+}
+
+#quote, #label1 {
+    font-style: italic;
+}
+
+/*MEG FONT*/
+#carbonemissions-BG {
+    font-family: "Mercury Text G1 A","Mercury Text G1 B","Georgia","Times New Roman","Times",sans-serif;
+}
+
+
+/* Stuff for Daniel */
+.pretty-box-1 {
+    margin-top: 10px;
+    height: auto;
+    width:670px;
+    background-color: lightgrey;
+    opacity: .7;
+    border-radius: 25px;
+}
+
+.pretty-box-2 {
+    margin-top:10px;
+    height: 850px;
+    width:350px;
+    background-color: lightgrey;
+    opacity: .7;
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.para {
+    margin: 40px;
+    font-size: larger;
+}
+
+.note {
+    font-size: smaller;
+}
+
+.tableemphasis {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+hr.style-seven {
+    height: 30px;
+    border-style: solid;
+    border-color: red;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: red;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+.bodyemphasis {
+    font-weight: bold;
+}
+
+.tooltip-title {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
