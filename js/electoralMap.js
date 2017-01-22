@@ -52,7 +52,7 @@ ElectoralMap.prototype.initVis = function() {
         .attr("opacity",0)
         .style("font-size","15")
         .attr("text-anchor","middle")
-        .attr("x",vis.width*2/3)
+        .attr("x",vis.width*5/7)
         .attr("y",500);
 
     vis.stateVote2 = vis.svg.append("text")
@@ -61,7 +61,7 @@ ElectoralMap.prototype.initVis = function() {
         .attr("opacity",0)
         .style("font-size","15")
         .attr("text-anchor","middle")
-        .attr("x",vis.width*2/3)
+        .attr("x",vis.width*5/7)
         .attr("y",525);
 
 
