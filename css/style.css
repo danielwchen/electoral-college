@@ -464,6 +464,7 @@ hr.style-seven:before { /* Not really supposed to work, but does */
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
+  text-align: center;
 }
 
 

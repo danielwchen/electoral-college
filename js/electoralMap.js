@@ -30,12 +30,40 @@ ElectoralMap.prototype.initVis = function() {
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");;
+        .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
     d3.json("data/us-states.json", function(json) {
         vis.json = json;
         vis.wrangleData();
     });
+
+    vis.stateName = vis.svg.append("text")
+        .text("United States")
+        .attr("opacity",0)
+        .style("font-weight","bold")
+        .style("font-size","30")
+        .attr("text-anchor","middle")
+        .attr("x",vis.width*2/3)
+        .attr("y",80);
+
+    vis.stateVote = vis.svg.append("text")
+        .text("Each voter gets 3 votes")
+        .style("font-weight","bold")
+        .attr("opacity",0)
+        .style("font-size","15")
+        .attr("text-anchor","middle")
+        .attr("x",vis.width*3/4)
+        .attr("y",500);
+
+    vis.stateVote2 = vis.svg.append("text")
+        .text("when compared to a fair one-person-one-vote system.")
+        .style("font-weight","bold")
+        .attr("opacity",0)
+        .style("font-size","15")
+        .attr("text-anchor","middle")
+        .attr("x",vis.width*3/4)
+        .attr("y",525);
+
 
 };
 
@@ -59,19 +87,9 @@ ElectoralMap.prototype.wrangleData = function() {
 ElectoralMap.prototype.updateVis = function() {
     var vis = this;
 
-    vis.tip = d3.tip().attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function() {
-            console.log("help");
-            var string = d.State;
-            return string;
-        });
-
-    vis.svg.call(vis.tip);
-
     vis.projection = d3.geo.albersUsa()
         .translate([vis.width / 2, vis.height / 2])
-        .scale([800]);
+        .scale([900]);
 
     vis.path = d3.geo.path()
         .projection(vis.projection);
@@ -136,12 +154,26 @@ ElectoralMap.prototype.highlightState = function(state) {
             .data(vis.json.features).transition().duration(80)
             .style("opacity",function(d) {
                 if(d.properties.name == state) {
-                    vis.tip.show;
+
+                    vis.stateVote
+                        .text(function(){
+                            return "Each vote in " + state + " counts for " + d.properties.ElectoralToPopRatio + " votes";
+                        })
+                        .attr("opacity",1);
+
                     return 1;
                 } else {
                     return .1
                 }
             });
+
+        vis.stateName
+            .text(function(){
+                return state;
+            })
+            .attr("opacity",1);
+        vis.stateVote2
+            .attr("opacity",1);
 
         // vis.svg.selectAll(".bg-map")
         //     .data(vis.json.features).transition().duration(80)
@@ -156,9 +188,15 @@ ElectoralMap.prototype.highlightState = function(state) {
         vis.svg.selectAll(".state")
             .data(vis.json.features).transition().duration(80)
             .style("opacity", function(d) {
-                vis.tip.hide;
                 return .3;
             });
+
+        vis.stateName
+            .attr("opacity",0);
+        vis.stateVote2
+            .attr("opacity",0);
+        vis.stateVote
+            .attr("opacity",0);
 
         // vis.svg.selectAll(".bg-map")
         //     .data(vis.json.features).transition().duration(80)

@@ -3,6 +3,12 @@
 // document.getElementById("tableline").style.visibility = 'hidden';
 
 var electoralMap;
+
+var white;
+var black;
+var hispanic;
+var asian;
+
 var dataCSV = {};
 
 var dateFormatter = d3.time.format("%d-%b-%Y");
@@ -87,4 +93,9 @@ function createVis() {
     //         document.getElementById("tableline").style.visibility = 'visible';
         }
     });
+
+    white = new Person("#white-picture",1.034, 151141962,"White");
+    black = new Person("#black-picture",1.004, 29732845,"Black");
+    hispanic = new Person("#hisp-picture",.92, 44599268,"Hispanic");
+    asian = new Person("#asian-picture",.88, 14866423,"Asian");
 }
