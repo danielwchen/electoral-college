@@ -8,6 +8,9 @@ body {
     background-size: cover;
     font-family: "Mercury Text G1 A","Mercury Text G1 B","Georgia","Times New Roman","Times",sans-serif;
     background-color: #e3eaec;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
 }
 
 .ack {

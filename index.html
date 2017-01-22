@@ -11,8 +11,31 @@
 </head>
 <body id="electoral-college-BG">
 
-<div id="title">Electoral Voting Power by State</div>
-<div id="ElectoralMap"></div>
+<div id="title">Electoral Voting Power by State</div><br>
+<div>These visualizations highlight the disparity between the voting power distributed by the electoral college and the one-person one-vote ideal. To generate the map, the estimated voting population of each state in 2015 was obtained from the US Census Bureau. Voting power per person was determined by finding the ratio of the proportion of each state's voting power (number of electors) to voting population. To determine voting power by race, the voting power of each state was multiplied by the population of each race demographic (obtained again from the US Census Bureau. Then, the voting power of each race per state were summed and compared to raw population voting power. Only four races are shown because others (Native Americans, Native Alaskans, Native Hawaiians, and mixed) made up too low of a fraction, causing rounding errors.</div><br>
+<div class="col-md-8">
+    <div id="ElectoralMap"></div>
+</div>
+<div class="col-md-4">
+    <table id="ElectoralTable">
+        <tr>
+            <td id="white-picture" width="200"></td>
+            <td>If you are a white American, your voting power is increased by about 3% by the electoral college.</td>
+        </tr>
+        <tr>
+            <td id="black-picture" width="200"></td>
+            <td>If you are a African American, your voting power is neither increased or decreased by the electoral college.</td>
+        </tr>
+        <tr>
+            <td id="hisp-picture" width="200"></td>
+            <td>If you are a Hispanic American, the electoral college decreases your voting power by about 8%.</td>
+        </tr>
+        <tr>
+            <td id="asian-picture" width="200"></td>
+            <td>If you are an Asian American, your voting power is decreased by over 12% due to the electoral college.</td>
+        </tr>
+    </table>
+</div>
 
 <!-- Load JS libraries -->
 <script src="js/libs/queue.v1.min.js"></script>

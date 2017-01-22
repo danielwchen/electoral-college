@@ -59,6 +59,16 @@ ElectoralMap.prototype.wrangleData = function() {
 ElectoralMap.prototype.updateVis = function() {
     var vis = this;
 
+    vis.tip = d3.tip().attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function() {
+            console.log("help");
+            var string = d.State;
+            return string;
+        });
+
+    vis.svg.call(vis.tip);
+
     vis.projection = d3.geo.albersUsa()
         .translate([vis.width / 2, vis.height / 2])
         .scale([800]);
@@ -126,6 +136,7 @@ ElectoralMap.prototype.highlightState = function(state) {
             .data(vis.json.features).transition().duration(80)
             .style("opacity",function(d) {
                 if(d.properties.name == state) {
+                    vis.tip.show;
                     return 1;
                 } else {
                     return .1
@@ -144,7 +155,10 @@ ElectoralMap.prototype.highlightState = function(state) {
     } else {
         vis.svg.selectAll(".state")
             .data(vis.json.features).transition().duration(80)
-            .style("opacity", .3);
+            .style("opacity", function(d) {
+                vis.tip.hide;
+                return .3;
+            });
 
         // vis.svg.selectAll(".bg-map")
         //     .data(vis.json.features).transition().duration(80)
