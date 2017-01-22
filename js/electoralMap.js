@@ -89,7 +89,7 @@ ElectoralMap.prototype.updateVis = function() {
 
     vis.projection = d3.geo.albersUsa()
         .translate([vis.width / 2, vis.height / 2])
-        .scale([900]);
+        .scale([800]);
 
     vis.path = d3.geo.path()
         .projection(vis.projection);
