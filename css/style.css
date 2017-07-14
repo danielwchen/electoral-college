@@ -13,6 +13,12 @@ body {
     padding-bottom: 5%;
 }
 
+.race {
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+}
+
 .ack {
     font-style: italic;
 }
@@ -157,34 +163,6 @@ body {
     border-radius: 25px;
 }
 
-#titleFootprints{
-    text-anchor: middle;
-    font-weight: bold;
-    position: fixed;
-    top:50px;
-    z-index: 89;
-
-}
-
-#fixed-footprints-container {
-    display: inline-block;
-    position: fixed;
-    top: 60px;
-    z-index: 1;
-    padding-left: 10px;
-    opacity: .7;
-    height: 550px;
-    width: 710px;
-    background-color: #ddd;
-    border-radius: 25px;
-    margin-left: 20px;
-}
-
-#dataSelectFootprint {
-    padding-left: 20px;
-    font-weight: bold;
-}
-
 .country-label {
     text-anchor: middle;
     font-weight: bold;
@@ -194,13 +172,6 @@ body {
             -1px 1px 0 white,
             1px 1px 0 white;
 }
-
-.Africa {fill: #fffb00;}
-.Asia {fill: #70df00;}
-.Europe {fill: #00b669;}
-.North-America {fill: #00ccd0;}
-.Oceania {fill: #0084c4;}
-.South-America {fill: #3b00d8;}
 
 .axis path,
 .axis line {

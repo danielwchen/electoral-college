@@ -63,7 +63,7 @@ Person.prototype.updateVis = function() {
         .append("image")
         .attr("class", "bg-image")
         .attr("height", vis.personHeight)
-        .attr("x", vis.width/3)
+        .attr("x", vis.width/2 - 50)
         .attr("y", vis.height/2 - vis.personHeight/2)
         .attr("xlink:href", "img/personfull.png")
         .attr("opacity",.5);
@@ -73,7 +73,7 @@ Person.prototype.updateVis = function() {
         .append("image")
         .attr("class", "fr-image")
         .attr("height", vis.personHeight * vis.votePower)
-        .attr("x", 2*vis.width/3)
+        .attr("x", vis.width/2)
         .attr("y", vis.height/2 - vis.personHeight/2 - (vis.personHeight * vis.votePower - vis.personHeight))
         .attr("xlink:href", "img/personfull.png")
         .attr("opacity",1)
