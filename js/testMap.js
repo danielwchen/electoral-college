@@ -9,7 +9,7 @@
  *  @param _eventHandler    -- Event handler
  */
 
-ElectoralMap = function(_parentElement, _data, _eventHandler) {
+ElectoralMap = function(_parentElement, _data, _eventHandler, _windowSize) {
 
     this.parentElement = _parentElement;
     this.data = _data;

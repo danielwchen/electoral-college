@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electoral Voting Power</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="electoral-college-BG">
+
+<div id="title">Electoral Voting Power by State</div><br>
+<div>These visualizations highlight the disparity between the voting power distributed by the electoral college and the one-person one-vote ideal. The most egregious outlier is Wyoming, where each voter has over three times as much electoral power than the one-person-one-vote ideal. When compared to California, which has a per-person electoral power of .84, each vote in Wyoming counts for almost four votes in California. When broken down by race, White Americans are favored by the system with a 3% boost due to their increased likelihood to be found in low-population density states. Asians, on the other hand, are disproportionately found in urban areas, cause their voting power to be decreased by over 10% by the electoral college.</div><br>
+<div>Of course, this visualization misses many factors, including disproportionate power that swing state voters have versus strongly leaning states like Texas or California, but it makes the case that the electoral college gives an unbalanced representation both geographically and racially.</div>
+<div>To generate the map, the estimated voting population of each state in 2015 was obtained from the US Census Bureau. Voting power per person was determined by finding the ratio of the proportion of each state's voting power (number of electors) to voting population. To determine voting power by race, the voting power of each state was multiplied by the population of each race demographic (obtained again from the US Census Bureau. Then, the voting power of each race per state were summed and compared to raw population voting power. Only four races are shown because others (Native Americans, Native Alaskans, Native Hawaiians, and mixed) made up too low of a fraction, causing rounding errors.</div><br>
+<div>
+    <div id="ElectoralMap"></div>
+</div>
+<div>
+    <table id="ElectoralTable">
+        <tr>
+            <td id="white-picture" width="150" height="100"></td>
+            <td id="black-picture" width="150" height="100"></td>
+            <td id="hisp-picture" width="150" height="100"></td>
+            <td id="asian-picture" width="150" height="100"></td>
+        </tr>
+        <tr>
+            <td class="race">If you are a white American, your voting power is increased by about 3% by the electoral college.</td>
+            <td class="race">If you are a African American, your voting power is very slightly increased (.4%) by the electoral college.</td>
+            <td class="race">If you are a Hispanic American, the electoral college decreases your voting power by about 8%.</td>
+            <td class="race">If you are an Asian American, your voting power is decreased by over 12% due to the electoral college.</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Load JS libraries -->
+<script src="js/libs/queue.v1.min.js"></script>
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/d3.min.js"></script>
+<script src="js/libs/d3.tip.js"></script>
+
+<!-- electoral map and congress visualization -->
+<script src="js/electoralMap.js"></script>
+<script src="js/person.js"></script>
+
+<script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>
