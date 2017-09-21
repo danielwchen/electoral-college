@@ -157,33 +157,31 @@
         var path = d3.geoPath()
             .projection(projection);
 
-        // svg.selectAll(".bg-map")
-        //   .data(fin_json.features)
-        //   .enter().append("path")
-        //   .attr("class", "bg-map")
-        //   .attr("d", path)
-        //   .attr("stroke","black")
-        //   .attr("fill-opacity",0)
-        //   .attr("fill","lightgray");
+        svg.selectAll(".bg-map")
+          .data(fin_json.features)
+          .enter().append("path")
+          .attr("class", "bg-map")
+          .attr("d", path)
+          .attr("stroke","black")
+          .attr("fill-opacity",0)
+          .attr("fill","lightgray");
 
         svg.selectAll(".state")
           .data(fin_json.features)
           .enter().append("path")
           .attr("class", "state")
           .attr("d", path)
-          // .attr("transform", function(d,index) {
-          //     var centroid = path.centroid(d),
-          //         x = centroid[0],
-          //         y = centroid[1];
-          //     return "translate(" + x + "," + y + ")"
-          //         + "scale(" + d.properties.ElectoralToPopRatio + ")"
-          //         + "translate(" + -x + "," + -y + ")";
-          // })
+          .attr("transform", function(d,index) {
+              var centroid = path.centroid(d),
+                  x = centroid[0],
+                  y = centroid[1];
+              return "translate(" + x + "," + y + ")"
+                  + "scale(" + fin_data[d.properties.name].electoralpower + ")"
+                  + "translate(" + -x + "," + -y + ")";
+          })
           .attr("fill",function(d) {
-            console.log(d);
-            return "blue";
-            // if (d.properties["2016Vote"] == "Rep") { return "red" }
-            // else { return "blue" };
+            if (fin_data[d.properties.name].winparty == "R") { return "red" }
+            else { return "blue" };
           })
           .attr("stroke","black")
           .attr("opacity",.3);
