@@ -101,13 +101,11 @@
       d3.queue()
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
-        .await(function(error, json, data) {
-          console.log(json);
-          console.log(data);
-          wrangleData(json, data);
-        });
+        .await(
+          wrangleData(error, json, data);
+        );
 
-      function wrangleData(json, data) {
+      function wrangleData(error, json, data) {
 
         data.forEach(function(d) {
           data.clintonvotes = +data.clintonvotes;
@@ -121,7 +119,9 @@
           data.electoralpower = +data.electoralpower;
         });
         data.forEach(function(d,index) {
-            fin_data[d.state] = d;
+          console.log(d.state);
+          console.log(d);
+          fin_data[d.state] = d;
         });
 
         fin_json = json;
