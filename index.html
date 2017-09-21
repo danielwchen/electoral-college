@@ -98,7 +98,7 @@
         .attr("width", x)
         .attr("height", 400);
 
-      queue()
+      d3.queue()
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
         .await(function(error, json, data) {
