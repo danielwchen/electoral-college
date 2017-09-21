@@ -110,8 +110,6 @@
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
         .await(function(error, json, data) {
-          console.log(json);
-          console.log(data);
           wrangleData(json, data);
         });
 
@@ -130,7 +128,6 @@
           data.electoralpower = 5;
         });
         data.forEach(function(d,index) {
-          console.log(d.state)
           fin_data[d.state] = d;
         });
 
@@ -139,17 +136,56 @@
         console.log(fin_json);
         console.log(fin_data);
 
+        createVis();
+
         // for (var j = 0; j < fin_json.features.length; j++) {
         //   if (fin_data[fin_json.features[j].properties.name]){
         //       fin_json.features[j].properties.ElectoralToPopRatio = data[json.features[j].properties.name].ElectoralToPopRatio;
         //       fin_json.features[j].properties["2016Vote"] = data[json.features[j].properties.name]["2016Vote"];
         //       fin_json.features[j].properties["PercentElectoralVotes"] = data[json.features[j].properties.name]["PercentElectoralVotes"];
-
         //   }
         // }
       }
 
       function createVis() {
+
+        var projection = d3.geo.albersUsa()
+            .translate([x/2, 200])
+            .scale([400]);
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        svg.selectAll(".bg-map")
+          .data(fin_json.features)
+          .enter().append("path")
+          .attr("class", "bg-map")
+          .attr("d", path)
+          .attr("stroke","black")
+          .attr("fill-opacity",0)
+          .attr("fill","lightgray");
+
+
+
+        // svg.selectAll(".state")
+        //   .data(fin_json)
+        //   .enter().append("path")
+        //   .attr("class", "state")
+        //   .attr("d", vis.path)
+        //   .attr("transform", function(d,index) {
+        //       var centroid = vis.path.centroid(d),
+        //           x = centroid[0],
+        //           y = centroid[1];
+        //       return "translate(" + x + "," + y + ")"
+        //           + "scale(" + d.properties.ElectoralToPopRatio + ")"
+        //           + "translate(" + -x + "," + -y + ")";
+        //   })
+        //   .attr("fill",function(d) {
+        //       if (d.properties["2016Vote"] == "Rep") { return "red" }
+        //       else { return "blue" };
+        //   })
+        //   .attr("stroke","black")
+        //   .attr("opacity",.3);
 
       }
 
