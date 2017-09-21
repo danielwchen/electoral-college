@@ -98,7 +98,8 @@
           x, y, ypos, ybot;
 
       var x = w.innerWidth || e.clientWidth || g.clientWidth;
-      var fin_json, fin_data;
+      var fin_json;
+      var fin_data = [];
       var scales = ["none", "electoralvotesfactor","electoralpower"]
 
       var svg = d3.select("#map-vis").append("svg")
