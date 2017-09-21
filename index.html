@@ -165,27 +165,26 @@
           .attr("fill-opacity",0)
           .attr("fill","lightgray");
 
-
-
-        // svg.selectAll(".state")
-        //   .data(fin_json)
-        //   .enter().append("path")
-        //   .attr("class", "state")
-        //   .attr("d", vis.path)
-        //   .attr("transform", function(d,index) {
-        //       var centroid = vis.path.centroid(d),
-        //           x = centroid[0],
-        //           y = centroid[1];
-        //       return "translate(" + x + "," + y + ")"
-        //           + "scale(" + d.properties.ElectoralToPopRatio + ")"
-        //           + "translate(" + -x + "," + -y + ")";
-        //   })
-        //   .attr("fill",function(d) {
-        //       if (d.properties["2016Vote"] == "Rep") { return "red" }
-        //       else { return "blue" };
-        //   })
-        //   .attr("stroke","black")
-        //   .attr("opacity",.3);
+        svg.selectAll(".state")
+          .data(fin_json)
+          .enter().append("path")
+          .attr("class", "state")
+          .attr("d", vis.path)
+          // .attr("transform", function(d,index) {
+          //     var centroid = path.centroid(d),
+          //         x = centroid[0],
+          //         y = centroid[1];
+          //     return "translate(" + x + "," + y + ")"
+          //         + "scale(" + d.properties.ElectoralToPopRatio + ")"
+          //         + "translate(" + -x + "," + -y + ")";
+          // })
+          .attr("fill",function(d) {
+            console.log(d)
+            // if (d.properties["2016Vote"] == "Rep") { return "red" }
+            // else { return "blue" };
+          })
+          .attr("stroke","black")
+          .attr("opacity",.3);
 
       }
 
