@@ -157,17 +157,17 @@
         var path = d3.geoPath()
             .projection(projection);
 
-        svg.selectAll(".bg-map")
-          .data(fin_json.features)
-          .enter().append("path")
-          .attr("class", "bg-map")
-          .attr("d", path)
-          .attr("stroke","black")
-          .attr("fill-opacity",0)
-          .attr("fill","lightgray");
+        // svg.selectAll(".bg-map")
+        //   .data(fin_json.features)
+        //   .enter().append("path")
+        //   .attr("class", "bg-map")
+        //   .attr("d", path)
+        //   .attr("stroke","black")
+        //   .attr("fill-opacity",0)
+        //   .attr("fill","lightgray");
 
         svg.selectAll(".state")
-          .data(fin_json)
+          .data(fin_json.features)
           .enter().append("path")
           .attr("class", "state")
           .attr("d", path)
