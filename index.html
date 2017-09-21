@@ -92,6 +92,7 @@
 
       var x = w.innerWidth || e.clientWidth || g.clientWidth;
       var fin_json, fin_data;
+      var scales = ["none", "electoralvotesfactor","electoralpower"]
 
       var svg = d3.select("#map-vis").append("svg")
         .attr("width", x)
@@ -100,9 +101,13 @@
       queue()
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
-        .await(wrangleData(error, json, data));
+        .await(function(error, json, data) {
+          console.log(json);
+          console.log(data);
+          wrangleData(json, data);
+        });
 
-      function wrangleData(error, json, data) {
+      function wrangleData(json, data) {
 
         data.forEach(function(d) {
           data.clintonvotes = +data.clintonvotes;
@@ -132,6 +137,18 @@
 
         //   }
         // }
+      }
+
+      function createVis() {
+
+      }
+
+      function setScaling(ind) {
+
+      }
+
+      function resizeVis() {
+
       }
 
 
