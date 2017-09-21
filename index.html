@@ -149,11 +149,11 @@
 
       function createVis() {
 
-        var projection = d3.geo.albersUsa()
+        var projection = d3.geoAlbersUsa()
             .translate([x/2, 200])
             .scale([400]);
 
-        var path = d3.geo.path()
+        var path = d3.geoPath()
             .projection(projection);
 
         svg.selectAll(".bg-map")
