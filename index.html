@@ -101,11 +101,11 @@
       d3.queue()
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
-        .await(
-          wrangleData(error, json, data);
-        );
+        .await(function(error, json, data) {
+          wrangleData(json, data);
+        });
 
-      function wrangleData(error, json, data) {
+      function wrangleData(json, data) {
 
         data.forEach(function(d) {
           data.clintonvotes = +data.clintonvotes;
