@@ -183,7 +183,10 @@
             if (fin_data[d.properties.name].winparty == "R") { return "red" }
             else { return "blue" };
           })
-          .attr("stroke","black")
+          .attr("stroke",function(d) {
+            if (fin_data[d.properties.name].winparty == "R") { return "darkred" }
+            else { return "darkblue" };
+          })
           .attr("opacity",.3);
 
       }
