@@ -7,7 +7,7 @@
     <title>Electoral Voting Power</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/teststyle.css">
+    <!-- <link rel="stylesheet" href="css/teststyle.css"> -->
   </head>
   <body>
     <div id="graphic">
@@ -88,27 +88,52 @@
           + "h-10v" + (50 + h) 
           + "z";
         }
-
       }
 
       var x = w.innerWidth || e.clientWidth || g.clientWidth;
-      var json;
+      var fin_json, fin_data;
 
       var svg = d3.select("#map-vis").append("svg")
         .attr("width", x)
         .attr("height", 400);
 
-      d3.json("data/us-states.json", function(json) {
-        json = json;
-      });
-
       queue()
         .defer(d3.json, 'data/us-states.json')
         .defer(d3.csv, 'data/allcartogramdata.csv')
-        .await(function (error, json, csv) {
-          console.log(json);
-          console.log(csv);
+        .await(wrangleData(error, json, data));
+
+      function wrangleData(error, json, data) {
+
+        data.forEach(function(d) {
+          data.clintonvotes = +data.clintonvotes;
+          data.clintonpercent = +data.clintonpercent;
+          data.trumpvotes = +data.trumpvotes;
+          data.trumppercent = +data.trumppercent;
+          data.othervotes = +data.othervotes;
+          data.otherpercent = +data.otherpercent;
+          data.electoralvotes = +data.electoralvotes;
+          data.electoralvotesfactor = +data.electoralvotesfactor;
+          data.electoralpower = +data.electoralpower;
         });
+        data.forEach(function(d,index) {
+            fin_data[d.state] = d;
+        });
+
+        fin_json = json;
+
+        console.log(fin_json);
+        console.log(fin_data);
+
+        // for (var j = 0; j < fin_json.features.length; j++) {
+        //   if (fin_data[fin_json.features[j].properties.name]){
+        //       fin_json.features[j].properties.ElectoralToPopRatio = data[json.features[j].properties.name].ElectoralToPopRatio;
+        //       fin_json.features[j].properties["2016Vote"] = data[json.features[j].properties.name]["2016Vote"];
+        //       fin_json.features[j].properties["PercentElectoralVotes"] = data[json.features[j].properties.name]["PercentElectoralVotes"];
+
+        //   }
+        // }
+      }
+
 
 
 

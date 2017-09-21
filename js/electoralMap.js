@@ -111,18 +111,10 @@ ElectoralMap.prototype.updateVis = function() {
                 + "translate(" + -x + "," + -y + ")";
         })
         .attr("fill",function(d) {
-            // if (d.properties.prop < .2) {return "#feedde"}
-            // else if (d.properties.prop < .4) {return "#fdbe85"}
-            // else if (d.properties.prop < .6) {return "#fd8d3c"}
-            // else if (d.properties.prop < .8) {return "#e6550d"}
-            // else {return "#a63603"}
             if (d.properties["2016Vote"] == "Rep") { return "red" }
             else { return "blue" };
         })
         .attr("stroke","black")
-        // .style("stroke-width", function(d) {
-        //     return 1/d.properties.ElectoralToPopRatio;
-        // })
         .attr("opacity",.3);
 
     vis.svg.selectAll(".bg-map")
@@ -175,16 +167,6 @@ ElectoralMap.prototype.highlightState = function(state) {
             .attr("opacity",1);
         vis.stateVote2
             .attr("opacity",1);
-
-        // vis.svg.selectAll(".bg-map")
-        //     .data(vis.json.features).transition().duration(80)
-        //     .style("stroke",function(d) {
-        //         if(d.properties.name == state) {
-        //             return "black";
-        //         } else {
-        //             return "gray";
-        //         }
-        //     });
     } else {
         vis.svg.selectAll(".state")
             .data(vis.json.features).transition().duration(80)
@@ -198,9 +180,5 @@ ElectoralMap.prototype.highlightState = function(state) {
             .attr("opacity",0);
         vis.stateVote
             .attr("opacity",0);
-
-        // vis.svg.selectAll(".bg-map")
-        //     .data(vis.json.features).transition().duration(80)
-        //     .style("stroke", "gray");
     }
 };

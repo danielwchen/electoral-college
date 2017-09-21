@@ -175,16 +175,6 @@ ElectoralMap.prototype.highlightState = function(state) {
             .attr("opacity",1);
         vis.stateVote2
             .attr("opacity",1);
-
-        // vis.svg.selectAll(".bg-map")
-        //     .data(vis.json.features).transition().duration(80)
-        //     .style("stroke",function(d) {
-        //         if(d.properties.name == state) {
-        //             return "black";
-        //         } else {
-        //             return "gray";
-        //         }
-        //     });
     } else {
         vis.svg.selectAll(".state")
             .data(vis.json.features).transition().duration(80)
@@ -198,9 +188,5 @@ ElectoralMap.prototype.highlightState = function(state) {
             .attr("opacity",0);
         vis.stateVote
             .attr("opacity",0);
-
-        // vis.svg.selectAll(".bg-map")
-        //     .data(vis.json.features).transition().duration(80)
-        //     .style("stroke", "gray");
     }
 };
