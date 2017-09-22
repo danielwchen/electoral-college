@@ -126,7 +126,9 @@ ElectoralMap.prototype.resize = function() {
 
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
-  vis.projection.scale([vis.width*.8]);
+  vis.projection
+  .translate([vis.width/2, vis.height/2]
+  .scale([vis.width*.8]);
 
   vis.updateVis();
 }
