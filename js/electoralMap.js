@@ -115,7 +115,7 @@ ElectoralMap.prototype.updateVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("opacity",.3)
-  .attr("fill",vis.setColor(d))
+  .attr("fill",function(d) {vis.setColor(d.properties.name);})
   .attr("stroke","black");
 }
 
@@ -130,16 +130,19 @@ ElectoralMap.prototype.resize = function() {
 }
 
 ElectoralMap.prototype.rescale = function(ind) {
+  var vis = this;
 
+  vis.currInd = ind;
+  vis.updateVis();
 }
 
-ElectoralMap.prototype.setColor = function(d) {
+ElectoralMap.prototype.setColor = function(state) {
   var vis = this;
 
   if (vis.currInd = 0) {
     return "gray";
   } else if (vis.currInd = 1) {
-    if (vis.fin_data[d.properties.name].winparty == "R") { return "red" }
+    if (vis.fin_data[state].winparty == "R") { return "red" }
       else { return "blue" };
   } else {
     return "gray";
