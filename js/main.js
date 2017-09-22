@@ -24,4 +24,4 @@ var electoralMap;
 
 
 var EventHandler = {};
-electoralMap = new ElectoralMap("#map-vis",EventHandler);
+electoralMap = new ElectoralMap("#map-vis",1,EventHandler);

@@ -8,9 +8,10 @@
  *  @param _eventHandler    -- Event handler
  */
 
- ElectoralMap = function(_parentElement, _eventHandler) {
+ ElectoralMap = function(_parentElement, _currInd, _eventHandler) {
 
   this.parentElement = _parentElement;
+  this.currInd = _currInd;
   this.eventHandler = _eventHandler;
 
 
@@ -78,7 +79,15 @@ ElectoralMap.prototype.createVis = function() {
 
   vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
-  .scale([vis.width*.8]); // **** Change this to be reactive
+  .scale([vis.width*.8]);
+
+  vis.updateVis();
+};
+
+ElectoralMap.prototype.updateVis = function() {
+  var vis = this;
+
+  var x, y;
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
@@ -105,23 +114,36 @@ ElectoralMap.prototype.createVis = function() {
     + "scale(" + vis.fin_data[d.properties.name].electoralpower + ")"
     + "translate(" + -x + "," + -y + ")";
   })
-  .attr("fill",function(d) {
-    if (vis.fin_data[d.properties.name].winparty == "R") { return "red" }
-      else { return "blue" };
-  })
+  .attr("fill",vis.setColor(currInd, d))
   .attr("stroke","black")
   .attr("opacity",.3);
-};
+}
 
 ElectoralMap.prototype.resize = function() {
+  var vis = this;
+
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
   vis.projection.scale([vis.width*.8]);
-  
+
+
 }
 
 ElectoralMap.prototype.rescale = function(ind) {
 
+}
+
+ElectoralMap.prototype.setColor = function(ind, d) {
+  var vis = this;
+
+  if (ind = 0) {
+    return "gray";
+  } else if (ind = 1) {
+    if (vis.fin_data[d.properties.name].winparty == "R") { return "red" }
+      else { return "blue" };
+  } else {
+    return "gray";
+  }
 }
 
 // ElectoralMap.prototype.updateVis = function() {
