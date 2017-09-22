@@ -45,3 +45,7 @@
   position: absolute;
   bottom: 0px;
 }*/
+
+.state:hover {
+  opacity: 1;
+}

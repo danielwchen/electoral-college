@@ -92,15 +92,6 @@ ElectoralMap.prototype.updateVis = function() {
   vis.path = d3.geoPath()
   .projection(vis.projection);
 
-  vis.svg.selectAll(".bg-map")
-  .data(vis.fin_json.features)
-  .enter().append("path")
-  .attr("class", "bg-map")
-  .attr("d", vis.path)
-  .attr("stroke","black")
-  .attr("fill-opacity",0)
-  .attr("fill","lightgray");
-
   vis.svg.selectAll(".state")
   .data(vis.fin_json.features)
   .enter().append("path")
@@ -117,6 +108,16 @@ ElectoralMap.prototype.updateVis = function() {
   .attr("fill",function(d) {return vis.setColor(d.properties.name);})
   .attr("opacity",.3)
   .attr("stroke","black");
+
+  
+  vis.svg.selectAll(".bg-map")
+  .data(vis.fin_json.features)
+  .enter().append("path")
+  .attr("class", "bg-map")
+  .attr("d", vis.path)
+  .attr("stroke","black")
+  .attr("fill-opacity",0)
+  .attr("fill","lightgray");
 }
 
 ElectoralMap.prototype.resize = function() {
