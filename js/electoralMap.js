@@ -132,7 +132,7 @@ ElectoralMap.prototype.updateVis = function() {
         .on("mouseover",function(d) {
             console.log("test1");
             vis.tip.show;
-            $(vis.eventHandler).trigger("stateOver", d.properties.name);
+            // $(vis.eventHandler).trigger("stateOver", d.properties.name);
         })
         .on("mouseout",function(d) {
             $(vis.eventHandler).trigger("stateOff");
