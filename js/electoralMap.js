@@ -115,8 +115,8 @@ ElectoralMap.prototype.updateVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("opacity",.3)
-  .attr("fill",function(d) {vis.setColor(d.properties.name);})
-  .attr("stroke","black");
+  .attr("stroke","black")
+  .attr("fill",function(d) {vis.setColor(d.properties.name);});
 }
 
 ElectoralMap.prototype.resize = function() {
