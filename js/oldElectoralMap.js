@@ -162,7 +162,7 @@ OldElectoralMap.prototype.highlightState = function(state) {
 
                     return 1;
                 } else {
-                    return .3
+                    return .1
                 }
             });
 

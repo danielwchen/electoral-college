@@ -109,7 +109,6 @@ ElectoralMap.prototype.updateVis = function() {
   .attr("opacity",.3)
   .attr("stroke","black");
 
-  
   vis.svg.selectAll(".bg-map")
   .data(vis.fin_json.features)
   .enter().append("path")
@@ -123,11 +122,13 @@ ElectoralMap.prototype.updateVis = function() {
 ElectoralMap.prototype.resize = function() {
   var vis = this;
 
+  console.log("check");
+
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
   vis.projection.scale([vis.width*.8]);
 
-
+  vis.updateVis();
 }
 
 ElectoralMap.prototype.rescale = function(ind) {
