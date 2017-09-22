@@ -131,7 +131,7 @@ ElectoralMap.prototype.updateVis = function() {
         .attr("fill","lightgray")
         .on("mouseover",function(d) {
             console.log("test2");
-            vis.tip.show;
+            vis.tip.show(d);
             // $(vis.eventHandler).trigger("stateOver", d.properties.name);
         })
         .on("mouseout",function(d) {
