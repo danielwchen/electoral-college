@@ -83,7 +83,7 @@ ElectoralMap.prototype.createVis = function() {
   vis.path = d3.geoPath()
   .projection(vis.projection);
 
-  svg.selectAll(".bg-map")
+  vis.svg.selectAll(".bg-map")
   .data(vis.fin_json.features)
   .enter().append("path")
   .attr("class", "bg-map")
@@ -92,7 +92,7 @@ ElectoralMap.prototype.createVis = function() {
   .attr("fill-opacity",0)
   .attr("fill","lightgray");
 
-  svg.selectAll(".state")
+  vis.svg.selectAll(".state")
   .data(vis.fin_json.features)
   .enter().append("path")
   .attr("class", "state")
