@@ -78,7 +78,7 @@ ElectoralMap.prototype.createVis = function() {
 
   vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
-  .scale([400]); // **** Change this to be reactive
+  .scale([vis.width*.8]); // **** Change this to be reactive
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
@@ -109,10 +109,7 @@ ElectoralMap.prototype.createVis = function() {
     if (vis.fin_data[d.properties.name].winparty == "R") { return "red" }
       else { return "blue" };
   })
-  // .attr("stroke",function(d) {
-  //   if (vis.fin_data[d.properties.name].winparty == "R") { return "darkred" }
-  //     else { return "darkblue" };
-  // })
+  .attr("stroke","black")
   .attr("opacity",.3);
 };
 
