@@ -142,6 +142,7 @@ ElectoralMap.prototype.setColor = function(state) {
   if (vis.currInd = 0) {
     return "gray";
   } else if (vis.currInd = 1) {
+    console.log("here");
     if (vis.fin_data[state].winparty == "R") { return "red" }
       else { return "blue" };
   } else {
