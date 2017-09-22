@@ -10,7 +10,6 @@
   this.currInd = _currInd;
   this.eventHandler = _eventHandler;
 
-  this.fin_json;
   this.fin_data = [];
 
 
@@ -42,26 +41,14 @@ PersonChart.prototype.initVis = function() {
 
 };
 
-PersonChart.prototype.wrangleData = function(json, data) {
+PersonChart.prototype.wrangleData = function(data) {
   var vis = this;
 
   data.forEach(function(d) {
-    data.clintonvotes = +data.clintonvotes;
-    data.clintonpercent = +data.clintonpercent;
-    data.trumpvotes = +data.trumpvotes;
-    data.trumppercent = +data.trumppercent;
-    data.othervotes = +data.othervotes;
-    data.otherpercent = +data.otherpercent;
-    data.electoralvotes = +data.electoralvotes;
-    data.electoralvotesfactor = +data.electoralvotesfactor;
-    data.electoralpower = +data.electoralpower;
-    data.electoralpower = 5;
   });
   data.forEach(function(d,index) {
     vis.fin_data[d.state] = d;
   });
-
-  vis.fin_json = json;
 
   // console.log(vis.fin_json);
   // console.log(vis.fin_data);
@@ -80,8 +67,8 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  vis.svg.selectAll(".bg-map")
-  .data(vis.fin_json.features)
+  vis.svg.selectAll(".person")
+  .data(vis.fin_data)
   .enter().append("path")
   .attr("class", "bg-map")
   .attr("d", vis.path)
