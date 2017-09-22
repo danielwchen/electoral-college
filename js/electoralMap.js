@@ -139,10 +139,10 @@ ElectoralMap.prototype.rescale = function(ind) {
 ElectoralMap.prototype.setColor = function(state) {
   var vis = this;
 
+    console.log("here");
   if (vis.currInd = 0) {
     return "gray";
   } else if (vis.currInd = 1) {
-    console.log("here");
     if (vis.fin_data[state].winparty == "R") { return "red" }
       else { return "blue" };
   } else {
@@ -158,7 +158,7 @@ ElectoralMap.prototype.setScale = function(state) {
   } else if (vis.currInd = 1) {
     return vis.fin_data[state].electoralpower;
   } else {
-    return 1;
+    return vis.fin_data[state].electoralvotesfactor;
   }
 }
 
