@@ -19,6 +19,8 @@ $( window ).resize(function() {
     checkWinStat();
 });
 
+var electoralMap;
+
 
 var EventHandler = {};
 electoralMap = new ElectoralMap("#map-vis",EventHandler);
