@@ -7,32 +7,23 @@
     <title>Electoral Voting Power</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/teststyle.css"> -->
+    <link rel="stylesheet" href="css/teststyle.css">
   </head>
   <body>
-    <a href="oldindex.html">Old vis</a>
-    <div id="graphic">
-      <div id="sections">
-        <section class="step">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur, odio vitae rutrum molestie, justo purus consectetur est, scelerisque pharetra urna massa vitae sem. Mauris dapibus mollis rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus nec quam et sem feugiat efficitur ac non dolor. Cras placerat urna sapien, ut volutpat eros luctus eu. Aenean a egestas velit. Sed pulvinar imperdiet mauris vitae convallis.
-        </section>
-        <section class="step">
-          Vivamus non dui nec massa laoreet finibus. In eu massa sollicitudin, semper nisi ut, gravida sapien. Pellentesque fringilla scelerisque tincidunt. Aenean laoreet laoreet dapibus. In finibus luctus placerat. Phasellus non velit ac tellus tincidunt lobortis. Maecenas efficitur sed eros vitae mattis. Sed feugiat convallis massa vel consequat. Ut congue urna et ultrices ultrices. Curabitur convallis odio velit, at ullamcorper arcu eleifend eget. Proin nisi eros, vestibulum vitae ultricies id, venenatis a odio. Duis vitae pellentesque erat, nec lobortis nisl. Praesent varius est sagittis nisi aliquam, at aliquet nunc viverra. Proin tempor sagittis suscipit.
-        </section>
-        <section class="step">
-          Sed a rutrum lorem, vel aliquam enim. Curabitur lacinia sem sit amet augue tristique tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc gravida arcu ac dolor sagittis commodo. Vestibulum feugiat metus in bibendum ultrices. Nam sapien risus, mollis et ornare vitae, convallis non nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent vitae arcu sed orci aliquam varius. Quisque at varius est, sit amet sagittis felis.
-        </section>
-        <section class="step">
-          Praesent vel sem vel justo vulputate faucibus. Sed porttitor ullamcorper erat vitae egestas. Maecenas venenatis ullamcorper nisi, quis imperdiet orci iaculis et. In in tortor interdum, faucibus orci a, volutpat ligula. Morbi ac ornare libero. Curabitur et pharetra lacus. Morbi sed mauris lectus. Praesent ac feugiat dui, ac volutpat turpis.
-        </section>
-        <section class="step">
-          Cras faucibus aliquam magna id tristique. Vestibulum consequat felis ipsum, vel iaculis velit blandit eget. Vestibulum vel sagittis augue, at hendrerit enim. Etiam a porttitor sapien. Sed nec pulvinar quam, vitae pellentesque nunc. Nullam dolor justo, sollicitudin ac sollicitudin nec, viverra quis diam. Etiam ipsum mauris, rutrum id quam eget, ultricies rhoncus odio. Nunc dapibus fermentum lectus, vitae sollicitudin tortor mollis gravida. Proin in faucibus elit. Nulla efficitur mi id nisl blandit, sit amet euismod nibh rhoncus. Maecenas interdum sapien purus, a efficitur ligula rhoncus cursus.
-        </section>
+    <h1>Page Title</div>
+    <div id='container'>
+      <div id='graph'></div>
+      <a href="oldindex.html">Old vis</a>
+      <div id='sections'>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent efficitur, odio vitae rutrum molestie, justo purus consectetur est, scelerisque pharetra urna massa vitae sem. Mauris dapibus mollis rutrum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus nec quam et sem feugiat efficitur ac non dolor. Cras placerat urna sapien, ut volutpat eros luctus eu. Aenean a egestas velit. Sed pulvinar imperdiet mauris vitae convallis.</div>
+        <div>Vivamus non dui nec massa laoreet finibus. In eu massa sollicitudin, semper nisi ut, gravida sapien. Pellentesque fringilla scelerisque tincidunt. Aenean laoreet laoreet dapibus. In finibus luctus placerat. Phasellus non velit ac tellus tincidunt lobortis. Maecenas efficitur sed eros vitae mattis. Sed feugiat convallis massa vel consequat. Ut congue urna et ultrices ultrices. Curabitur convallis odio velit, at ullamcorper arcu eleifend eget. Proin nisi eros, vestibulum vitae ultricies id, venenatis a odio. Duis vitae pellentesque erat, nec lobortis nisl. Praesent varius est sagittis nisi aliquam, at aliquet nunc viverra. Proin tempor sagittis suscipit.</div>
+        <div>Sed a rutrum lorem, vel aliquam enim. Curabitur lacinia sem sit amet augue tristique tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc gravida arcu ac dolor sagittis commodo. Vestibulum feugiat metus in bibendum ultrices. Nam sapien risus, mollis et ornare vitae, convallis non nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent vitae arcu sed orci aliquam varius. Quisque at varius est, sit amet sagittis felis.</div>
       </div>
     </div>
+    <h1>Footer</h1>
 
-    <div id="vis"></div>
-    <div id="map-vis"></div>
+    <!-- <div id="vis"></div>
+    <div id="map-vis"></div> -->
 
 
     <!-- Load JS libraries -->
@@ -40,164 +31,168 @@
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/d3.min.js"></script>
     <script src="js/libs/queue.js"></script>
+    <script src="js/libs/graph-scroll.js"></script>
 
     <!-- <script src="js/test.js"></script> -->
 
     <!-- electoral map and congress visualization -->
 
     <script>
-      function drawpeople() {
-        var svg = d3.select("#vis").append("svg")
-          .attr("width", 400)
-          .attr("height", 400);
+      // function drawpeople() {
+      //   var svg = d3.select("#vis").append("svg")
+      //     .attr("width", 400)
+      //     .attr("height", 400);
 
 
-        svg.append("path")
-          // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-          // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
-          .attr("d", personpath (200, 200, 1.3))
-          .attr("fill", "gray")
-          .attr("stroke", "black")
-          .attr("stroke-width","3")
-          .style("stroke-dasharray", ("10, 10"));
+      //   svg.append("path")
+      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
+      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
+      //     .attr("d", personpath (200, 200, 1.3))
+      //     .attr("fill", "gray")
+      //     .attr("stroke", "black")
+      //     .attr("stroke-width","3")
+      //     .style("stroke-dasharray", ("10, 10"));
 
 
-        svg.append("path")
-          // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-          // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
-          .attr("d", personpath (100, 200, 1))
-          .attr("fill", "pink")
-          .attr("stroke", "red")
-          .attr("stroke-width","3");
+      //   svg.append("path")
+      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
+      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
+      //     .attr("d", personpath (100, 200, 1))
+      //     .attr("fill", "pink")
+      //     .attr("stroke", "red")
+      //     .attr("stroke-width","3");
 
 
-        svg.append("path")
-          // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-          // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
-          .attr("d", personpath (300, 200, .92))
-          .attr("fill", "lightblue")
-          .attr("stroke", "blue")
-          .attr("stroke-width","3");
+      //   svg.append("path")
+      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
+      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
+      //     .attr("d", personpath (300, 200, .92))
+      //     .attr("fill", "lightblue")
+      //     .attr("stroke", "blue")
+      //     .attr("stroke-width","3");
 
-        // x, y define the bottom center point, p is the percent value
-        function personpath (x, y, p) {
-          var h = (132 * p  - 32 - 100) / 2;
-          return "M" + x + "," + y 
-          + "h-15v" + (-50 - h) 
-          + "h-10v" + (-50 - h) 
-          + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
-          + "h-10v" + (50 + h) 
-          + "z";
-        }
-      }
+      //   // x, y define the bottom center point, p is the percent value
+      //   function personpath (x, y, p) {
+      //     var h = (132 * p  - 32 - 100) / 2;
+      //     return "M" + x + "," + y 
+      //     + "h-15v" + (-50 - h) 
+      //     + "h-10v" + (-50 - h) 
+      //     + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
+      //     + "h-10v" + (50 + h) 
+      //     + "z";
+      //   }
+      // }
 
 
-      var w = window,
-          d = document,
-          e = d.documentElement,
-          g = d.getElementsByTagName('body')[0],
-          x, y, ypos, ybot;
+      // var w = window,
+      //     d = document,
+      //     e = d.documentElement,
+      //     g = d.getElementsByTagName('body')[0],
+      //     x, y, ypos, ybot;
 
-      var x = w.innerWidth || e.clientWidth || g.clientWidth;
-      var fin_json;
-      var fin_data = [];
-      var scales = ["none", "electoralvotesfactor","electoralpower"]
+      // var x = w.innerWidth || e.clientWidth || g.clientWidth;
+      // var fin_json;
+      // var fin_data = [];
+      // var scales = ["none", "electoralvotesfactor","electoralpower"]
 
-      var svg = d3.select("#map-vis").append("svg")
-        .attr("width", x)
-        .attr("height", 400);
+      // var svg = d3.select("#map-vis").append("svg")
+      //   .attr("width", x)
+      //   .attr("height", 400);
 
-      d3.queue()
-        .defer(d3.json, 'data/us-states.json')
-        .defer(d3.csv, 'data/allcartogramdata.csv')
-        .await(function(error, json, data) {
-          wrangleData(json, data);
-        });
+      // d3.queue()
+      //   .defer(d3.json, 'data/us-states.json')
+      //   .defer(d3.csv, 'data/allcartogramdata.csv')
+      //   .await(function(error, json, data) {
+      //     wrangleData(json, data);
+      //   });
 
-      function wrangleData(json, data) {
+      // function wrangleData(json, data) {
 
-        data.forEach(function(d) {
-          data.clintonvotes = +data.clintonvotes;
-          data.clintonpercent = +data.clintonpercent;
-          data.trumpvotes = +data.trumpvotes;
-          data.trumppercent = +data.trumppercent;
-          data.othervotes = +data.othervotes;
-          data.otherpercent = +data.otherpercent;
-          data.electoralvotes = +data.electoralvotes;
-          data.electoralvotesfactor = +data.electoralvotesfactor;
-          data.electoralpower = +data.electoralpower;
-          data.electoralpower = 5;
-        });
-        data.forEach(function(d,index) {
-          fin_data[d.state] = d;
-        });
+      //   data.forEach(function(d) {
+      //     data.clintonvotes = +data.clintonvotes;
+      //     data.clintonpercent = +data.clintonpercent;
+      //     data.trumpvotes = +data.trumpvotes;
+      //     data.trumppercent = +data.trumppercent;
+      //     data.othervotes = +data.othervotes;
+      //     data.otherpercent = +data.otherpercent;
+      //     data.electoralvotes = +data.electoralvotes;
+      //     data.electoralvotesfactor = +data.electoralvotesfactor;
+      //     data.electoralpower = +data.electoralpower;
+      //     data.electoralpower = 5;
+      //   });
+      //   data.forEach(function(d,index) {
+      //     fin_data[d.state] = d;
+      //   });
 
-        fin_json = json;
+      //   fin_json = json;
 
-        console.log(fin_json);
-        console.log(fin_data);
+      //   console.log(fin_json);
+      //   console.log(fin_data);
 
-        createVis();
+      //   createVis();
+      // }
 
-        // for (var j = 0; j < fin_json.features.length; j++) {
-        //   if (fin_data[fin_json.features[j].properties.name]){
-        //       fin_json.features[j].properties.ElectoralToPopRatio = data[json.features[j].properties.name].ElectoralToPopRatio;
-        //       fin_json.features[j].properties["2016Vote"] = data[json.features[j].properties.name]["2016Vote"];
-        //       fin_json.features[j].properties["PercentElectoralVotes"] = data[json.features[j].properties.name]["PercentElectoralVotes"];
-        //   }
-        // }
-      }
+      // function createVis() {
 
-      function createVis() {
+      //   var projection = d3.geoAlbersUsa()
+      //       .translate([x/2, 200])
+      //       .scale([400]);
 
-        var projection = d3.geoAlbersUsa()
-            .translate([x/2, 200])
-            .scale([400]);
+      //   var path = d3.geoPath()
+      //       .projection(projection);
 
-        var path = d3.geoPath()
-            .projection(projection);
+      //   svg.selectAll(".bg-map")
+      //     .data(fin_json.features)
+      //     .enter().append("path")
+      //     .attr("class", "bg-map")
+      //     .attr("d", path)
+      //     .attr("stroke","black")
+      //     .attr("fill-opacity",0)
+      //     .attr("fill","lightgray");
 
-        svg.selectAll(".bg-map")
-          .data(fin_json.features)
-          .enter().append("path")
-          .attr("class", "bg-map")
-          .attr("d", path)
-          .attr("stroke","black")
-          .attr("fill-opacity",0)
-          .attr("fill","lightgray");
+      //   svg.selectAll(".state")
+      //     .data(fin_json.features)
+      //     .enter().append("path")
+      //     .attr("class", "state")
+      //     .attr("d", path)
+      //     .attr("transform", function(d,index) {
+      //         var centroid = path.centroid(d),
+      //             x = centroid[0],
+      //             y = centroid[1];
+      //         return "translate(" + x + "," + y + ")"
+      //             + "scale(" + fin_data[d.properties.name].electoralpower + ")"
+      //             + "translate(" + -x + "," + -y + ")";
+      //     })
+      //     .attr("fill",function(d) {
+      //       if (fin_data[d.properties.name].winparty == "R") { return "red" }
+      //       else { return "blue" };
+      //     })
+      //     .attr("stroke",function(d) {
+      //       if (fin_data[d.properties.name].winparty == "R") { return "darkred" }
+      //       else { return "darkblue" };
+      //     })
+      //     .attr("opacity",.3);
 
-        svg.selectAll(".state")
-          .data(fin_json.features)
-          .enter().append("path")
-          .attr("class", "state")
-          .attr("d", path)
-          .attr("transform", function(d,index) {
-              var centroid = path.centroid(d),
-                  x = centroid[0],
-                  y = centroid[1];
-              return "translate(" + x + "," + y + ")"
-                  + "scale(" + fin_data[d.properties.name].electoralpower + ")"
-                  + "translate(" + -x + "," + -y + ")";
-          })
-          .attr("fill",function(d) {
-            if (fin_data[d.properties.name].winparty == "R") { return "red" }
-            else { return "blue" };
-          })
-          .attr("stroke",function(d) {
-            if (fin_data[d.properties.name].winparty == "R") { return "darkred" }
-            else { return "darkblue" };
-          })
-          .attr("opacity",.3);
+      // }
 
-      }
+      // function setScaling(ind) {
 
-      function setScaling(ind) {
+      // }
 
-      }
+      // function resizeVis() {
 
-      function resizeVis() {
+      // }
 
-      }
+
+      d3.graphScroll()
+        .sections(d3.selectAll('#sections > div'))
+        .on('active', function(i){ console.log(i + 'th section active') })
+
+      d3.graphScroll()
+        .graph(d3.selectAll('#graph'))
+        .container(d3.select('#container'))
+        .sections(d3.selectAll('#sections > div'))
+        .on('active', function(i){ console.log(i + 'th section active') })
 
 
 

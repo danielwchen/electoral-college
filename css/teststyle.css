@@ -14,26 +14,34 @@ body {
     padding-top: 10%;*/
 }
 
-#sections {
-    position: relative;
-    display: inline-block;
-    width: 250px;
-    top: 0px;
-    z-index: 90;
+#sections > div{
+    opacity: .3
+} 
+
+#sections div.graph-scroll-active{
+    opacity: 1;
 }
 
-.step {
-    margin-bottom: 200px;
+#container{
+  position: relative;
 }
 
-#vis {
-    display: inline-block;
-    position: fixed;
-    top: 60px;
-    left: 30px;
-    z-index: 1;
-    margin-left: 0;
-    height: 600px;
-    width: 600px;
-    background-color: #ddd;
+#sections{
+  width: 340px;
+}
+
+#graph{
+  width: 500px;
+  margin-left: 380px;
+  position: absolute;
+  top: 0px;
+}
+
+.graph-scroll-fixed #graph{
+  position: fixed;
+}
+
+.graph-scroll-below #graph{
+  position: absolute;
+  bottom: 0px;
 }
