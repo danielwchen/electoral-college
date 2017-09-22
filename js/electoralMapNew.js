@@ -9,7 +9,7 @@
  *  @param _eventHandler    -- Event handler
  */
 
-ElectoralMap = function(_parentElement, _data, _eventHandler) {
+ElectoralMap = function(_parentElement) {
 
     this.parentElement = _parentElement;
     this.data = _data;
@@ -117,9 +117,6 @@ ElectoralMap.prototype.updateVis = function() {
         .attr("stroke","black")
         .attr("opacity",.3);
 
-    vis.tip = d3.tip()
-                .html("test");
-
     vis.svg.selectAll(".bg-map")
         .data(vis.json.features)
         .enter().append("path")
@@ -130,8 +127,6 @@ ElectoralMap.prototype.updateVis = function() {
         .attr("fill","lightgray")
         .on("mouseover",function(d) {
             $(vis.eventHandler).trigger("stateOver", d.properties.name);
-            tip.show(d);
-            console.log("test");
         })
         .on("mouseout",function(d) {
             $(vis.eventHandler).trigger("stateOff");
