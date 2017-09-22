@@ -118,7 +118,8 @@ ElectoralMap.prototype.updateVis = function() {
         .attr("opacity",.3);
 
     vis.tip = d3.tip()
-                .html("test");
+        .attr('class', 'd3-tip')
+        .html("test");
 
     vis.svg.selectAll(".bg-map")
         .data(vis.json.features)
@@ -129,8 +130,8 @@ ElectoralMap.prototype.updateVis = function() {
         .attr("fill-opacity",0)
         .attr("fill","lightgray")
         .on("mouseover",function(d) {
-            console.log("test");
-            vis.tip.show(d);
+            console.log("test1");
+            vis.tip.show;
             $(vis.eventHandler).trigger("stateOver", d.properties.name);
         })
         .on("mouseout",function(d) {
