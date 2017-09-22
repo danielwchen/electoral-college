@@ -32,6 +32,7 @@ ElectoralMap.prototype.initVis = function() {
 
 
   vis.svg = d3.select(vis.parentElement).append("svg")
+  .attr("fill","gray")
   .attr("width",vis.width)
   .attr("height",vis.height);
   // .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -129,7 +130,7 @@ ElectoralMap.prototype.resize = function() {
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
   vis.projection
-  .translate([vis.width/2, vis.height/2]
+  .translate([vis.width/2, vis.height/2])
   .scale([vis.width*.8]);
 
   vis.updateVis();

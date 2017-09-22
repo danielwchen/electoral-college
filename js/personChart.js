@@ -10,10 +10,10 @@
   this.currInd = _currInd;
   this.eventHandler = _eventHandler;
 
-
   this.fin_json;
   this.fin_data = [];
-  this.scale_factor = ["none", "electoralvotesfactor","electoralpower"];
+
+
 
   this.initVis();
 };
@@ -30,14 +30,14 @@ PersonChart.prototype.initVis = function() {
   vis.svg = d3.select(vis.parentElement).append("svg")
   .attr("width", vis.width + vis.margin.left + vis.margin.right)
   .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+  .attr("fill", "gray")
   .append("g")
   .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
   d3.queue()
-  .defer(d3.json, 'data/us-states.json')
-  .defer(d3.csv, 'data/allcartogramdata.csv')
-  .await(function(error, json, data) {
-    vis.wrangleData(json, data);
+  .defer(d3.csv, 'data/votingpowerbyrace.csv')
+  .await(function(error, data) {
+    vis.wrangleData(data);
   });
 
 };
@@ -73,20 +73,12 @@ PersonChart.prototype.wrangleData = function(json, data) {
 PersonChart.prototype.createVis = function() {
   var vis = this;
 
-  vis.projection = d3.geoAlbersUsa()
-  .translate([vis.width/2, vis.height/2])
-  .scale([vis.width*.8]);
 
   vis.updateVis();
 };
 
 PersonChart.prototype.updateVis = function() {
   var vis = this;
-
-  var x, y;
-
-  vis.path = d3.geoPath()
-  .projection(vis.projection);
 
   vis.svg.selectAll(".bg-map")
   .data(vis.fin_json.features)
@@ -97,22 +89,6 @@ PersonChart.prototype.updateVis = function() {
   .attr("fill-opacity",0)
   .attr("fill","lightgray");
 
-  vis.svg.selectAll(".state")
-  .data(vis.fin_json.features)
-  .enter().append("path")
-  .attr("class", "state")
-  .attr("d", vis.path)
-  .attr("transform", function(d) {
-    var centroid = vis.path.centroid(d),
-    x = centroid[0],
-    y = centroid[1];
-    return "translate(" + x + "," + y + ")"
-    + "scale(" + vis.setScale(d.properties.name) + ")"
-    + "translate(" + -x + "," + -y + ")";
-  })
-  .attr("fill",function(d) {vis.setColor(d.properties.name);})
-  .attr("opacity",.3)
-  .attr("stroke","black");
 }
 
 PersonChart.prototype.resize = function() {
@@ -130,19 +106,6 @@ PersonChart.prototype.rescale = function(ind) {
 
   vis.currInd = ind;
   vis.updateVis();
-}
-
-PersonChart.prototype.setColor = function(state) {
-  var vis = this;
-
-  if (vis.currInd == 0) {
-    return "gray";
-  } else if (vis.currInd == 1) {
-    if (vis.fin_data[state].winparty == "R") { return "red" }
-      else { return "blue" };
-  } else {
-    return "gray";
-  }
 }
 
 PersonChart.prototype.setScale = function(state) {
