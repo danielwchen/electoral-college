@@ -106,12 +106,12 @@ ElectoralMap.prototype.updateVis = function() {
   .enter().append("path")
   .attr("class", "state")
   .attr("d", vis.path)
-  .attr("transform", function(d,index) {
+  .attr("transform", function(d) {
     var centroid = vis.path.centroid(d),
     x = centroid[0],
     y = centroid[1];
     return "translate(" + x + "," + y + ")"
-    + "scale(" + vis.fin_data[d.properties.name].electoralpower + ")"
+    + "scale(" + vis.setScale(d.properties.name) + ")"
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("opacity",.3)
@@ -146,6 +146,18 @@ ElectoralMap.prototype.setColor = function(state) {
       else { return "blue" };
   } else {
     return "gray";
+  }
+}
+
+ElectoralMap.prototype.setScale = function(state) {
+  var vis = this;
+
+  if (vis.currInd = 0) {
+    return 1;
+  } else if (vis.currInd = 1) {
+    return vis.fin_data[state].electoralpower;
+  } else {
+    return 1;
   }
 }
 
