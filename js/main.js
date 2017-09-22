@@ -17,6 +17,7 @@ function checkWinStat() {
 
 $( window ).resize(function() {
     checkWinStat();
+    electoralMap.resize();
 });
 
 var electoralMap;

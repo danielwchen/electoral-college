@@ -116,6 +116,8 @@ ElectoralMap.prototype.createVis = function() {
 ElectoralMap.prototype.resize = function() {
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
+  vis.projection.scale([vis.width*.8]);
+  
 }
 
 ElectoralMap.prototype.rescale = function(ind) {
