@@ -114,7 +114,7 @@ ElectoralMap.prototype.updateVis = function() {
     + "scale(" + vis.fin_data[d.properties.name].electoralpower + ")"
     + "translate(" + -x + "," + -y + ")";
   })
-  .attr("fill",vis.setColor(currInd, d))
+  .attr("fill",vis.setColor(d))
   .attr("stroke","black")
   .attr("opacity",.3);
 }
@@ -133,12 +133,12 @@ ElectoralMap.prototype.rescale = function(ind) {
 
 }
 
-ElectoralMap.prototype.setColor = function(ind, d) {
+ElectoralMap.prototype.setColor = function(d) {
   var vis = this;
 
-  if (ind = 0) {
+  if (vis.currInd = 0) {
     return "gray";
-  } else if (ind = 1) {
+  } else if (vis.currInd = 1) {
     if (vis.fin_data[d.properties.name].winparty == "R") { return "red" }
       else { return "blue" };
   } else {
