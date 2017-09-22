@@ -4,7 +4,7 @@
  *  @param _data            -- Array with all stations of the bike-sharing network
  */
 
-Person = function(_parentElement, _votePower, _rawPopulation, _race) {
+OldPerson = function(_parentElement, _votePower, _rawPopulation, _race) {
 
     this.parentElement = _parentElement;
     this.votePower = _votePower;
@@ -14,7 +14,7 @@ Person = function(_parentElement, _votePower, _rawPopulation, _race) {
     this.initVis();
 };
 
-Person.prototype.initVis = function() {
+OldPerson.prototype.initVis = function() {
 
     var vis = this;
 
@@ -49,14 +49,14 @@ Person.prototype.initVis = function() {
 
 };
 
-Person.prototype.wrangleData = function() {
+OldPerson.prototype.wrangleData = function() {
     var vis = this;
 
     vis.updateVis();
 
 };
 
-Person.prototype.updateVis = function() {
+OldPerson.prototype.updateVis = function() {
     var vis = this;
 
     vis.bgImage = vis.svg

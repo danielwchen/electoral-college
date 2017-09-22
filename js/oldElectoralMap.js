@@ -9,7 +9,7 @@
  *  @param _eventHandler    -- Event handler
  */
 
-ElectoralMap = function(_parentElement, _data, _eventHandler) {
+OldElectoralMap = function(_parentElement, _data, _eventHandler) {
 
     this.parentElement = _parentElement;
     this.data = _data;
@@ -18,7 +18,7 @@ ElectoralMap = function(_parentElement, _data, _eventHandler) {
     this.initVis();
 };
 
-ElectoralMap.prototype.initVis = function() {
+OldElectoralMap.prototype.initVis = function() {
 
     var vis = this;
 
@@ -68,7 +68,7 @@ ElectoralMap.prototype.initVis = function() {
 
 };
 
-ElectoralMap.prototype.wrangleData = function() {
+OldElectoralMap.prototype.wrangleData = function() {
     var vis = this;
 
 
@@ -85,7 +85,7 @@ ElectoralMap.prototype.wrangleData = function() {
 
 };
 
-ElectoralMap.prototype.updateVis = function() {
+OldElectoralMap.prototype.updateVis = function() {
     var vis = this;
 
     vis.projection = d3.geo.albersUsa()
@@ -145,7 +145,7 @@ ElectoralMap.prototype.updateVis = function() {
 
 
 
-ElectoralMap.prototype.highlightState = function(state) {
+OldElectoralMap.prototype.highlightState = function(state) {
     var vis = this;
 
     if (state) {
