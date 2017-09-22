@@ -76,7 +76,7 @@ OldPerson.prototype.updateVis = function() {
         .attr("x", vis.width/2)
         .attr("y", vis.height/2 - vis.personHeight/2 - (vis.personHeight * vis.votePower - vis.personHeight))
         .attr("xlink:href", "img/personfull.png")
-        .attr("opacity",1)
+        // .attr("opacity",1)
         .on('mouseover', vis.tip.show)
         .on('mouseout', vis.tip.hide);
 

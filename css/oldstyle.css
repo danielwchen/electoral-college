@@ -458,3 +458,11 @@ hr.style-seven:before { /* Not really supposed to work, but does */
   top: 100%;
   left: 0;
 }
+
+.fr-image {
+    opacity: .8;
+}
+
+.fr-image:hover {
+    opacity: 1;
+}
