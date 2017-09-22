@@ -66,8 +66,8 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
 
   vis.fin_json = json;
 
-  console.log(vis.fin_json);
-  console.log(vis.fin_data);
+  // console.log(vis.fin_json);
+  // console.log(vis.fin_data);
 
   vis.createVis();
 
@@ -115,6 +115,15 @@ ElectoralMap.prototype.createVis = function() {
   // })
   .attr("opacity",.3);
 };
+
+ElectoralMap.prototype.resize = function() {
+  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
+  vis.svg.attr("width",vis.width);
+}
+
+ElectoralMap.prototype.rescale = function(ind) {
+
+}
 
 // ElectoralMap.prototype.updateVis = function() {
 //   var vis = this;
