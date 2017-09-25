@@ -1,6 +1,6 @@
 
 /* YOUR CSS STYLES */
-/*body {
+body{
     display: block;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -12,7 +12,8 @@
     padding-right: 5%;
     padding-bottom: 10%;
     padding-top: 10%;
-}*/
+    font-size: 20px;
+}
 
 #sections > div{
     opacity: .3
