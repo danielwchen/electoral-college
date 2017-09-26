@@ -26,10 +26,11 @@ body{
 #container{
   position: relative;
 }
-/*
+
 #sections{
-  width: 340px;
-}*/
+  width: 400px;
+  margin-bottom: 40px;
+}
 
 /*#graph{
   width: 500px;
