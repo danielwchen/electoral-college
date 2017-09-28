@@ -33,13 +33,14 @@ body{
   width: 400px;
 }
 
-/*#graph{
+#graph{
   width: 500px;
-  margin-left: 380px;
+  /*margin-left: 380px;*/
   position: absolute;
   top: 0px;
+  z-index: -1;
 }
-*/
+
 .graph-scroll-fixed #graph{
   position: fixed;
 }
