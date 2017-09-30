@@ -21,6 +21,7 @@ body{
 } 
 
 #sections div.graph-scroll-active{
+  background-color: white;
   opacity: 1;
 }
 
