@@ -1,5 +1,88 @@
 
 /* YOUR CSS STYLES */
+#container{
+  position: relative;
+}
+
+#sections{
+  width: 340px;
+}
+
+#sections > div{
+  background: white;
+  opacity: .2;
+  margin-bottom: 200px;
+}
+#sections > div:last-child{
+  margin-bottom: 30px;
+}
+#sections > div.graph-scroll-active{
+  opacity: 1;
+}
+
+#graph{
+  margin-left: 40px;
+  width: 500px;
+  position: absolute;
+  top: 0px;
+  margin-left: 380px;
+}
+
+.graph-scroll-fixed #graph{
+  position: fixed;
+  top: 0px;
+}
+
+.graph-scroll-below #graph{
+  bottom: 0px;
+  top: auto;
+}
+
+@media (max-width: 925px)  {
+  #graph{
+    width: 100%;
+    transform: translate(-50%, 0);
+    margin-left: 50%;
+  }
+
+  #sections{
+    position: relative;
+    margin: 0px auto;
+    padding-top: 400px;
+  }
+
+  #sections div{
+    background: rgba(255,255,255,.5);
+    padding: 10px;
+    border: 1px solid;
+    max-width: 400px;
+    margin-bottom: 500px;
+  }
+}
+
+h1{
+  margin: 50px;
+}
+
+h1, h3{
+  text-align: center;
+}
+
+circle{
+  fill: steelblue;
+}
+
+.mono{
+  font-family: monospace;
+}
+
+svg{
+  background-color: #eee;
+}
+
+
+
+/*
 body{
   display: block;
   -webkit-background-size: cover;
@@ -56,4 +139,4 @@ body{
 
 .state:hover {
   opacity: 1;
-}
+}*/
