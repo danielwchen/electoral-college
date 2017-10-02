@@ -17,11 +17,11 @@ body{
 
 #sections > div{
   width: 80%;
-  max-width: 600;
+  max-width: 400;
   margin: 0px auto 300px auto;
-  background-color: blue;
+  background-color: white;
   padding: 1rem;
-  box-shadow: 0 0 12px 3px #203849;
+  box-shadow: 0 0 12px 3px gray;
   border-radius: 3px;
   opacity: .3;
 } 
@@ -39,8 +39,7 @@ body{
 }
 
 #graph{
-  width: 500px;
-  /*margin-left: 380px;*/
+  width: 80%;
   position: absolute;
   top: 0px;
   z-index: -1;
