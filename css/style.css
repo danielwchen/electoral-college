@@ -23,7 +23,7 @@ body{
   padding: 1rem;
   box-shadow: 0 0 12px 3px gray;
   border-radius: 3px;
-  opacity: .3;
+  opacity: .8;
 } 
 
 #sections div.graph-scroll-active{

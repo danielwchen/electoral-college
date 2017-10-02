@@ -17,7 +17,12 @@
 
   this.fin_json;
   this.fin_data = [];
+  
   this.scale_factor = ["none", "electoralvotesfactor","electoralpower"];
+  this.color_factor = ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"];
+
+  this.section_scale = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2]
+  this.color_scale   = [1, 1, 1, 1, 2, 0, 3, 0, 4, 5, 5, 0, 0, 0, 1, 1, 1]
 
   this.initVis();
 };
