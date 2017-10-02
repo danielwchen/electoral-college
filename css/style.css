@@ -11,7 +11,7 @@
 #sections > div{
   background: white;
   opacity: .2;
-  margin-bottom: 200px;
+  margin-bottom: 400px;
 }
 #sections > div:last-child{
   margin-bottom: 30px;
