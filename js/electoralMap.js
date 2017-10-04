@@ -117,21 +117,25 @@ ElectoralMap.prototype.createVis = function() {
   .attr("d", vis.path)
   .attr("stroke","black")
   .attr("fill-opacity",0)
-  .attr("fill","lightgray");
+  .attr("fill","lightgray")
+  .on("mouseover",function(d) {
+    $(vis.eventHandler).trigger("stateOver", d.properties.name);
+  })
+  .on("mouseout",function(d) {
+    $(vis.eventHandler).trigger("stateOff");
+  })
+  .on("click",function(d) {
+    $(vis.eventHandler).trigger("press", d.properties.name);
+  });
+  
 };
 
 ElectoralMap.prototype.updateVis = function() {
   var vis = this;
 
-
-  vis.map
-
-
-
-
   var x, y;
 
-  vis.map.transition()
+  vis.map.transition().duration(500)
   .attr("d", vis.path)
   .attr("transform", function(d) {
     var centroid = vis.path.centroid(d),
@@ -272,46 +276,24 @@ ElectoralMap.prototype.updateInd = function(ind) {
 
 
 
-// ElectoralMap.prototype.highlightState = function(state) {
-//   var vis = this;
+ElectoralMap.prototype.highlightState = function(state) {
+  var vis = this;
 
-//   if (state) {
-//     vis.svg.selectAll(".state")
-//     .data(vis.json.features).transition().duration(80)
-//     .style("opacity",function(d) {
-//       if(d.properties.name == state) {
-
-//         vis.stateVote
-//         .text(function(){
-//           return "Each vote in " + state + " counts for " + d.properties.ElectoralToPopRatio + " votes";
-//         })
-//         .attr("opacity",1);
-
-//         return 1;
-//       } else {
-//         return .1
-//       }
-//     });
-
-//     vis.stateName
-//     .text(function(){
-//       return state;
-//     })
-//     .attr("opacity",1);
-//     vis.stateVote2
-//     .attr("opacity",1);
-//   } else {
-//     vis.svg.selectAll(".state")
-//     .data(vis.json.features).transition().duration(80)
-//     .style("opacity", function(d) {
-//       return .3;
-//     });
-
-//     vis.stateName
-//     .attr("opacity",0);
-//     vis.stateVote2
-//     .attr("opacity",0);
-//     vis.stateVote
-//     .attr("opacity",0);
-//   }
-// };
+  if (state) {
+    vis.svg.selectAll(".state")
+    .data(vis.json.features).transition().duration(80)
+    .style("opacity",function(d) {
+      if(d.properties.name == state) {
+        return 1;
+      } else {
+        return .1
+      }
+    });
+  } else {
+    vis.svg.selectAll(".state")
+    .data(vis.json.features).transition().duration(80)
+    .style("opacity", function(d) {
+      return .3;
+    });
+  }
+};
