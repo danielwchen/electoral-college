@@ -127,7 +127,7 @@ ElectoralMap.prototype.createVis = function() {
   .on("click",function(d) {
     $(vis.eventHandler).trigger("press", d.properties.name);
   });
-  
+
 };
 
 ElectoralMap.prototype.updateVis = function() {
@@ -280,20 +280,16 @@ ElectoralMap.prototype.highlightState = function(state) {
   var vis = this;
 
   if (state) {
-    vis.svg.selectAll(".state")
-    .data(vis.json.features).transition().duration(80)
+    vis.map.transition().duration(80)
     .style("opacity",function(d) {
-      if(d.properties.name == state) {
+      if(d.state == state) {
         return 1;
       } else {
         return .1
       }
     });
   } else {
-    vis.svg.selectAll(".state")
-    .data(vis.json.features).transition().duration(80)
-    .style("opacity", function(d) {
-      return .3;
-    });
+    vis.map.transition().duration(80)
+    .style("opacity",.3);
   }
 };
