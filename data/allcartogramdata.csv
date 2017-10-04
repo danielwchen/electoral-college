@@ -1,52 +1,52 @@
-state,winner,winparty,clintonvotes,clintonpercent,trumpvotes,trumppercent,othervotes,otherpercent,votingmethod,votingmethodex,electoralvotes,electoralvotesfactor,electoralpower,topeleven,topfour
-Alabama,trump,R,729547,34.36,1318255,62.08,75570,3.55,WTA,Winner takes all,9,1.167,1.048808848,N,N
-Alaska,trump,R,116454,36.55,163387,51.28,38767,12.17,WTA,Winner takes all,3,0.035,1.58113883,N,N
-Arizona,trump,R,1161167,45.13,1252401,48.67,159597,6.2,WTA,Winner takes all,11,0.636,0.98488578,N,N
-Arkansas,trump,R,380494,33.65,684872,60.57,65269,5.77,WTA,Winner takes all,6,0.757,1.104536102,N,N
-California,clinton,D,8753788,61.73,4483810,31.62,943997,6.65,WTA,Winner takes all,55,2.318,0.916515139,N,N
-Colorado,clinton,D,1338870,48.16,1202484,43.25,238893,8.59,WTA,Winner takes all,9,0.57,0.994987437,Y,N
-Connecticut,clinton,D,897572,54.57,673215,40.93,74133,4.51,WTA,Winner takes all,7,9.49,1.067707825,N,N
-Delaware,clinton,D,235603,53.09,185127,41.72,23084,5.19,WTA,Winner takes all,3,10.107,1.36381817,N,N
-District of Columbia,clinton,D,282830,90.48,12723,4.07,15715,5.45,WTA,Winner takes all,3,322.599,2.412467616,N,N
-Florida,trump,R,4504975,47.82,4617886,49.02,297178,3.16,WTA,Winner takes all,29,3.55,0.911043358,Y,Y
-Georgia,trump,R,1877963,45.64,2089104,50.77,147665,3.6,WTA,Winner takes all,16,1.826,0.979795897,N,N
-Hawaii,clinton,D,266891,62.22,128847,30.03,33199,7.74,WTA,Winner takes all,4,4.089,1.280624847,N,N
-Idaho,trump,R,189765,27.49,409055,59.26,91435,13.24,WTA,Winner takes all,4,0.318,1.228820573,N,N
-Illinois,clinton,D,3090729,55.83,2146015,38.76,299680,5.42,WTA,Winner takes all,20,2.365,0.964365076,N,N
-Indiana,trump,R,1033126,37.91,1557286,56.82,144546,5.26,WTA,Winner takes all,11,2.016,1.004987562,N,N
-Iowa,trump,R,653669,41.74,800983,51.15,111379,7.11,WTA,Winner takes all,6,0.705,1.072380529,Y,N
-Kansas,trump,R,427005,36.05,671018,56.65,86379,7.29,WTA,Winner takes all,6,0.482,1.122497216,N,N
-Kentucky,trump,R,628854,32.68,1202971,62.52,92324,4.79,WTA,Winner takes all,8,1.33,1.039230485,N,N
-Louisiana,trump,R,780154,38.45,1178638,58.09,70240,3.46,WTA,Winner takes all,8,1.216,1.019803903,N,N
-Maine,clinton,D,357735,47.83,335593,44.87,54599,7.3,CD," 2 congressional districts, 2 statewide votes ",4,0.851,1.311487705,N,N
-Maryland,clinton,D,1677928,60.33,943169,33.91,160349,5.76,WTA,Winner takes all,10,6.763,0.994987437,N,N
-Massachusetts,clinton,D,1995196,60.01,1090893,32.81,238957,7.18,WTA,Winner takes all,11,9.258,0.969535971,N,N
-Michigan,trump,R,2268839,47.27,2279543,47.5,250902,5.23,WTA,Winner takes all,16,1.858,0.979795897,Y,N
-Minnesota,clinton,D,1367716,46.44,1322951,44.92,254146,8.64,WTA,Winner takes all,10,0.824,1.048808848,N,N
-Mississippi,trump,R,485131,40.11,700714,57.94,23512,1.94,WTA,Winner takes all,6,0.839,1.104536102,N,N
-Missouri,trump,R,1071068,38.14,1594511,56.77,143026,5.1,WTA,Winner takes all,10,0.955,0.989949494,N,N
-Montana,trump,R,177709,35.75,279240,56.17,40198,8.08,WTA,Winner takes all,3,0.135,1.307669683,N,N
-Nebraska,trump,R,284494,33.7,495961,58.75,63772,7.55,CD," 3 congressional districts, 2 statewide votes ",5,0.427,1.272792206,N,N
-Nevada,clinton,D,539260,47.92,512058,45.5,74067,6.58,WTA,Winner takes all,6,0.359,1.113552873,Y,N
-New Hampshire,clinton,D,348526,46.98,345790,46.61,49980,6.41,WTA,Winner takes all,4,2.933,1.315294644,Y,N
-New Jersey,clinton,D,2148278,54.99,1601933,41,123835,4.01,WTA,Winner takes all,14,12.497,0.964365076,N,N
-New Mexico,clinton,D,385234,48.26,319667,40.04,93418,11.71,WTA,Winner takes all,5,0.271,1.204159458,N,N
-New York,clinton,D,4556124,59.01,2819534,36.52,345795,4.48,WTA,Winner takes all,29,4.04,0.92736185,N,N
-North Carolina,trump,R,2189316,46.17,2362631,49.83,189617,4,WTA,Winner takes all,15,2.025,0.943398113,Y,Y
-North Dakota,trump,R,93758,27.23,216794,62.96,33808,9.81,WTA,Winner takes all,3,0.285,1.539480432,N,N
-Ohio,trump,R,2394164,43.56,2841005,51.69,261318,4.75,WTA,Winner takes all,18,2.892,0.959166305,Y,Y
-Oklahoma,trump,R,420375,28.93,949136,65.32,83481,5.75,WTA,Winner takes all,7,0.67,1.044030651,N,N
-Oregon,clinton,D,1002106,50.07,782403,39.09,216827,10.84,WTA,Winner takes all,7,0.479,1.009950494,N,N
-Pennsylvania,trump,R,2926441,47.46,2970733,48.18,268304,4.36,WTA,Winner takes all,20,2.935,0.953939201,Y,Y
-Rhode Island,clinton,D,252525,54.41,180543,38.9,31076,6.7,WTA,Winner takes all,4,25.401,1.476482306,N,N
-South Carolina,trump,R,855373,40.67,1155389,54.94,92265,4.39,WTA,Winner takes all,9,1.965,1.044030651,N,N
-South Dakota,trump,R,117458,31.74,227721,61.53,24914,6.73,WTA,Winner takes all,3,0.26,1.462873884,N,N
-Tennessee,trump,R,870695,34.72,1522925,60.72,114407,4.57,WTA,Winner takes all,11,1.751,0.994987437,N,N
-Texas,trump,R,3877868,43.24,4685047,52.23,406311,4.53,WTA,Winner takes all,38,0.955,0.92736185,N,N
-Utah,trump,R,310676,27.46,515231,45.54,305523,27,WTA,Winner takes all,6,0.479,1.153256259,N,N
-Vermont,clinton,D,178573,56.68,95369,30.27,41125,13.05,WTA,Winner takes all,3,2.137,1.652271164,N,N
-Virginia,clinton,D,1981473,49.73,1769443,44.41,233715,5.87,WTA,Winner takes all,13,2.161,0.959166305,Y,N
-Washington,clinton,D,1742718,52.54,1221747,36.83,352554,10.63,WTA,Winner takes all,12,1.185,0.994987437,N,N
-West Virginia,trump,R,188794,26.43,489371,68.5,36258,5.07,WTA,Winner takes all,5,1.366,1.252996409,N,N
-Wisconsin,trump,R,1382536,46.45,1405284,47.22,188330,6.32,WTA,Winner takes all,10,1.212,1.014889157,Y,N
-Wyoming,trump,R,55973,21.63,174419,67.4,25457,9.83,WTA,Winner takes all,3,0.203,1.757839583,N,N
+state,winner,winparty,clintonvotes,clintonpercent,trumpvotes,trumppercent,othervotes,otherpercent,votingmethod,votingmethodex,electoralvotes,electoralvotesfactor,electoralpower,topeleven,topfour,bigstate,smallstate
+Alabama,trump,R,729547,34.36,1318255,62.08,75570,3.55,WTA,Winner takes all,9,1.167,1.048808848,N,N,N,N
+Alaska,trump,R,116454,36.55,163387,51.28,38767,12.17,WTA,Winner takes all,3,0.035,1.58113883,N,N,N,Y
+Arizona,trump,R,1161167,45.13,1252401,48.67,159597,6.2,WTA,Winner takes all,11,0.636,0.98488578,N,N,N,N
+Arkansas,trump,R,380494,33.65,684872,60.57,65269,5.77,WTA,Winner takes all,6,0.757,1.104536102,N,N,N,N
+California,clinton,D,8753788,61.73,4483810,31.62,943997,6.65,WTA,Winner takes all,55,2.318,0.916515139,N,N,Y,N
+Colorado,clinton,D,1338870,48.16,1202484,43.25,238893,8.59,WTA,Winner takes all,9,0.57,0.994987437,Y,N,N,N
+Connecticut,clinton,D,897572,54.57,673215,40.93,74133,4.51,WTA,Winner takes all,7,9.49,1.067707825,N,N,N,N
+Delaware,clinton,D,235603,53.09,185127,41.72,23084,5.19,WTA,Winner takes all,3,10.107,1.36381817,N,N,N,Y
+District of Columbia,clinton,D,282830,90.48,12723,4.07,15715,5.45,WTA,Winner takes all,3,322.599,2.412467616,N,N,N,Y
+Florida,trump,R,4504975,47.82,4617886,49.02,297178,3.16,WTA,Winner takes all,29,3.55,0.911043358,Y,Y,Y,N
+Georgia,trump,R,1877963,45.64,2089104,50.77,147665,3.6,WTA,Winner takes all,16,1.826,0.979795897,N,N,N,N
+Hawaii,clinton,D,266891,62.22,128847,30.03,33199,7.74,WTA,Winner takes all,4,4.089,1.280624847,N,N,N,N
+Idaho,trump,R,189765,27.49,409055,59.26,91435,13.24,WTA,Winner takes all,4,0.318,1.228820573,N,N,N,N
+Illinois,clinton,D,3090729,55.83,2146015,38.76,299680,5.42,WTA,Winner takes all,20,2.365,0.964365076,N,N,N,N
+Indiana,trump,R,1033126,37.91,1557286,56.82,144546,5.26,WTA,Winner takes all,11,2.016,1.004987562,N,N,N,N
+Iowa,trump,R,653669,41.74,800983,51.15,111379,7.11,WTA,Winner takes all,6,0.705,1.072380529,Y,N,N,N
+Kansas,trump,R,427005,36.05,671018,56.65,86379,7.29,WTA,Winner takes all,6,0.482,1.122497216,N,N,N,N
+Kentucky,trump,R,628854,32.68,1202971,62.52,92324,4.79,WTA,Winner takes all,8,1.33,1.039230485,N,N,N,N
+Louisiana,trump,R,780154,38.45,1178638,58.09,70240,3.46,WTA,Winner takes all,8,1.216,1.019803903,N,N,N,N
+Maine,clinton,D,357735,47.83,335593,44.87,54599,7.3,CD," 2 congressional districts, 2 statewide votes ",4,0.851,1.311487705,N,N,N,N
+Maryland,clinton,D,1677928,60.33,943169,33.91,160349,5.76,WTA,Winner takes all,10,6.763,0.994987437,N,N,N,N
+Massachusetts,clinton,D,1995196,60.01,1090893,32.81,238957,7.18,WTA,Winner takes all,11,9.258,0.969535971,N,N,N,N
+Michigan,trump,R,2268839,47.27,2279543,47.5,250902,5.23,WTA,Winner takes all,16,1.858,0.979795897,Y,N,N,N
+Minnesota,clinton,D,1367716,46.44,1322951,44.92,254146,8.64,WTA,Winner takes all,10,0.824,1.048808848,N,N,N,N
+Mississippi,trump,R,485131,40.11,700714,57.94,23512,1.94,WTA,Winner takes all,6,0.839,1.104536102,N,N,N,N
+Missouri,trump,R,1071068,38.14,1594511,56.77,143026,5.1,WTA,Winner takes all,10,0.955,0.989949494,N,N,N,N
+Montana,trump,R,177709,35.75,279240,56.17,40198,8.08,WTA,Winner takes all,3,0.135,1.307669683,N,N,N,Y
+Nebraska,trump,R,284494,33.7,495961,58.75,63772,7.55,CD," 3 congressional districts, 2 statewide votes ",5,0.427,1.272792206,N,N,N,N
+Nevada,clinton,D,539260,47.92,512058,45.5,74067,6.58,WTA,Winner takes all,6,0.359,1.113552873,Y,N,N,N
+New Hampshire,clinton,D,348526,46.98,345790,46.61,49980,6.41,WTA,Winner takes all,4,2.933,1.315294644,Y,N,N,N
+New Jersey,clinton,D,2148278,54.99,1601933,41,123835,4.01,WTA,Winner takes all,14,12.497,0.964365076,N,N,N,N
+New Mexico,clinton,D,385234,48.26,319667,40.04,93418,11.71,WTA,Winner takes all,5,0.271,1.204159458,N,N,N,N
+New York,clinton,D,4556124,59.01,2819534,36.52,345795,4.48,WTA,Winner takes all,29,4.04,0.92736185,N,N,Y,N
+North Carolina,trump,R,2189316,46.17,2362631,49.83,189617,4,WTA,Winner takes all,15,2.025,0.943398113,Y,Y,N,N
+North Dakota,trump,R,93758,27.23,216794,62.96,33808,9.81,WTA,Winner takes all,3,0.285,1.539480432,N,N,N,Y
+Ohio,trump,R,2394164,43.56,2841005,51.69,261318,4.75,WTA,Winner takes all,18,2.892,0.959166305,Y,Y,N,N
+Oklahoma,trump,R,420375,28.93,949136,65.32,83481,5.75,WTA,Winner takes all,7,0.67,1.044030651,N,N,N,N
+Oregon,clinton,D,1002106,50.07,782403,39.09,216827,10.84,WTA,Winner takes all,7,0.479,1.009950494,N,N,N,N
+Pennsylvania,trump,R,2926441,47.46,2970733,48.18,268304,4.36,WTA,Winner takes all,20,2.935,0.953939201,Y,Y,N,N
+Rhode Island,clinton,D,252525,54.41,180543,38.9,31076,6.7,WTA,Winner takes all,4,25.401,1.476482306,N,N,N,N
+South Carolina,trump,R,855373,40.67,1155389,54.94,92265,4.39,WTA,Winner takes all,9,1.965,1.044030651,N,N,N,N
+South Dakota,trump,R,117458,31.74,227721,61.53,24914,6.73,WTA,Winner takes all,3,0.26,1.462873884,N,N,N,Y
+Tennessee,trump,R,870695,34.72,1522925,60.72,114407,4.57,WTA,Winner takes all,11,1.751,0.994987437,N,N,N,N
+Texas,trump,R,3877868,43.24,4685047,52.23,406311,4.53,WTA,Winner takes all,38,0.955,0.92736185,N,N,Y,N
+Utah,trump,R,310676,27.46,515231,45.54,305523,27,WTA,Winner takes all,6,0.479,1.153256259,N,N,N,N
+Vermont,clinton,D,178573,56.68,95369,30.27,41125,13.05,WTA,Winner takes all,3,2.137,1.652271164,N,N,N,Y
+Virginia,clinton,D,1981473,49.73,1769443,44.41,233715,5.87,WTA,Winner takes all,13,2.161,0.959166305,Y,N,N,N
+Washington,clinton,D,1742718,52.54,1221747,36.83,352554,10.63,WTA,Winner takes all,12,1.185,0.994987437,N,N,N,N
+West Virginia,trump,R,188794,26.43,489371,68.5,36258,5.07,WTA,Winner takes all,5,1.366,1.252996409,N,N,N,N
+Wisconsin,trump,R,1382536,46.45,1405284,47.22,188330,6.32,WTA,Winner takes all,10,1.212,1.014889157,Y,N,N,N
+Wyoming,trump,R,55973,21.63,174419,67.4,25457,9.83,WTA,Winner takes all,3,0.203,1.757839583,N,N,N,Y

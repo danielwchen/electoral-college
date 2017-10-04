@@ -88,18 +88,12 @@ ElectoralMap.prototype.createVis = function() {
   .translate([vis.width/2, vis.height/2])
   .scale([vis.width*.8]);
 
-  vis.updateVis();
-};
-
-ElectoralMap.prototype.updateVis = function() {
-  var vis = this;
-
-  var x, y;
-
   vis.path = d3.geoPath()
   .projection(vis.projection);
 
-  vis.svg.selectAll(".state")
+  var x, y;
+
+  vis.map = vis.svg.selectAll(".state")
   .data(vis.fin_json.features)
   .enter().append("path")
   .attr("class", "state")
@@ -116,7 +110,7 @@ ElectoralMap.prototype.updateVis = function() {
   .attr("opacity",.3)
   .attr("stroke","black");
 
-  vis.svg.selectAll(".bg-map")
+  vis.bg_map = vis.svg.selectAll(".bg-map")
   .data(vis.fin_json.features)
   .enter().append("path")
   .attr("class", "bg-map")
@@ -124,6 +118,31 @@ ElectoralMap.prototype.updateVis = function() {
   .attr("stroke","black")
   .attr("fill-opacity",0)
   .attr("fill","lightgray");
+};
+
+ElectoralMap.prototype.updateVis = function() {
+  var vis = this;
+
+
+  vis.map
+
+
+
+
+  var x, y;
+
+  vis.map.transition()
+  .attr("d", vis.path)
+  .attr("transform", function(d) {
+    var centroid = vis.path.centroid(d),
+    x = centroid[0],
+    y = centroid[1];
+    return "translate(" + x + "," + y + ")"
+    + "scale(" + vis.setScale(d.properties.name) + ")"
+    + "translate(" + -x + "," + -y + ")";
+  })
+  .attr("fill",function(d) {return vis.setColor(d.properties.name);});
+
 }
 
 ElectoralMap.prototype.resize = function() {
@@ -154,18 +173,25 @@ ElectoralMap.prototype.setColor = function(state) {
   if (vis.color_scale[vis.currInd] == 1) {
     if (vis.fin_data[state].winparty == "R") { return "red"; }
     else { return "blue"; }
+
   } else if (vis.color_scale[vis.currInd] == 2) {
     if (vis.fin_data[state].votingmethod == "CD") { return "green"; }
     else { return "gray"; }
+  
   } else if (vis.color_scale[vis.currInd] == 3) {
-    
+    if (vis.fin_data[state].bigstate == "Y") { return "green"; }
+    else if (vis.fin_data[state].smallstate == "Y") {return "yellow"; }
+    else { return "gray"; }
+
   } else if (vis.color_scale[vis.currInd] == 4) {
-    if (vis.fin_data[state].votingmethod == "CD") { return "yellow"; }
+    if (vis.fin_data[state].topeleven == "Y") { return "yellow"; }
     else { return "gray"; }
+
   } else if (vis.color_scale[vis.currInd] == 5) {
-    if (vis.fin_data[state].votingmethod == "CD") { return "green"; }
-    else if (vis.fin_data[state].votingmethod == "") {return "yellow"; }
+    if (vis.fin_data[state].topfour == "Y") { return "green"; }
+    else if (vis.fin_data[state].topeleven == "Y") {return "yellow"; }
     else { return "gray"; }
+
   } else {
     return "gray";
   }
@@ -175,12 +201,12 @@ ElectoralMap.prototype.setColor = function(state) {
 ElectoralMap.prototype.setScale = function(state) {
   var vis = this;
 
-  if (vis.color_scale[vis.currInd] == 0) {
-    return 1;
-  } else if (vis.currInd == 1) {
+  if (vis.section_scale[vis.currInd] == 1) {
+    return vis.fin_data[state].electoralvotesfactor;
+  } else if (vis.section_scale[vis.currInd] == 2) {
     return vis.fin_data[state].electoralpower;
   } else {
-    return vis.fin_data[state].electoralvotesfactor;
+    return 1;
   }
 }
 
