@@ -10,7 +10,7 @@
 
 #sections > div{
   background: white;
-  opacity: .2;
+  /*opacity: .2;*/
   margin-bottom: 400px;
 }
 #sections > div:last-child{

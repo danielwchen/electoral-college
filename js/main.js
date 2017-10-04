@@ -24,7 +24,36 @@ var electoralMap;
 
 
 var EventHandler = {};
+
+
+
+
 electoralMap = new ElectoralMap("#map-vis",1,EventHandler);
+
+var statePinned = false;
+var pinned = false;
+$(EventHandler).bind("stateOver", function(event, state){
+    if (!pinned) {
+        electoralMap.highlightState(state);
+    }
+});
+$(EventHandler).bind("stateOff", function(event){
+    if (!pinned) {
+        electoralMap.highlightState(null);
+    }
+//
+});
+$(EventHandler).bind("press", function(event, state){
+    if (pinned) {
+        electoralMap.highlightState(null);
+        statePinned = false;
+        pinned = false;
+    } else {
+        electoralMap.highlightState(state);
+        statePinned = true;
+        pinned = true;
+    }
+});
 
 
 d3.graphScroll()
