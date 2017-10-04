@@ -32,7 +32,8 @@ d3.graphScroll()
 .container(d3.select('#container'))
 .sections(d3.selectAll('#sections > div'))
 .on('active', function(i){ 
-  console.log(i + 'th section active') 
+  electoralMap.updateInd(i);
+  console.log(i + 'th section active');
 })
 
 d3.graphScroll()
