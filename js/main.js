@@ -10,25 +10,36 @@
  checkWinStat()
 
  function checkWinStat() {
- 	x = w.innerWidth || e.clientWidth || g.clientWidth;
- 	y = w.innerHeight|| e.clientHeight|| g.clientHeight;
- 	ypos = w.scrollY;
- }
+  x = w.innerWidth || e.clientWidth || g.clientWidth;
+  y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  ypos = w.scrollY;
+}
 
- $( window ).resize(function() {
- 	checkWinStat();
- 	// electoralMap.resize();
- });
+$( window ).resize(function() {
+  checkWinStat();
+    // electoralMap.resize();
+  });
 
- var electoralMap;
-
-
- var EventHandler = {};
- electoralMap = new ElectoralMap("#map-vis",1,EventHandler);
+var electoralMap;
 
 
- d3.graphScroll()
- .graph(d3.selectAll('#graph'))
- .container(d3.select('#container'))
- .sections(d3.selectAll('#sections > div'))
- .on('active', function(i){ console.log(i + 'th section active') })
+var EventHandler = {};
+electoralMap = new ElectoralMap("#map-vis",1,EventHandler);
+
+
+d3.graphScroll()
+.graph(d3.selectAll('#graph'))
+.container(d3.select('#container'))
+.sections(d3.selectAll('#sections > div'))
+.on('active', function(i){ 
+  console.log(i + 'th section active') 
+})
+
+vd3.graphScroll()
+.container(d3.select('.container-2'))
+.graph(d3.selectAll('.container-2 #graph'))
+.eventId('uniqueId1')
+.sections(d3.selectAll('.container-2 #sections > div'))
+.on('active', function(i){
+  console.log(i + 'th section active') 
+})

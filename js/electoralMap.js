@@ -17,11 +17,11 @@
 
   this.fin_json;
   this.fin_data = [];
-  
-  this.scale_factor = ["none", "electoralvotesfactor","electoralpower"];
-  this.color_factor = ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"];
 
+  // ["none", "electoralvotesfactor","electoralpower"]
   this.section_scale = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2]
+
+  // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
   this.color_scale   = [1, 1, 1, 1, 2, 0, 3, 0, 4, 5, 5, 0, 0, 0, 1, 1, 1]
 
   this.initVis();
@@ -147,29 +147,49 @@ ElectoralMap.prototype.rescale = function(ind) {
   vis.updateVis();
 }
 
+// ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
 ElectoralMap.prototype.setColor = function(state) {
   var vis = this;
 
-  if (vis.currInd == 0) {
-    return "gray";
-  } else if (vis.currInd == 1) {
-    if (vis.fin_data[state].winparty == "R") { return "red" }
-      else { return "blue" };
+  if (vis.color_scale[vis.currInd] == 1) {
+    if (vis.fin_data[state].winparty == "R") { return "red"; }
+    else { return "blue"; }
+  } else if (vis.color_scale[vis.currInd] == 2) {
+    if (vis.fin_data[state].votingmethod == "CD") { return "green"; }
+    else { return "gray"; }
+  } else if (vis.color_scale[vis.currInd] == 3) {
+    
+  } else if (vis.color_scale[vis.currInd] == 4) {
+    if (vis.fin_data[state].votingmethod == "CD") { return "yellow"; }
+    else { return "gray"; }
+  } else if (vis.color_scale[vis.currInd] == 5) {
+    if (vis.fin_data[state].votingmethod == "CD") { return "green"; }
+    else if (vis.fin_data[state].votingmethod == "") {return "yellow"; }
+    else { return "gray"; }
   } else {
     return "gray";
   }
 }
 
+// ["none", "electoralvotesfactor","electoralpower"]
 ElectoralMap.prototype.setScale = function(state) {
   var vis = this;
 
-  if (vis.currInd == 0) {
+  if (vis.color_scale[vis.currInd] == 0) {
     return 1;
   } else if (vis.currInd == 1) {
     return vis.fin_data[state].electoralpower;
   } else {
     return vis.fin_data[state].electoralvotesfactor;
   }
+}
+
+ElectoralMap.prototype.updateInd = function(ind) {
+  var vis = this;
+
+  vis.currInd = ind;
+
+  vis.updateVis();
 }
 
 // ElectoralMap.prototype.updateVis = function() {
