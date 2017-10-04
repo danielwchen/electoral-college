@@ -35,7 +35,7 @@ d3.graphScroll()
   console.log(i + 'th section active') 
 })
 
-vd3.graphScroll()
+d3.graphScroll()
 .container(d3.select('.container-2'))
 .graph(d3.selectAll('.container-2 #graph'))
 .eventId('uniqueId1')
