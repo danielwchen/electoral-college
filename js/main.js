@@ -69,3 +69,6 @@ d3.graphScroll()
 .on('active', function(i){
   console.log(i + 'th section active') 
 })
+
+
+console.log("updated")
