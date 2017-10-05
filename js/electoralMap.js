@@ -70,15 +70,33 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
     data.electoralvotes = +data.electoralvotes;
     data.electoralvotesfactor = +data.electoralvotesfactor;
     data.electoralpower = +data.electoralpower;
-    data.electoralpower = 5;
+    console.log(test);
   });
   data.forEach(function(d,index) {
     vis.fin_data[d.state] = d;
+    console.log(test2);
   });
 
   vis.fin_json = json;
 
-  // console.log(vis.fin_json);
+
+  // function polygonArea(points) {
+  //   var sum = 0.0;
+  //   var length = points.length;
+  //   if (length < 3) {
+  //     return sum;
+  //   }
+  //   points.forEach(function(d1, i1) {
+  //     i2 = (i1 + 1) % length;
+  //     d2 = points[i2];
+  //     sum += (d2[1] * d1[0]) - (d1[1] * d2[0]);
+  //   });
+  //   return sum / 2;
+  // }
+
+  // fin_json.forEach
+
+  console.log(vis.fin_json);
   console.log(vis.fin_data);
 
   vis.createVis();
