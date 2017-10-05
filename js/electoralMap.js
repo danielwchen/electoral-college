@@ -60,21 +60,19 @@ ElectoralMap.prototype.initVis = function() {
 ElectoralMap.prototype.wrangleData = function(json, data) {
   var vis = this;
 
-  data.forEach(function(d) {
-    data.clintonvotes = +data.clintonvotes;
-    data.clintonpercent = +data.clintonpercent;
-    data.trumpvotes = +data.trumpvotes;
-    data.trumppercent = +data.trumppercent;
-    data.othervotes = +data.othervotes;
-    data.otherpercent = +data.otherpercent;
-    data.electoralvotes = +data.electoralvotes;
-    data.electoralvotesfactor = +data.electoralvotesfactor;
-    data.electoralpower = +data.electoralpower;
-    console.log("test");
-  });
+  // data.forEach(function(d) {
+  //   data.clintonvotes = +data.clintonvotes;
+  //   data.clintonpercent = +data.clintonpercent;
+  //   data.trumpvotes = +data.trumpvotes;
+  //   data.trumppercent = +data.trumppercent;
+  //   data.othervotes = +data.othervotes;
+  //   data.otherpercent = +data.otherpercent;
+  //   data.electoralvotes = +data.electoralvotes;
+  //   data.electoralvotesfactor = +data.electoralvotesfactor;
+  //   data.electoralpower = +data.electoralpower;
+  // });
   data.forEach(function(d,index) {
     vis.fin_data[d.state] = d;
-    console.log("test2");
   });
 
   vis.fin_json = json;
