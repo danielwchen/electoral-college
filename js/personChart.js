@@ -44,14 +44,6 @@ PersonChart.prototype.initVis = function() {
 PersonChart.prototype.wrangleData = function(data) {
   var vis = this;
 
-  data.forEach(function(d) {
-  });
-  data.forEach(function(d,index) {
-    vis.fin_data[d.state] = d;
-  });
-
-  // console.log(vis.fin_json);
-  // console.log(vis.fin_data);
 
   vis.createVis();
 
@@ -66,15 +58,6 @@ PersonChart.prototype.createVis = function() {
 
 PersonChart.prototype.updateVis = function() {
   var vis = this;
-
-  vis.svg.selectAll(".person")
-  .data(vis.fin_data)
-  .enter().append("path")
-  .attr("class", "bg-map")
-  .attr("d", vis.path)
-  .attr("stroke","black")
-  .attr("fill-opacity",0)
-  .attr("fill","lightgray");
 
 }
 
@@ -91,20 +74,11 @@ PersonChart.prototype.resize = function() {
 PersonChart.prototype.rescale = function(ind) {
   var vis = this;
 
-  vis.currInd = ind;
-  vis.updateVis();
 }
 
 PersonChart.prototype.setScale = function(state) {
   var vis = this;
 
-  if (vis.currInd == 0) {
-    return 1;
-  } else if (vis.currInd == 1) {
-    return vis.fin_data[state].electoralpower;
-  } else {
-    return vis.fin_data[state].electoralvotesfactor;
-  }
 }
 
       // function drawpeople() {
