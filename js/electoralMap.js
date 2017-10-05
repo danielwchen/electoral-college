@@ -88,8 +88,6 @@ ElectoralMap.prototype.createVis = function() {
   vis.path = d3.geoPath()
   .projection(vis.projection);
 
-  var x, y;
-
   vis.map = vis.svg.selectAll(".state")
   .data(vis.fin_json.features)
   .enter().append("path")
@@ -129,9 +127,7 @@ ElectoralMap.prototype.createVis = function() {
 
 ElectoralMap.prototype.updateVis = function() {
   var vis = this;
-
-  var x, y;
-
+  
   vis.map.transition().duration(500)
   .attr("d", vis.path)
   .attr("transform", function(d) {
