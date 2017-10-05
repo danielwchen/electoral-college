@@ -70,11 +70,11 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
     data.electoralvotes = +data.electoralvotes;
     data.electoralvotesfactor = +data.electoralvotesfactor;
     data.electoralpower = +data.electoralpower;
-    console.log(test);
+    console.log("test");
   });
   data.forEach(function(d,index) {
     vis.fin_data[d.state] = d;
-    console.log(test2);
+    console.log("test2");
   });
 
   vis.fin_json = json;
