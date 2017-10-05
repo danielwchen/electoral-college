@@ -125,11 +125,11 @@ ElectoralMap.prototype.createVis = function() {
     x = centroid[0],
     y = centroid[1];
     return "translate(" + x + "," + y + ")"
-    + "scale(" + vis.setScale(d.properties.name) + ")"
+    + "scale(" + vis.getScale(d.properties.name) + ")"
     + "translate(" + -x + "," + -y + ")";
   })
-  .attr("fill",function(d) {return vis.setColor(d.properties.name);})
-  .attr("opacity",.3)
+  .attr("fill",function(d) {return vis.getColor(d.properties.name);})
+  .attr("fill-opacity",getOpacity())
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -164,12 +164,12 @@ ElectoralMap.prototype.updateVis = function() {
     x = centroid[0],
     y = centroid[1];
     return "translate(" + x + "," + y + ")"
-    + "scale(" + vis.setScale(d.properties.name) + ")"
+    + "scale(" + vis.getScale(d.properties.name) + ")"
     + "translate(" + -x + "," + -y + ")";
   })
-  .attr("fill", function(d) {return vis.setColor(d.properties.name);})
+  .attr("fill", function(d) {return vis.getColor(d.properties.name);})
   .attr("stroke-width", function(d) {
-    return 1/vis.setScale(d.properties.name);
+    return 1/vis.getScale(d.properties.name);
   })
   ;
 
@@ -197,7 +197,7 @@ ElectoralMap.prototype.rescale = function(ind) {
 }
 
 // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
-ElectoralMap.prototype.setColor = function(state) {
+ElectoralMap.prototype.getColor = function(state) {
   var vis = this;
 
   if (vis.color_scale[vis.currInd] == 1) {
@@ -228,13 +228,26 @@ ElectoralMap.prototype.setColor = function(state) {
 }
 
 // ["none", "electoralvotesfactor","electoralpower"]
-ElectoralMap.prototype.setScale = function(state) {
+ElectoralMap.prototype.getScale = function(state) {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
     return vis.fin_data[state].electoralvotesfactor;
   } else if (vis.section_scale[vis.currInd] == 2) {
     return vis.fin_data[state].electoralpower;
+  } else {
+    return 1;
+  }
+}
+
+// ["none", "electoralvotesfactor","electoralpower"]
+ElectoralMap.prototype.getOpacity = function() {
+  var vis = this;
+
+  if (vis.section_scale[vis.currInd] == 1) {
+    return .3;
+  } else if (vis.section_scale[vis.currInd] == 2) {
+    return .3;
   } else {
     return 1;
   }
@@ -316,6 +329,6 @@ ElectoralMap.prototype.highlightState = function(state) {
     });
   } else {
     vis.map.transition().duration(80)
-    .style("opacity",.3);
+    .style("opacity",getOpacity());
   }
 };
