@@ -21,17 +21,16 @@ PersonChart.prototype.initVis = function() {
 
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
-  vis.height = 600 - vis.margin.top - vis.margin.bottom;
-
+  // vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
+  // vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
+  // vis.height = 600 - vis.margin.top - vis.margin.bottom;
+  vis.width = $(vis.parentElement).width();
+  vis.height = 400;
 
   vis.svg = d3.select(vis.parentElement).append("svg")
-  .attr("width", vis.width + vis.margin.left + vis.margin.right)
-  .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-  .attr("fill", "gray")
-  .append("g")
-  .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+  .attr("width", vis.width)
+  .attr("height", vis.height)
+  .attr("fill", "gray");
 
   d3.queue()
   .defer(d3.csv, 'data/votingpowerbyrace.csv')
@@ -44,6 +43,8 @@ PersonChart.prototype.initVis = function() {
 PersonChart.prototype.wrangleData = function(data) {
   var vis = this;
 
+  console.log(data);
+  vis.fin_data = data;
 
   vis.createVis();
 
@@ -52,6 +53,8 @@ PersonChart.prototype.wrangleData = function(data) {
 PersonChart.prototype.createVis = function() {
   var vis = this;
 
+  vis.svg.append("text")
+  .text("normalized to relative ratios")
 
   vis.updateVis();
 };
@@ -66,18 +69,13 @@ PersonChart.prototype.resize = function() {
 
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
-  vis.projection.scale([vis.width*.8]);
-
 
 }
 
-PersonChart.prototype.rescale = function(ind) {
+PersonChart.prototype.setOpacity = function(ind) {
   var vis = this;
 
-}
-
-PersonChart.prototype.setScale = function(state) {
-  var vis = this;
+  
 
 }
 

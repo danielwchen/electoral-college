@@ -127,7 +127,7 @@ ElectoralMap.prototype.createVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("fill-opacity",getOpacity())
+  .attr("fill-opacity", function() { return getOpacity(); })
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -240,7 +240,7 @@ ElectoralMap.prototype.getScale = function(state) {
 }
 
 // ["none", "electoralvotesfactor","electoralpower"]
-ElectoralMap.prototype.getOpacity = function(state) {
+ElectoralMap.prototype.getOpacity = function() {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
@@ -328,6 +328,6 @@ ElectoralMap.prototype.highlightState = function(state) {
     });
   } else {
     vis.map.transition().duration(80)
-    .style("opacity",getOpacity());
+    .style("opacity",function() { return getOpacity(); });
   }
 };
