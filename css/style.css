@@ -2,6 +2,7 @@
 /* YOUR CSS STYLES */
 #container{
   position: relative;
+  margin: auto;
 }
 
 #sections{
@@ -21,8 +22,8 @@
 }
 
 #graph{
-  margin-left: 40px;
-  width: 500px;
+  margin-right: 0px;
+  max-width: 500px;
   position: absolute;
   top: 0px;
   margin-left: 380px;
