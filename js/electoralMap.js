@@ -127,7 +127,7 @@ ElectoralMap.prototype.createVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("opacity", function() { return getOpacity(); })
+  .attr("opacity", vis.getOpacity())
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -328,6 +328,6 @@ ElectoralMap.prototype.highlightState = function(state) {
     });
   } else {
     vis.map.transition().duration(80)
-    .style("opacity",function() { return getOpacity(); });
+    .style("opacity", vis.getOpacity());
   }
 };
