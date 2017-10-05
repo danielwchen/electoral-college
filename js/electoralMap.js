@@ -287,7 +287,7 @@ ElectoralMap.prototype.highlightState = function(state) {
     vis.map.transition().duration(80)
     .style("opacity",function(d) {
       console.log(d);
-      if(d.state == state) {
+      if(d.properties.name == state) {
         return 1;
       } else {
         return .1
