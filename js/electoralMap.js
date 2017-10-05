@@ -108,7 +108,7 @@ ElectoralMap.prototype.createVis = function() {
 
   vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
-  .scale([vis.width*.8]);
+  .scale([vis.width]);
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
@@ -184,7 +184,7 @@ ElectoralMap.prototype.resize = function() {
   vis.svg.attr("width",vis.width);
   vis.projection
   .translate([vis.width/2, vis.height/2])
-  .scale([vis.width*.8]);
+  .scale([vis.width]);
 
   vis.updateVis();
 }
