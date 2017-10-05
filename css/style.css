@@ -2,7 +2,6 @@
 /* YOUR CSS STYLES */
 #container{
   position: relative;
-  margin: auto;
 }
 
 #sections{
@@ -15,18 +14,18 @@
   margin-bottom: 400px;
 }
 #sections > div:last-child{
-  margin-bottom: 80px;
+  margin-bottom: 30px;
 }
 #sections > div.graph-scroll-active{
   opacity: 1;
 }
 
 #graph{
-  margin-right: 0px;
-  max-width: 500px;
+  margin-left: 40px;
+  max-width: 600px;
   position: absolute;
   top: 0px;
-  /*margin-left: 380px;*/
+  margin-left: 380px;
 }
 
 .graph-scroll-fixed #graph{
