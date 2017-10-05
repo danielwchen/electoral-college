@@ -9,6 +9,7 @@
 }
 
 #sections > div{
+  color: red;
   background: white;
   /*opacity: .2;*/
   margin-bottom: 400px;
