@@ -127,7 +127,7 @@ ElectoralMap.prototype.createVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("fill-opacity", function() { return getOpacity(); })
+  .attr("opacity", function() { return getOpacity(); })
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
