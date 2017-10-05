@@ -31,18 +31,15 @@ ElectoralMap.prototype.initVis = function() {
 
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
-  vis.height = 600 - vis.margin.top - vis.margin.bottom;
+  vis.width = $(vis.parentElement).width()
+  vis.height = $(vis.parentElement).height()
 
 
   vis.svg = d3.select(vis.parentElement).append("svg")
   // .attr("width",vis.width)
   // .attr("height",vis.height);
-  .attr("width", vis.width + vis.margin.left + vis.margin.right)
-  .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+  .attr("width", vis.width)
+  .attr("height", vis.height);
 
   d3.queue()
   .defer(d3.json, 'data/us-states.json')
@@ -86,7 +83,7 @@ ElectoralMap.prototype.createVis = function() {
 
   vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
-  .scale([vis.width*.8]);
+  .scale([vis.width]);
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
@@ -287,6 +284,7 @@ ElectoralMap.prototype.highlightState = function(state) {
     vis.map.transition().duration(80)
     .style("opacity",function(d) {
       console.log(d);
+      console.log(state);
       if(d.properties.name == state) {
         return 1;
       } else {
