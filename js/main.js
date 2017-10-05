@@ -30,26 +30,26 @@ var EventHandler = {};
 
 electoralMap = new ElectoralMap("#map-vis",1,EventHandler);
 
-var pinned = false;
+// var pinned = false;
 $(EventHandler).bind("stateOver", function(event, state){
-    if (!pinned) {
+    // if (!pinned) {
         electoralMap.highlightState(state);
-    }
+    // }
 });
 $(EventHandler).bind("stateOff", function(event){
-    if (!pinned) {
+    // if (!pinned) {
         electoralMap.highlightState(null);
-    }
+    // }
 });
-$(EventHandler).bind("press", function(event, state){
-    if (pinned) {
-        electoralMap.highlightState(null);
-        pinned = false;
-    } else {
-        electoralMap.highlightState(state);
-        pinned = true;
-    }
-});
+// $(EventHandler).bind("press", function(event, state){
+    // if (pinned) {
+        // electoralMap.highlightState(null);
+        // pinned = false;
+    // } else {
+        // electoralMap.highlightState(state);
+        // pinned = true;
+    // }
+// });
 
 
 d3.graphScroll()

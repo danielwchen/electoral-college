@@ -144,9 +144,10 @@ ElectoralMap.prototype.createVis = function() {
   .on("mouseout",function(d) {
     $(vis.eventHandler).trigger("stateOff");
   })
-  .on("click",function(d) {
-    $(vis.eventHandler).trigger("press", d.properties.name);
-  });
+  // .on("click",function(d) {
+  //   $(vis.eventHandler).trigger("press", d.properties.name);
+  // })
+  ;
 
 };
 
