@@ -31,18 +31,22 @@ ElectoralMap.prototype.initVis = function() {
 
   var vis = this;
 
-  vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
-  vis.height = 600 - vis.margin.top - vis.margin.bottom;
+  vis.width = $(vis.parentElement).width();
+  vis.height = 600;
+
+  // vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
+  // vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
+  // vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
 
   vis.svg = d3.select(vis.parentElement).append("svg")
-  // .attr("width",vis.width)
-  // .attr("height",vis.height);
-  .attr("width", vis.width + vis.margin.left + vis.margin.right)
-  .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+  .attr("width",vis.width)
+  .attr("height",vis.height);
+  // .attr("width", vis.width + vis.margin.left + vis.margin.right)
+  // .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+  // .append("g")
+  // .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
+  ;
 
   d3.queue()
   .defer(d3.json, 'data/us-states.json')
@@ -156,7 +160,7 @@ ElectoralMap.prototype.updateVis = function() {
 ElectoralMap.prototype.resize = function() {
   var vis = this;
 
-  console.log("check");
+  // console.log("check");
 
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
@@ -286,7 +290,6 @@ ElectoralMap.prototype.highlightState = function(state) {
   if (state) {
     vis.map.transition().duration(80)
     .style("opacity",function(d) {
-      console.log(d);
       if(d.properties.name == state) {
         return 1;
       } else {
