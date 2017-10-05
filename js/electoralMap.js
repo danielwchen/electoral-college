@@ -127,7 +127,7 @@ ElectoralMap.prototype.createVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("opacity",.3)
+  .attr("opacity",getOpacity())
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -243,11 +243,11 @@ ElectoralMap.prototype.getOpacity = function(state) {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
-    return vis.fin_data[state].electoralvotesfactor;
+    return 0.3;
   } else if (vis.section_scale[vis.currInd] == 2) {
-    return vis.fin_data[state].electoralpower;
+    return 0.3;
   } else {
-    return 1;
+    return 0.8;
   }
 }
 
@@ -327,6 +327,6 @@ ElectoralMap.prototype.highlightState = function(state) {
     });
   } else {
     vis.map.transition().duration(80)
-    .style("opacity",.3);
+    .style("opacity",getOpacity());
   }
 };
