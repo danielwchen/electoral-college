@@ -20,9 +20,6 @@ PersonChart.prototype.initVis = function() {
 
   var vis = this;
 
-  // vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-  // vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
-  // vis.height = 600 - vis.margin.top - vis.margin.bottom;
   vis.width = $(vis.parentElement).width();
   vis.height = 400;
 
@@ -119,35 +116,3 @@ PersonChart.prototype.getPersonPath = function(x, y, p) {
   + "h-10v" + (50 + h) 
   + "z";
 }
-
-      // function drawpeople() {
-      //   var svg = d3.select("#vis").append("svg")
-      //     .attr("width", 400)
-      //     .attr("height", 400);
-
-      //   svg.append("path")
-      //     .attr("d", personpath (100, 200, 1))
-      //     .attr("fill", "pink")
-      //     .attr("stroke", "red")
-      //     .attr("stroke-width","3");
-
-
-      //   svg.append("path")
-      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
-      //     .attr("d", personpath (300, 200, .92))
-      //     .attr("fill", "lightblue")
-      //     .attr("stroke", "blue")
-      //     .attr("stroke-width","3");
-
-      //   // x, y define the bottom center point, p is the percent value
-      //   function personpath (x, y, p) {
-      //     var h = (132 * p  - 32 - 100) / 2;
-      //     return "M" + x + "," + y 
-      //     + "h-15v" + (-50 - h) 
-      //     + "h-10v" + (-50 - h) 
-      //     + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
-      //     + "h-10v" + (50 + h) 
-      //     + "z";
-      //   }
-      // }
