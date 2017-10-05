@@ -129,7 +129,7 @@ ElectoralMap.prototype.createVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("opacity",getOpacity())
+  .attr("opacity",.3)
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -241,13 +241,13 @@ ElectoralMap.prototype.getScale = function(state) {
 }
 
 // ["none", "electoralvotesfactor","electoralpower"]
-ElectoralMap.prototype.getOpacity = function() {
+ElectoralMap.prototype.getOpacity = function(state) {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
-    return .3;
+    return vis.fin_data[state].electoralvotesfactor;
   } else if (vis.section_scale[vis.currInd] == 2) {
-    return .3;
+    return vis.fin_data[state].electoralpower;
   } else {
     return 1;
   }
@@ -329,6 +329,6 @@ ElectoralMap.prototype.highlightState = function(state) {
     });
   } else {
     vis.map.transition().duration(80)
-    .style("opacity",getOpacity());
+    .style("opacity",.3);
   }
 };
