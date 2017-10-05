@@ -86,7 +86,7 @@ ElectoralMap.prototype.createVis = function() {
 
   vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
-  .scale([vis.width]);
+  .scale([vis.width*.8]);
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
@@ -287,7 +287,7 @@ ElectoralMap.prototype.highlightState = function(state) {
     vis.map.transition().duration(80)
     .style("opacity",function(d) {
       console.log(d);
-      if(d.properties.name == state) {
+      if(d.state == state) {
         return 1;
       } else {
         return .1
