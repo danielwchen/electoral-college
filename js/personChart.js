@@ -10,9 +10,8 @@
   this.currInd = _currInd;
   this.eventHandler = _eventHandler;
 
-  this.fin_data = [];
-
-
+  this.fin_data;
+  this.opacities;
 
   this.initVis();
 };
@@ -33,18 +32,21 @@ PersonChart.prototype.initVis = function() {
   .attr("fill", "gray");
 
   d3.queue()
-  .defer(d3.csv, 'data/votingpowerbyrace.csv')
-  .await(function(error, data) {
+  .defer(d3.csv, "data/votingpowerbyrace.csv")
+  .defer(d3.csv, "data/opacities.csv")
+  .await(function(error, data, opacities) {
     vis.wrangleData(data);
   });
 
 };
 
-PersonChart.prototype.wrangleData = function(data) {
+PersonChart.prototype.wrangleData = function(data, opacities) {
   var vis = this;
 
   console.log(data);
+  console.log(opacities);
   vis.fin_data = data;
+  vis.opacities = opacities;
 
   vis.createVis();
 
@@ -56,7 +58,33 @@ PersonChart.prototype.createVis = function() {
   vis.svg.append("text")
   .text("normalized to relative ratios")
 
-  vis.updateVis();
+  vis.people = vis.svg.data(vis.fin_data)
+  .enter().append("path")
+  .attr("class", "peoplebar")
+  .attr("d", function(d, i) {
+    return vis.getPersonPath (100, 200, 1);
+  })
+  .attr("opacity", function(d, i) {
+    return getOpacity(i);
+  })
+
+  .append("path")
+  .attr("d", personpath (100, 200, 1))
+          .attr("fill", "gray")
+          .attr("stroke", "black")
+          .attr("stroke-width","3");
+
+
+
+
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.letter); })
+      .attr("width", x.bandwidth())
+      .attr("y", function(d) { return y(d.frequency); })
+      .attr("height", function(d) { return height - y(d.frequency); });
+
 };
 
 PersonChart.prototype.updateVis = function() {
@@ -72,11 +100,24 @@ PersonChart.prototype.resize = function() {
 
 }
 
-PersonChart.prototype.setOpacity = function(ind) {
+PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
 
-  
 
+
+}
+
+
+// x, y define the bottom center point, p is the percent value
+PersonChart.prototype.getPersonPath = function(x, y, p) {
+  var vis = this;
+  var h = (132 * p  - 32 - 100) / 2;
+  return "M" + x + "," + y 
+  + "h-15v" + (-50 - h) 
+  + "h-10v" + (-50 - h) 
+  + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
+  + "h-10v" + (50 + h) 
+  + "z";
 }
 
       // function drawpeople() {
@@ -84,20 +125,7 @@ PersonChart.prototype.setOpacity = function(ind) {
       //     .attr("width", 400)
       //     .attr("height", 400);
 
-
       //   svg.append("path")
-      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
-      //     .attr("d", personpath (200, 200, 1.3))
-      //     .attr("fill", "gray")
-      //     .attr("stroke", "black")
-      //     .attr("stroke-width","3")
-      //     .style("stroke-dasharray", ("10, 10"));
-
-
-      //   svg.append("path")
-      //     // .attr("d", 'M 200 200 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 h -30 v -50 h -10 z')
-      //     // .attr("d", 'M 200 200 h -15 v -50 h -10 v -50 h 22 a 16,16 0 1,1 6,0 h 22 v 50 h -10 v 50 z')
       //     .attr("d", personpath (100, 200, 1))
       //     .attr("fill", "pink")
       //     .attr("stroke", "red")

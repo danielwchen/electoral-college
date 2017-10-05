@@ -118,16 +118,6 @@ ElectoralMap.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "state")
   .attr("d", vis.path)
-  // .attr("transform", function(d) {
-  //   var centroid = vis.path.centroid(d),
-  //   x = centroid[0],
-  //   y = centroid[1];
-  //   return "translate(" + x + "," + y + ")"
-  //   + "scale(" + vis.getScale(d.properties.name) + ")"
-  //   + "translate(" + -x + "," + -y + ")";
-  // })
-  // .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  // .attr("fill-opacity", vis.getOpacity())
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -171,7 +161,7 @@ ElectoralMap.prototype.updateVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
-  .attr("fill-opacity", vis.getOpacity())
+  .attr("opacity", vis.getOpacity())
   ;
 
 }
@@ -250,7 +240,7 @@ ElectoralMap.prototype.getOpacity = function() {
   } else if (vis.section_scale[vis.currInd] == 2) {
     return 0.3;
   } else {
-    return 0.8;
+    return 0.7;
   }
 }
 
@@ -323,9 +313,9 @@ ElectoralMap.prototype.highlightState = function(state) {
     vis.map.transition().duration(80)
     .style("opacity",function(d) {
       if(d.properties.name == state) {
-        return 1;
+        return .9;
       } else {
-        return .1
+        return .2;
       }
     });
   } else {
