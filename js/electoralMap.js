@@ -118,16 +118,16 @@ ElectoralMap.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "state")
   .attr("d", vis.path)
-  .attr("transform", function(d) {
-    var centroid = vis.path.centroid(d),
-    x = centroid[0],
-    y = centroid[1];
-    return "translate(" + x + "," + y + ")"
-    + "scale(" + vis.getScale(d.properties.name) + ")"
-    + "translate(" + -x + "," + -y + ")";
-  })
-  .attr("fill",function(d) {return vis.getColor(d.properties.name);})
-  .attr("opacity", vis.getOpacity())
+  // .attr("transform", function(d) {
+  //   var centroid = vis.path.centroid(d),
+  //   x = centroid[0],
+  //   y = centroid[1];
+  //   return "translate(" + x + "," + y + ")"
+  //   + "scale(" + vis.getScale(d.properties.name) + ")"
+  //   + "translate(" + -x + "," + -y + ")";
+  // })
+  // .attr("fill",function(d) {return vis.getColor(d.properties.name);})
+  // .attr("fill-opacity", vis.getOpacity())
   .attr("stroke","black");
 
   vis.bg_map = vis.svg.selectAll(".bg-map")
@@ -156,11 +156,12 @@ ElectoralMap.prototype.updateVis = function() {
 
   var x, y;
 
-  vis.map.transition().duration(500)
-  .attr("d", vis.path)
+  vis.map
   .attr("stroke-width", function(d) {
     return 1/vis.getScale(d.properties.name);
   })
+  .transition().duration(500)
+  .attr("d", vis.path)
   .attr("transform", function(d) {
     var centroid = vis.path.centroid(d),
     x = centroid[0],
@@ -170,6 +171,7 @@ ElectoralMap.prototype.updateVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
+  .attr("fill-opacity", vis.getOpacity())
   ;
 
 }
