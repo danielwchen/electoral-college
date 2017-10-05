@@ -157,6 +157,9 @@ ElectoralMap.prototype.updateVis = function() {
 
   vis.map.transition().duration(500)
   .attr("d", vis.path)
+  .attr("stroke-width", function(d) {
+    return 1/vis.getScale(d.properties.name);
+  })
   .attr("transform", function(d) {
     var centroid = vis.path.centroid(d),
     x = centroid[0],
@@ -166,9 +169,6 @@ ElectoralMap.prototype.updateVis = function() {
     + "translate(" + -x + "," + -y + ")";
   })
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
-  .attr("stroke-width", function(d) {
-    return 1/vis.getScale(d.properties.name);
-  })
   ;
 
 }
