@@ -15,7 +15,7 @@
   margin-bottom: 400px;
 }
 #sections > div:last-child{
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 #sections > div.graph-scroll-active{
   opacity: 1;
@@ -26,7 +26,7 @@
   max-width: 500px;
   position: absolute;
   top: 0px;
-  margin-left: 380px;
+  /*margin-left: 380px;*/
 }
 
 .graph-scroll-fixed #graph{
