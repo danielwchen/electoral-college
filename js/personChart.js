@@ -64,23 +64,9 @@ PersonChart.prototype.createVis = function() {
   .attr("opacity", function(d, i) {
     return getOpacity(i);
   })
-
-  .append("path")
-  .attr("d", personpath (100, 200, 1))
-          .attr("fill", "gray")
-          .attr("stroke", "black")
-          .attr("stroke-width","3");
-
-
-
-
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+  .attr("fill", "gray")
+  .attr("stroke", "black")
+  .attr("stroke-width","3");
 
 };
 
@@ -92,7 +78,7 @@ PersonChart.prototype.updateVis = function() {
 PersonChart.prototype.resize = function() {
   var vis = this;
 
-  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
+  vis.width = $(vis.parentElement).width();
   vis.svg.attr("width",vis.width);
 
 }
@@ -100,8 +86,7 @@ PersonChart.prototype.resize = function() {
 PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
 
-
-
+  return 1;
 }
 
 

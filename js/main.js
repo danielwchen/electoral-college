@@ -21,35 +21,24 @@ $( window ).resize(function() {
   });
 
 var electoralMap;
+var personChart;
 
 
 var EventHandler = {};
+var PersonEventHandler = {};
 
 
 
 
-electoralMap = new ElectoralMap("#map-vis",1,EventHandler);
+electoralMap = new ElectoralMap("#map-vis", 1, EventHandler);
+personChart = new PersonChart("#per-vis", 1, PersonEventHandler);
 
-// var pinned = false;
 $(EventHandler).bind("stateOver", function(event, state){
-    // if (!pinned) {
         electoralMap.highlightState(state);
-    // }
 });
 $(EventHandler).bind("stateOff", function(event){
-    // if (!pinned) {
         electoralMap.highlightState(null);
-    // }
 });
-// $(EventHandler).bind("press", function(event, state){
-    // if (pinned) {
-        // electoralMap.highlightState(null);
-        // pinned = false;
-    // } else {
-        // electoralMap.highlightState(state);
-        // pinned = true;
-    // }
-// });
 
 
 d3.graphScroll()
@@ -71,4 +60,4 @@ d3.graphScroll()
 })
 
 
-console.log("updated2")
+console.log("updated3")

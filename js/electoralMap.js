@@ -34,19 +34,10 @@ ElectoralMap.prototype.initVis = function() {
   vis.width = $(vis.parentElement).width();
   vis.height = 600;
 
-  // vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
-  // vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
-  // vis.height = 600 - vis.margin.top - vis.margin.bottom;
-
 
   vis.svg = d3.select(vis.parentElement).append("svg")
   .attr("width",vis.width)
   .attr("height",vis.height);
-  // .attr("width", vis.width + vis.margin.left + vis.margin.right)
-  // .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-  // .append("g")
-  // .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")")
-  ;
 
   d3.queue()
   .defer(d3.json, 'data/us-states.json')
@@ -134,9 +125,6 @@ ElectoralMap.prototype.createVis = function() {
   .on("mouseout",function(d) {
     $(vis.eventHandler).trigger("stateOff");
   })
-  // .on("click",function(d) {
-  //   $(vis.eventHandler).trigger("press", d.properties.name);
-  // })
   ;
 
 };
@@ -168,8 +156,6 @@ ElectoralMap.prototype.updateVis = function() {
 
 ElectoralMap.prototype.resize = function() {
   var vis = this;
-
-  // console.log("check");
 
   vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
   vis.svg.attr("width",vis.width);
@@ -251,60 +237,6 @@ ElectoralMap.prototype.updateInd = function(ind) {
 
   vis.updateVis();
 }
-
-// ElectoralMap.prototype.updateVis = function() {
-//   var vis = this;
-
-//   vis.projection = d3.geo.albersUsa()
-//   .translate([vis.width / 2, vis.height / 2])
-//   .scale([800]);
-
-//   vis.path = d3.geo.path()
-//   .projection(vis.projection);
-
-//   var x,y;
-
-//   vis.svg.selectAll(".state")
-//   .data(vis.json.features)
-//   .enter().append("path")
-//   .attr("class", "state")
-//   .attr("d", vis.path)
-//   .attr("transform", function(d,index) {
-//     var centroid = vis.path.centroid(d),
-//     x = centroid[0],
-//     y = centroid[1];
-//     return "translate(" + x + "," + y + ")"
-//     + "scale(" + d.properties.ElectoralToPopRatio + ")"
-//     + "translate(" + -x + "," + -y + ")";
-//   })
-//   .attr("fill",function(d) {
-//     if (d.properties["2016Vote"] == "Rep") { return "red" }
-//       else { return "blue" };
-//   })
-//   .attr("stroke","black")
-//   .attr("opacity",.3);
-
-//   vis.svg.selectAll(".bg-map")
-//   .data(vis.json.features)
-//   .enter().append("path")
-//   .attr("class", "bg-map")
-//   .attr("d", vis.path)
-//   .attr("stroke","black")
-//   .attr("fill-opacity",0)
-//   .attr("fill","lightgray")
-//   .on("mouseover",function(d) {
-//     $(vis.eventHandler).trigger("stateOver", d.properties.name);
-//   })
-//   .on("mouseout",function(d) {
-//     $(vis.eventHandler).trigger("stateOff");
-//   })
-//   .on("click",function(d) {
-//     $(vis.eventHandler).trigger("press", d.properties.name);
-//   });
-
-// };
-
-
 
 ElectoralMap.prototype.highlightState = function(state) {
   var vis = this;
