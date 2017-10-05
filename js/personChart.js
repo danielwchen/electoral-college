@@ -62,7 +62,7 @@ PersonChart.prototype.createVis = function() {
     return vis.getPersonPath (100, 200, 1);
   })
   .attr("opacity", function(d, i) {
-    return getOpacity(i);
+    return vis.getOpacity(i);
   })
   .attr("fill", "gray")
   .attr("stroke", "black")
