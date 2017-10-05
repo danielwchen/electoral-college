@@ -57,26 +57,19 @@ PersonChart.prototype.createVis = function() {
   .attr("x", 100)
   .attr("y", 100);
 
-
-  vis.svg.append("path")
-  .attr("d", vis.getPersonPath (100, 300, 1))
-  .attr("fill", "red")
-  .attr("stroke", "black")
-  .attr("stroke-width","3");
-
-  vis.people = vis.svg.data(vis.fin_data)
+  vis.people = vis.svg.selectAll(".peoplebar")
+  .data(vis.fin_data)
   .enter().append("path")
   .attr("class", "peoplebar")
   .attr("d", function(d, i) {
-    console.log("test");
-    return vis.getPersonPath (100, 300, 1);
+    return vis.getPersonPath (i*100, 300, 1);
   })
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   })
   .attr("fill", "red")
   .attr("stroke", "black")
-  .attr("stroke-width","3");
+  .attr("stroke-width","1");
 
 };
 
