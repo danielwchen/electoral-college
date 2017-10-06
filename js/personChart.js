@@ -24,9 +24,9 @@ PersonChart.prototype.initVis = function() {
   vis.width = $(vis.parentElement).width();
   vis.height = 400;
 
-  var z = vis.width/7;
+  var z = vis.width/6;
 
-  vis.positions = [z*2, z*3, z*4, z*5, z*6];
+  vis.positions = [z, z*2, z*3, z*4, z*5];
 
   vis.svg = d3.select(vis.parentElement).append("svg")
   .attr("width", vis.width)
@@ -93,9 +93,9 @@ PersonChart.prototype.resize = function() {
   vis.width = $(vis.parentElement).width();
   vis.svg.attr("width",vis.width);
 
-  var z = vis.width/7;
+  var z = vis.width/6;
 
-  vis.positions = [z*2, z*3, z*4, z*5, z*6];
+  vis.positions = [z, z*2, z*3, z*4, z*5];
 
   vis.updateVis;
 
