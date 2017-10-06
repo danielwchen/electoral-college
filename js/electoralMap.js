@@ -150,7 +150,6 @@ ElectoralMap.prototype.updateVis = function() {
     return vis.getStroke(d.properties.name);
   })
   .attr("opacity", function() {
-    console.log("test");
     return vis.getOpacity();
   })
   ;
@@ -169,6 +168,10 @@ ElectoralMap.prototype.resize = function() {
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
+
+  vis.bg_map.attr("d", vis.path);
+
+
 
   vis.updateVis();
 }
