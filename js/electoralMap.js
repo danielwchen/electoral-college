@@ -147,7 +147,7 @@ ElectoralMap.prototype.updateVis = function() {
   })
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
   .attr("stroke-width", function(d) {
-    return 1/vis.getScale(d.properties.name);
+    return vis.getStroke(d.properties.name);
   })
   .attr("opacity", function() {
     console.log("test");
@@ -208,6 +208,33 @@ ElectoralMap.prototype.getColor = function(state) {
 
   } else {
     return "gray";
+  }
+}
+
+// ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
+ElectoralMap.prototype.getStroke = function(state) {
+  var vis = this;
+
+  if (vis.color_scale[vis.currInd] == 2) {
+    if (vis.fin_data[state].votingmethod == "CD") { return 3/vis.getScale(state); }
+    else { return 1/vis.getScale(state); }
+  
+  } else if (vis.color_scale[vis.currInd] == 3) {
+    if (vis.fin_data[state].bigstate == "Y") { return 3/vis.getScale(state); }
+    else if (vis.fin_data[state].smallstate == "Y") {return 3/vis.getScale(state); }
+    else { return 1/vis.getScale(state); }
+
+  } else if (vis.color_scale[vis.currInd] == 4) {
+    if (vis.fin_data[state].topeleven == "Y") { return 3/vis.getScale(state); }
+    else { return 1/vis.getScale(state); }
+
+  } else if (vis.color_scale[vis.currInd] == 5) {
+    if (vis.fin_data[state].topfour == "Y") { return 3/vis.getScale(state); }
+    else if (vis.fin_data[state].topeleven == "Y") {return 3/vis.getScale(state); }
+    else { return 1/vis.getScale(state); }
+
+  } else {
+    return 1/vis.getScale(state);
   }
 }
 
