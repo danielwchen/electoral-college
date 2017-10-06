@@ -149,7 +149,10 @@ ElectoralMap.prototype.updateVis = function() {
   .attr("stroke-width", function(d) {
     return 1/vis.getScale(d.properties.name);
   })
-  .attr("opacity", vis.getOpacity())
+  .attr("opacity", function() {
+    console.log("test");
+    return vis.getOpacity();
+  })
   ;
 
 }
