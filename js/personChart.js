@@ -12,6 +12,7 @@
 
   this.fin_data;
   this.opacities;
+  this.positions;
 
   this.initVis();
 };
@@ -22,6 +23,10 @@ PersonChart.prototype.initVis = function() {
 
   vis.width = $(vis.parentElement).width();
   vis.height = 400;
+
+  var z = vis.width/7;
+
+  vis.positions = [z*2, z*3, z*4, z*5, z*6];
 
   vis.svg = d3.select(vis.parentElement).append("svg")
   .attr("width", vis.width)
@@ -62,7 +67,7 @@ PersonChart.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "peoplebar")
   .attr("d", function(d, i) {
-    return vis.getPersonPath (i*100, 300, 1);
+    return vis.getPersonPath (vis.getPosition(i), vis.height - 100, d.votingpower);
   })
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
@@ -76,6 +81,10 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
+  vis.people.attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
+
 }
 
 PersonChart.prototype.resize = function() {
@@ -84,12 +93,24 @@ PersonChart.prototype.resize = function() {
   vis.width = $(vis.parentElement).width();
   vis.svg.attr("width",vis.width);
 
+  var z = vis.width/7;
+
+  vis.positions = [z*2, z*3, z*4, z*5, z*6];
+
+  vis.updateVis;
+
 }
 
 PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
 
   return 1;
+}
+
+PersonChart.prototype.getPosition = function(num) {
+  var vis = this;
+
+  return vis.positions[num];
 }
 
 
