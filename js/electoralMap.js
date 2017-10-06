@@ -160,11 +160,15 @@ ElectoralMap.prototype.updateVis = function() {
 ElectoralMap.prototype.resize = function() {
   var vis = this;
 
-  vis.width = $(vis.parentElement).width() - vis.margin.left - vis.margin.right;
+  vis.width = $(vis.parentElement).width();
   vis.svg.attr("width",vis.width);
-  vis.projection
+
+  vis.projection = d3.geoAlbersUsa()
   .translate([vis.width/2, vis.height/2])
   .scale([vis.width]);
+
+  vis.path = d3.geoPath()
+  .projection(vis.projection);
 
   vis.updateVis();
 }

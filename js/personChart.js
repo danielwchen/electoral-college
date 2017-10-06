@@ -96,7 +96,9 @@ PersonChart.prototype.getOpacity = function(ind) {
 // x, y define the bottom center point, p is the percent value
 PersonChart.prototype.getPersonPath = function(x, y, p) {
   var vis = this;
+
   var h = (132 * p  - 32 - 100) / 2;
+
   return "M" + x + "," + y 
   + "h-15v" + (-50 - h) 
   + "h-10v" + (-50 - h) 
