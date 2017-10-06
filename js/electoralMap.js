@@ -32,7 +32,8 @@ ElectoralMap.prototype.initVis = function() {
   var vis = this;
 
   vis.width = $(vis.parentElement).width();
-  vis.height = $(vis.parentElement).height();
+  // vis.height = $(vis.parentElement).height();
+  vis.height = 500;
 
 
   vis.svg = d3.select(vis.parentElement).append("svg")
@@ -51,17 +52,6 @@ ElectoralMap.prototype.initVis = function() {
 ElectoralMap.prototype.wrangleData = function(json, data) {
   var vis = this;
 
-  // data.forEach(function(d) {
-  //   data.clintonvotes = +data.clintonvotes;
-  //   data.clintonpercent = +data.clintonpercent;
-  //   data.trumpvotes = +data.trumpvotes;
-  //   data.trumppercent = +data.trumppercent;
-  //   data.othervotes = +data.othervotes;
-  //   data.otherpercent = +data.otherpercent;
-  //   data.electoralvotes = +data.electoralvotes;
-  //   data.electoralvotesfactor = +data.electoralvotesfactor;
-  //   data.electoralpower = +data.electoralpower;
-  // });
   data.forEach(function(d,index) {
     vis.fin_data[d.state] = d;
   });
@@ -160,7 +150,7 @@ ElectoralMap.prototype.resize = function() {
   var vis = this;
 
   vis.width = $(vis.parentElement).width();
-  vis.height = $(vis.parentElement).height();
+  // vis.height = $(vis.parentElement).height();
   vis.svg.attr("width",vis.width);
 
   vis.projection = d3.geoAlbersUsa()
