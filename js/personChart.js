@@ -104,11 +104,9 @@ PersonChart.prototype.resize = function() {
 PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
 
-  console.log("here1");
+  console.log(vis.opacities[vis.opacity_index[vis.currInd]])
 
-  console.log(vis.opacity_index[vis.currInd])
-
-  if (vis.opacity_index[vis.currInd][ind] == 1) {
+  if (vis.opacities[vis.opacity_index[vis.currInd]][ind] == 1) {
     return .8;
   } else {
     return 0;
