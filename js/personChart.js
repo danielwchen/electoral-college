@@ -11,7 +11,7 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
-  this.text_labels = ["Average", "White", "Black/Afr. American", "Hispanic/Latino", "Asian"]
+  this.text_labels = ["Baseline", "White", "Black/Afr. American", "Hispanic/Latino", "Asian"]
   this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
@@ -103,7 +103,10 @@ PersonChart.prototype.createVis = function() {
   })
   .attr("")
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+  })
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
   });
 
 };
@@ -112,6 +115,11 @@ PersonChart.prototype.updateVis = function() {
   var vis = this;
 
   vis.people.transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
+
+  vis.text_labels.transition().duration(200)
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
@@ -144,7 +152,7 @@ PersonChart.prototype.resize = function() {
 
   vis.text_labels
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   });
 
   vis.updateVis;
