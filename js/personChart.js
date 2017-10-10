@@ -96,7 +96,7 @@ PersonChart.prototype.createVis = function() {
 
   vis.text_labels = vis.svg.selectAll(".textlabels")
   .data(vis.fin_data)
-  .enter().append("path")
+  .enter().append("text")
   .attr("class", "textlabels")
   .text(function(d,i) {
     return vis.text_labels[i];
@@ -159,7 +159,7 @@ PersonChart.prototype.getOpacity = function(num) {
   var vis = this;
 
   if (vis.opacities[vis.opacity_index[vis.currInd]][num] == 1) {
-    return .8;
+    return 1;
   } else {
     return 0;
   }
