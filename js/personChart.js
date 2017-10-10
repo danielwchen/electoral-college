@@ -12,6 +12,7 @@
 
   this.fin_data;
   this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
+  this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
 
   this.opacity_index = [0,1,2,3,4,5,5,5,5,5,5]
@@ -32,8 +33,7 @@ PersonChart.prototype.initVis = function() {
 
   vis.svg = d3.select(vis.parentElement).append("svg")
   .attr("width", vis.width)
-  .attr("height", vis.height)
-  .attr("fill", "gray");
+  .attr("height", vis.height);
 
   d3.queue()
   .defer(d3.csv, "data/votingpowerbyrace.csv")
@@ -71,7 +71,9 @@ PersonChart.prototype.createVis = function() {
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   })
-  .attr("fill", "red")
+  .attr("fill", function(d, i) {
+    return vis.getColor(i);
+  })
   .attr("stroke", "black")
   .attr("stroke-width","1");
 
@@ -101,12 +103,10 @@ PersonChart.prototype.resize = function() {
 
 }
 
-PersonChart.prototype.getOpacity = function(ind) {
+PersonChart.prototype.getOpacity = function(num) {
   var vis = this;
 
-  console.log(vis.opacities[vis.opacity_index[vis.currInd]])
-
-  if (vis.opacities[vis.opacity_index[vis.currInd]][ind] == 1) {
+  if (vis.opacities[vis.opacity_index[vis.currInd]][num] == 1) {
     return .8;
   } else {
     return 0;
@@ -119,6 +119,11 @@ PersonChart.prototype.getPosition = function(num) {
   return vis.positions[num];
 }
 
+PersonChart.prototype.getColor = function(num) {
+  var vis = this;
+
+  return vis.colors[num];
+}
 
 // x, y define the bottom center point, p is the percent value
 PersonChart.prototype.getPersonPath = function(x, y, p) {
