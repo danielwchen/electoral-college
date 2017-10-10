@@ -77,6 +77,24 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","1");
 
+  vis.top_line = vis.svg.append("line")          // attach a line
+    .style("stroke", "black")  // colour the line
+    .attr("x1", vis.positions[0])  
+    .attr("y1", vis.height - 100 - 132)   
+    .attr("x2", vis.positions[-1])  
+    .attr("y2", vis.height - 100 - 132);
+
+
+  // var xaxis = svg.append("g")
+  //      .attr("transform", "translate(0," + height + ")")
+  //      .attr("class", "x axis")
+  //      .call(d3.axisBottom(x)
+  //         .ticks(d3.timeMonth)
+  //         .tickSize(0, 0)
+  //         .tickFormat(d3.timeFormat("%B"))
+  //         .tickSizeInner(0)
+  //         .tickPadding(10));
+
 };
 
 PersonChart.prototype.updateVis = function() {
@@ -86,6 +104,10 @@ PersonChart.prototype.updateVis = function() {
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
+
+  vis.top_line
+    .attr("x1", vis.positions[0])   
+    .attr("x2", vis.positions[-1]);
 
 }
 
