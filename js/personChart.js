@@ -126,10 +126,10 @@ PersonChart.prototype.getPersonPath = function(x, y, p) {
   var h = (132 * p  - 32 - 100) / 2;
 
   return "M" + x + "," + y 
-  + "h-15v" + (-50 - h) 
-  + "h-10v" + (-50 - h) 
-  + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
-  + "h-10v" + (50 + h) 
+  + "h-12v" + (-50 - h) 
+  + "h-8v" + (-50 - h) 
+  + "h17a16,16 0 1,1 6,0 h17v" + (50 + h) 
+  + "h-8v" + (50 + h) 
   + "z";
 }
 
