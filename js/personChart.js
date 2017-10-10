@@ -94,7 +94,7 @@ PersonChart.prototype.createVis = function() {
   .attr("y1", vis.height - 100)
   .attr("y2", vis.height - 100);
 
-  vis.text_labels = vis.svg.selectAll(".textlabels")
+  vis.labels = vis.svg.selectAll(".textlabels")
   .data(vis.fin_data)
   .enter().append("text")
   .attr("class", "textlabels")
@@ -119,8 +119,7 @@ PersonChart.prototype.updateVis = function() {
     return vis.getOpacity(i);
   });
 
-  vis.text_labels
-  // .transition().duration(200)
+  vis.labels.transition().duration(200)
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
@@ -151,7 +150,7 @@ PersonChart.prototype.resize = function() {
   .attr("x1", vis.positions[0] - 50)  
   .attr("x2", vis.positions[vis.positions.length - 1] + 50);
 
-  vis.text_labels
+  vis.labels
   .attr("transform", function(d,i) {
     return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   });
