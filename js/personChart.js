@@ -14,7 +14,7 @@
   this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
   this.positions;
 
-  this.opacity_index = [0,1,2,3,4,5,5,5]
+  this.opacity_index = [0,1,2,3,4,5,5,5,5,5,5]
 
   this.initVis();
 };
