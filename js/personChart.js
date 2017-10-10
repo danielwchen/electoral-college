@@ -81,7 +81,7 @@ PersonChart.prototype.createVis = function() {
     .style("stroke", "black")  // colour the line
     .attr("x1", vis.positions[0])  
     .attr("y1", vis.height - 100 - 132)   
-    .attr("x2", vis.positions[-1])  
+    .attr("x2", vis.positions[vis.positions.length - 1])  
     .attr("y2", vis.height - 100 - 132);
 
 
@@ -107,7 +107,7 @@ PersonChart.prototype.updateVis = function() {
 
   vis.top_line
     .attr("x1", vis.positions[0])   
-    .attr("x2", vis.positions[-1]);
+    .attr("x2", vis.positions[vis.positions.length - 1]);
 
 }
 
