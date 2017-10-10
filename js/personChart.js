@@ -80,8 +80,8 @@ PersonChart.prototype.createVis = function() {
   vis.top_line = vis.svg.append("line")          // attach a line
     .style("stroke", "black")  // colour the line
     .attr("x1", vis.positions[0])  
-    .attr("y1", vis.height - 100 - 132)   
     .attr("x2", vis.positions[vis.positions.length - 1])  
+    .attr("y1", vis.height - 100 - 132)   
     .attr("y2", vis.height - 100 - 132);
 
 
@@ -105,10 +105,6 @@ PersonChart.prototype.updateVis = function() {
     return vis.getOpacity(i);
   });
 
-  vis.top_line
-    .attr("x1", vis.positions[0])   
-    .attr("x2", vis.positions[vis.positions.length - 1]);
-
 }
 
 PersonChart.prototype.resize = function() {
@@ -120,6 +116,15 @@ PersonChart.prototype.resize = function() {
   var z = vis.width/6;
 
   vis.positions = [z, z*2, z*3, z*4, z*5];
+
+  vis.people
+  .attr("d", function(d, i) {
+    return vis.getPersonPath (vis.getPosition(i), vis.height - 100, d.votingpower);
+  });
+
+  vis.top_line
+    .attr("x1", vis.positions[0])   
+    .attr("x2", vis.positions[vis.positions.length - 1]);
 
   vis.updateVis;
 
