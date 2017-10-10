@@ -120,6 +120,7 @@ PersonChart.prototype.updateVis = function() {
   });
 
   vis.text_labels
+  // .transition().duration(200)
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
