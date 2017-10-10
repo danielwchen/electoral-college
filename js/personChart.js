@@ -91,8 +91,8 @@ PersonChart.prototype.createVis = function() {
     .style("stroke", "black")  // colour the line
     .attr("x1", vis.positions[0])  
     .attr("x2", vis.positions[vis.positions.length - 1])  
-    .attr("y1", vis.height - 100 - 132)
-    .attr("y2", vis.height - 100 - 132);
+    .attr("y1", vis.height - 100)
+    .attr("y2", vis.height - 100);
 
   vis.text_labels = vis.svg.selectAll(".textlabels")
   .data(vis.fin_data)
