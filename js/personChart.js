@@ -133,7 +133,7 @@ PersonChart.prototype.getPersonPath = function(x, y, p) {
   + "z";
 }
 
-ElectoralMap.prototype.updateInd = function(ind) {
+PersonChart.prototype.updateInd = function(ind) {
   var vis = this;
 
   vis.currInd = ind;
