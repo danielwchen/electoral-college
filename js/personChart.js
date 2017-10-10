@@ -11,8 +11,10 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
-  this.opacities;
+  this.opacities = [[1,0,0,0],[1,1,0,0],[1,1,1,0],[1,1,1,1]];
   this.positions;
+
+  this.opacity_index = [0,1,2,3,4,4,4,4]
 
   this.initVis();
 };
@@ -35,20 +37,17 @@ PersonChart.prototype.initVis = function() {
 
   d3.queue()
   .defer(d3.csv, "data/votingpowerbyrace.csv")
-  .defer(d3.csv, "data/opacities.csv")
-  .await(function(error, data, opacities) {
+  .await(function(error, data) {
     vis.wrangleData(data);
   });
 
 };
 
-PersonChart.prototype.wrangleData = function(data, opacities) {
+PersonChart.prototype.wrangleData = function(data) {
   var vis = this;
 
   console.log(data);
-  console.log(opacities);
   vis.fin_data = data;
-  vis.opacities = opacities;
 
   vis.createVis();
 
@@ -104,7 +103,11 @@ PersonChart.prototype.resize = function() {
 PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
 
-  return 1;
+  if (vis.opacity_index[vis.currInd][ind] == 1) {
+    return .8;
+  } else {
+    return 0;
+  }
 }
 
 PersonChart.prototype.getPosition = function(num) {
@@ -118,6 +121,7 @@ PersonChart.prototype.getPosition = function(num) {
 PersonChart.prototype.getPersonPath = function(x, y, p) {
   var vis = this;
 
+  var w = 50;
   var h = (132 * p  - 32 - 100) / 2;
 
   return "M" + x + "," + y 
