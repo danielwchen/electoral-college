@@ -69,7 +69,6 @@ PersonChart.prototype.createVis = function() {
     return vis.getPersonPath (vis.getPosition(i), vis.height - 100, d.votingpower);
   })
   .attr("opacity", function(d, i) {
-    console.log("test");
     return vis.getOpacity(i);
   })
   .attr("fill", "red")
@@ -104,6 +103,10 @@ PersonChart.prototype.resize = function() {
 
 PersonChart.prototype.getOpacity = function(ind) {
   var vis = this;
+
+  console.log("here1");
+
+  console.log(vis.opacity_index[vis.currInd])
 
   if (vis.opacity_index[vis.currInd][ind] == 1) {
     return .8;
