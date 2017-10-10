@@ -11,10 +11,10 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
-  this.opacities = [[1,0,0,0],[1,1,0,0],[1,1,1,0],[1,1,1,1]];
+  this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
   this.positions;
 
-  this.opacity_index = [0,1,2,3,4,4,4,4]
+  this.opacity_index = [0,1,2,3,4,5,5,5]
 
   this.initVis();
 };
@@ -69,6 +69,7 @@ PersonChart.prototype.createVis = function() {
     return vis.getPersonPath (vis.getPosition(i), vis.height - 100, d.votingpower);
   })
   .attr("opacity", function(d, i) {
+    console.log("test");
     return vis.getOpacity(i);
   })
   .attr("fill", "red")
