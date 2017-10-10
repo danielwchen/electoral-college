@@ -11,7 +11,7 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
-  this.text_labels = ["Average", "White", "Black or African American", "Hispanic or Latino", "Asian"]
+  this.text_labels = ["Average", "White", "Black/Afr. American", "Hispanic/Latino", "Asian"]
   this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
@@ -101,8 +101,9 @@ PersonChart.prototype.createVis = function() {
   .text(function(d,i) {
     return vis.text_labels[i];
   })
+  .attr("")
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i] + 10) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   });
 
 };
@@ -143,10 +144,8 @@ PersonChart.prototype.resize = function() {
 
   vis.text_labels
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i] + 10) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   });
-
-
 
   vis.updateVis;
 

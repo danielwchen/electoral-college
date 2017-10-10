@@ -140,3 +140,7 @@ body{
 .peoplebar:hover {
   fill: blue;
 };
+
+.textlabels {
+  font-size: 10px;
+}
