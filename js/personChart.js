@@ -80,7 +80,8 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  vis.people.attr("opacity", function(d, i) {
+  vis.people.transition().duration(500)
+  .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
 
@@ -130,4 +131,12 @@ PersonChart.prototype.getPersonPath = function(x, y, p) {
   + "h22a16,16 0 1,1 6,0 h22v" + (50 + h) 
   + "h-10v" + (50 + h) 
   + "z";
+}
+
+ElectoralMap.prototype.updateInd = function(ind) {
+  var vis = this;
+
+  vis.currInd = ind;
+
+  vis.updateVis();
 }

@@ -258,6 +258,7 @@ ElectoralMap.prototype.getOpacity = function() {
   }
 }
 
+
 ElectoralMap.prototype.updateInd = function(ind) {
   var vis = this;
 

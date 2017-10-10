@@ -56,6 +56,7 @@ d3.graphScroll()
 .eventId('uniqueId1')
 .sections(d3.selectAll('.container-2 #sections > div'))
 .on('active', function(i){
+  personChart.updateInd(i);
   console.log(i + 'th section active') 
 })
 
