@@ -136,3 +136,7 @@ body{
 .state:hover {
   opacity: 1;
 }*/
+
+.peoplebar:hover {
+  fill: #000080;
+};

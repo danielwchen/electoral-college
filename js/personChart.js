@@ -11,6 +11,7 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
+  this.text_labels = ["Average", "White", "Black or African American", "Hispanic or Latino", "Asian"]
   this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
@@ -61,6 +62,15 @@ PersonChart.prototype.createVis = function() {
   .attr("x", 100)
   .attr("y", 100);
 
+  vis.top_line = vis.svg.append("line")          // attach a line
+    .style("stroke", "black")  // colour the line
+    .style("stroke-dasharray", ("5, 5"))
+    .attr("stroke-width", 2)
+    .attr("x1", vis.positions[0])  
+    .attr("x2", vis.positions[vis.positions.length - 1])  
+    .attr("y1", vis.height - 100 - 132)
+    .attr("y2", vis.height - 100 - 132);
+
   vis.people = vis.svg.selectAll(".peoplebar")
   .data(vis.fin_data)
   .enter().append("path")
@@ -77,21 +87,27 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","1");
 
-  vis.top_line = vis.svg.append("line")          // attach a line
-    .style("stroke", "black")  // colour the line
-    .style("stroke-dasharray", ("5, 5"))
-    .attr("stroke-width", 2)
-    .attr("x1", vis.positions[0])  
-    .attr("x2", vis.positions[vis.positions.length - 1])  
-    .attr("y1", vis.height - 100 - 132)
-    .attr("y2", vis.height - 100 - 132);
-
   vis.bot_line = vis.svg.append("line")          // attach a line
     .style("stroke", "black")  // colour the line
     .attr("x1", vis.positions[0])  
     .attr("x2", vis.positions[vis.positions.length - 1])  
     .attr("y1", vis.height - 100 - 132)
     .attr("y2", vis.height - 100 - 132);
+
+  vis.text_labels = vis.svg.selectAll(".textlabels")
+  .data(vis.fin_data)
+  .enter().append("path")
+  .attr("class", "textlabels")
+  .text(function(d,i) {
+    return vis.text_labels[i];
+  })
+  .attr("transform", "rotate(45)")
+  .attr("x", function(d,i) {
+    return vis.positions[0] + 10;
+  })
+  .attr("y", vis.height - 100 + 10)
+  ;
+
 
 
   // var xaxis = svg.append("g")
@@ -109,7 +125,7 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  vis.people.transition().duration(500)
+  vis.people.transition().duration(200)
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
