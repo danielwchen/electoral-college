@@ -136,10 +136,17 @@ PersonChart.prototype.resize = function() {
   .attr("x1", vis.positions[0] - 50)   
   .attr("x2", vis.positions[vis.positions.length - 1] + 50);
 
+
+  vis.bot_line
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50);
+
   vis.text_labels
   .attr("transform", function(d,i) {
     return "translate(" + (vis.positions[i] + 10) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   });
+
+
 
   vis.updateVis;
 
