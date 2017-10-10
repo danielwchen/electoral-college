@@ -22,7 +22,8 @@
 
 #graph{
   margin-left: 40px;
-  width: 500px;
+  width: 50%;
+  max-width: 800px;
   position: absolute;
   top: 0px;
   margin-left: 380px;
