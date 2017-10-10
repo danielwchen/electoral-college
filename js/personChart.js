@@ -66,8 +66,8 @@ PersonChart.prototype.createVis = function() {
     .style("stroke", "black")  // colour the line
     .style("stroke-dasharray", ("5, 5"))
     .attr("stroke-width", 2)
-    .attr("x1", vis.positions[0])  
-    .attr("x2", vis.positions[vis.positions.length - 1])  
+    .attr("x1", vis.positions[0] - 50)  
+    .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
     .attr("y1", vis.height - 100 - 132)
     .attr("y2", vis.height - 100 - 132);
 
@@ -87,10 +87,10 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","1");
 
-  vis.bot_line = vis.svg.append("line")          // attach a line
-    .style("stroke", "black")  // colour the line
-    .attr("x1", vis.positions[0])  
-    .attr("x2", vis.positions[vis.positions.length - 1])  
+  vis.bot_line = vis.svg.append("line")
+    .style("stroke", "black")
+    .attr("x1", vis.positions[0] - 50)  
+    .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
     .attr("y1", vis.height - 100)
     .attr("y2", vis.height - 100);
 
@@ -105,20 +105,7 @@ PersonChart.prototype.createVis = function() {
   .attr("x", function(d,i) {
     return vis.positions[0] + 10;
   })
-  .attr("y", vis.height - 100 + 10)
-  ;
-
-
-
-  // var xaxis = svg.append("g")
-  //      .attr("transform", "translate(0," + height + ")")
-  //      .attr("class", "x axis")
-  //      .call(d3.axisBottom(x)
-  //         .ticks(d3.timeMonth)
-  //         .tickSize(0, 0)
-  //         .tickFormat(d3.timeFormat("%B"))
-  //         .tickSizeInner(0)
-  //         .tickPadding(10));
+  .attr("y", vis.height - 100 + 10);
 
 };
 
