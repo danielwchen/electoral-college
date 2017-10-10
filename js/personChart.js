@@ -15,7 +15,7 @@
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
 
-  this.opacity_index = [0,1,2,3,4,5,5,5,5,5,5]
+  this.opacity_index = [0,1,2,3,4,4,4,4,4,4,4,4,4,4]
 
   this.initVis();
 };

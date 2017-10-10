@@ -18,6 +18,7 @@
 $( window ).resize(function() {
   checkWinStat();
   electoralMap.resize();
+  personChart.resize();
 });
 
 var electoralMap;
