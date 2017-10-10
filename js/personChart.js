@@ -62,14 +62,14 @@ PersonChart.prototype.createVis = function() {
   .attr("x", 100)
   .attr("y", 100);
 
-  vis.top_line = vis.svg.append("line")          // attach a line
-    .style("stroke", "black")  // colour the line
-    .style("stroke-dasharray", ("5, 5"))
-    .attr("stroke-width", 2)
-    .attr("x1", vis.positions[0] - 50)  
-    .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-    .attr("y1", vis.height - 100 - 132)
-    .attr("y2", vis.height - 100 - 132);
+  vis.top_line = vis.svg.append("line")
+  .style("stroke", "black")
+  .style("stroke-dasharray", ("5, 5"))
+  .attr("stroke-width", 2)
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
+  .attr("y1", vis.height - 100 - 132)
+  .attr("y2", vis.height - 100 - 132);
 
   vis.people = vis.svg.selectAll(".peoplebar")
   .data(vis.fin_data)
@@ -88,11 +88,11 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke-width","1");
 
   vis.bot_line = vis.svg.append("line")
-    .style("stroke", "black")
-    .attr("x1", vis.positions[0] - 50)  
-    .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-    .attr("y1", vis.height - 100)
-    .attr("y2", vis.height - 100);
+  .style("stroke", "black")
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
+  .attr("y1", vis.height - 100)
+  .attr("y2", vis.height - 100);
 
   vis.text_labels = vis.svg.selectAll(".textlabels")
   .data(vis.fin_data)
@@ -101,11 +101,9 @@ PersonChart.prototype.createVis = function() {
   .text(function(d,i) {
     return vis.text_labels[i];
   })
-  .attr("transform", "rotate(45)")
-  .attr("x", function(d,i) {
-    return vis.positions[0] + 10;
-  })
-  .attr("y", vis.height - 100 + 10);
+  .attr("transform", function(d,i) {
+    return "translate(" + (vis.positions[i] + 10) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+  });
 
 };
 
@@ -135,8 +133,13 @@ PersonChart.prototype.resize = function() {
   });
 
   vis.top_line
-    .attr("x1", vis.positions[0] - 50)   
-    .attr("x2", vis.positions[vis.positions.length - 1] + 50);
+  .attr("x1", vis.positions[0] - 50)   
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50);
+
+  vis.text_labels
+  .attr("transform", function(d,i) {
+    return "translate(" + (vis.positions[i] + 10) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+  });
 
   vis.updateVis;
 
