@@ -143,6 +143,10 @@ body{
   fill: blue;
 };
 
+.peoplebarvr:hover {
+  fill: blue;
+};
+
 .textlabels {
   font-size: 14px;
   font-family: Arial; 

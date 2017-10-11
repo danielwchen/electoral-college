@@ -77,15 +77,15 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke-width", 2)
   .attr("x1", vis.positions[0] - 50)  
   .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-  .attr("y1", vis.height - this.bottomoffset - 132)
-  .attr("y2", vis.height - this.bottomoffset - 132);
+  .attr("y1", vis.height - vis.bottomoffset - 132)
+  .attr("y2", vis.height - vis.bottomoffset - 132);
 
   vis.peoplevr = vis.svg.selectAll(".peoplebarvr")
   .data(vis.fin_datavr)
   .enter().append("path")
   .attr("class", "peoplebarvr")
   .attr("d", function(d, i) {
-    return vis.getPersonPath (vis.getPosition(i)+25, vis.height - this.bottomoffset, d.rate);
+    return vis.getPersonPath (vis.getPosition(i)+25, vis.height - vis.bottomoffset, d.rate);
   })
   .attr("opacity", 0)
   .attr("fill", function(d, i) {
@@ -99,7 +99,7 @@ PersonChart.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "peoplebar")
   .attr("d", function(d, i) {
-    return vis.getPersonPath (vis.getPosition(i), vis.height - this.bottomoffset, d.votingpower);
+    return vis.getPersonPath (vis.getPosition(i), vis.height - vis.bottomoffset, d.votingpower);
   })
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
@@ -114,8 +114,8 @@ PersonChart.prototype.createVis = function() {
   .style("stroke", "black")
   .attr("x1", vis.positions[0] - 50)  
   .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-  .attr("y1", vis.height - this.bottomoffset)
-  .attr("y2", vis.height - this.bottomoffset);
+  .attr("y1", vis.height - vis.bottomoffset)
+  .attr("y2", vis.height - vis.bottomoffset);
 
   vis.labels = vis.svg.selectAll(".textlabels")
   .data(vis.fin_data)
@@ -125,7 +125,7 @@ PersonChart.prototype.createVis = function() {
     return vis.text_labels[i];
   })
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - this.bottomoffset + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 10) + ")rotate(45)";
   })
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
@@ -170,7 +170,7 @@ PersonChart.prototype.resize = function() {
 
   vis.people
   .attr("d", function(d, i) {
-    return vis.getPersonPath (vis.getPosition(i), vis.height - this.bottomoffset, d.votingpower);
+    return vis.getPersonPath (vis.getPosition(i), vis.height - vis.bottomoffset, d.votingpower);
   });
 
   vis.top_line
@@ -184,7 +184,7 @@ PersonChart.prototype.resize = function() {
 
   vis.labels
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - this.bottomoffset + 10) + ")rotate(45)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 10) + ")rotate(45)";
   });
 
   vis.updateVis;
