@@ -66,10 +66,18 @@ PersonChart.prototype.wrangleData = function(data, datavr) {
 PersonChart.prototype.createVis = function() {
   var vis = this;
 
-  vis.svg.append("text")
-  .text("normalized to relative ratios")
-  .attr("x", 100)
-  .attr("y", 100);
+  vis.tip = d3.tip()
+  .attr("class", "d3-tip")
+  .offset([-8, 0])
+  .html(function(d) { return "Voting power per person: " + d.votingrate; });
+  vis.svg.call(vis.tip);
+
+
+  vis.tipvr = d3.tip()
+  .attr("class", "d3-tip")
+  .offset([-8, 0])
+  .html(function(d) { return "Voting rate: " + d.rate; });
+  vis.svg.call(vis.tipvr);
 
   vis.top_line = vis.svg.append("line")
   .style("stroke", "black")
@@ -85,8 +93,7 @@ PersonChart.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "peoplebarvr")
   .attr("d", function(d, i) {
-    console.log("here");
-    return vis.getPersonPath (vis.getPosition(i)+25, vis.height - vis.bottomoffset, d.votingrate);
+    return vis.getPersonPath (vis.getPosition(i)+30, vis.height - vis.bottomoffset, d.votingrate);
   })
   .attr("opacity", 0)
   .attr("fill", function(d, i) {
@@ -132,6 +139,19 @@ PersonChart.prototype.createVis = function() {
     return vis.getOpacity(i);
   });
 
+
+    
+    // Now render the SVG scene, connecting the tool tip to each circle.
+    var circles = svg.selectAll("circle").data(radii);
+    circles.enter().append("circle")
+      .attr("r", function(d) { return d; })
+      .attr("cx", function(d, i) { return 50 + 50*i; })
+      .attr("cy", function(d, i) { return 50 + 50*i; })
+      .style("fill", "red")
+      .style("stroke", "black")
+      .on('mouseover', tool_tip.show)
+      .on('mouseout', tool_tip.hide);
+
 };
 
 PersonChart.prototype.updateVis = function() {
@@ -168,6 +188,12 @@ PersonChart.prototype.resize = function() {
   var z = vis.width/6;
 
   vis.positions = [z, z*2, z*3, z*4, z*5];
+
+
+  vis.peoplevr
+  .attr("d", function(d, i) {
+    return vis.getPersonPath (vis.getPosition(i)+30, vis.height - vis.bottomoffset, d.votingrate);
+  });
 
   vis.people
   .attr("d", function(d, i) {
