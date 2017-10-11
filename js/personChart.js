@@ -88,6 +88,9 @@ PersonChart.prototype.createVis = function() {
   .attr("y1", vis.height - vis.bottomoffset - 132)
   .attr("y2", vis.height - vis.bottomoffset - 132);
 
+
+
+
   vis.peoplevr = vis.svg.selectAll(".peoplebarvr")
   .data(vis.fin_datavr)
   .enter().append("path")
@@ -100,7 +103,9 @@ PersonChart.prototype.createVis = function() {
     return vis.getColorVR(i);
   })
   .attr("stroke", "black")
-  .attr("stroke-width","1");
+  .attr("stroke-width","1")
+  .on('mouseover', vis.tipvr.show)
+  .on('mouseout', vis.tipvr.hide);;
 
   vis.people = vis.svg.selectAll(".peoplebar")
   .data(vis.fin_data)
@@ -116,7 +121,9 @@ PersonChart.prototype.createVis = function() {
     return vis.getColor(i);
   })
   .attr("stroke", "black")
-  .attr("stroke-width","1");
+  .attr("stroke-width","1")
+  .on('mouseover', vis.tip.show)
+  .on('mouseout', vis.tip.hide);;;
 
   vis.bot_line = vis.svg.append("line")
   .style("stroke", "black")
@@ -138,19 +145,6 @@ PersonChart.prototype.createVis = function() {
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
   });
-
-
-    
-    // Now render the SVG scene, connecting the tool tip to each circle.
-    var circles = svg.selectAll("circle").data(radii);
-    circles.enter().append("circle")
-      .attr("r", function(d) { return d; })
-      .attr("cx", function(d, i) { return 50 + 50*i; })
-      .attr("cy", function(d, i) { return 50 + 50*i; })
-      .style("fill", "red")
-      .style("stroke", "black")
-      .on('mouseover', tool_tip.show)
-      .on('mouseout', tool_tip.hide);
 
 };
 
