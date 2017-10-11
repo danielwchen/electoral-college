@@ -41,8 +41,8 @@ $(EventHandler).bind("stateOff", function(event){
         electoralMap.highlightState(null);
 });
 
-
-d3.graphScroll()
+setTimeout(function() {
+  d3.graphScroll()
 .graph(d3.selectAll('#graph'))
 .container(d3.select('#container'))
 .sections(d3.selectAll('#sections > div'))
@@ -60,6 +60,9 @@ d3.graphScroll()
   personChart.updateInd(i);
   // console.log(i + 'th section active') 
 })
+}, 100);
+
+
 
 
 console.log("updated12")
