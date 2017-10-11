@@ -85,7 +85,8 @@ PersonChart.prototype.createVis = function() {
   .enter().append("path")
   .attr("class", "peoplebarvr")
   .attr("d", function(d, i) {
-    return vis.getPersonPath (vis.getPosition(i)+25, vis.height - vis.bottomoffset, d.rate);
+    console.log("here");
+    return vis.getPersonPath (vis.getPosition(i)+25, vis.height - vis.bottomoffset, d.votingrate);
   })
   .attr("opacity", 0)
   .attr("fill", function(d, i) {
