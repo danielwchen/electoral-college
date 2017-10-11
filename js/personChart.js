@@ -106,7 +106,7 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke-width","1")
   .on('mouseover', function(d,i) {
     if (vis.getOpacityVR(i) == 0) {}
-      else {vis.tipvr.show})
+      else {vis.tipvr.show}})
   .on('mouseout', vis.tipvr.hide);;
 
   vis.people = vis.svg.selectAll(".peoplebar")
