@@ -11,9 +11,15 @@
   this.eventHandler = _eventHandler;
 
   this.fin_data;
+  this.fin_datavr;
   this.text_labels = ["Baseline", "White", "Black/Afr. American", "Hispanic/Latino", "Asian"]
-  this.opacities = [[1,0,0,0,0],[1,1,0,0,0],[1,1,1,0,0],[1,1,1,1,0],[1,1,1,1,1]];
+  this.opacities = [[1,0,0,0,0],
+                    [1,1,0,0,0],
+                    [1,1,1,0,0],
+                    [1,1,1,1,0],
+                    [1,1,1,1,1]];
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
+  this.colorsvr = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
 
   this.opacity_index = [0,1,2,3,4,4,4,4,4,4,4,4,4,4]
@@ -38,17 +44,18 @@ PersonChart.prototype.initVis = function() {
 
   d3.queue()
   .defer(d3.csv, "data/votingpowerbyrace.csv")
-  .await(function(error, data) {
-    vis.wrangleData(data);
+  .defer(d3.csv, "data/votingratebyrace.csv")
+  .await(function(error, data, datavr) {
+    vis.wrangleData(data, datavr);
   });
 
 };
 
-PersonChart.prototype.wrangleData = function(data) {
+PersonChart.prototype.wrangleData = function(data, datavr) {
   var vis = this;
 
-  console.log(data);
   vis.fin_data = data;
+  vis.fin_datavr = datavr;
 
   vis.createVis();
 
@@ -70,6 +77,20 @@ PersonChart.prototype.createVis = function() {
   .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
   .attr("y1", vis.height - 100 - 132)
   .attr("y2", vis.height - 100 - 132);
+
+  vis.peoplevr = vis.svg.selectAll(".peoplebarvr")
+  .data(vis.fin_datavr)
+  .enter().append("path")
+  .attr("class", "peoplebarvr")
+  .attr("d", function(d, i) {
+    return vis.getPersonPath (vis.getPosition(i)+50, vis.height - 100, d.rate);
+  })
+  .attr("opacity", 0)
+  .attr("fill", function(d, i) {
+    return vis.getColorVR(i);
+  })
+  .attr("stroke", "black")
+  .attr("stroke-width","1");
 
   vis.people = vis.svg.selectAll(".peoplebar")
   .data(vis.fin_data)
@@ -101,7 +122,6 @@ PersonChart.prototype.createVis = function() {
   .text(function(d,i) {
     return vis.text_labels[i];
   })
-  .attr("")
   .attr("transform", function(d,i) {
     return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
   })
@@ -119,12 +139,20 @@ PersonChart.prototype.updateVis = function() {
     return vis.getOpacity(i);
   });
 
-  // vis.labels
-  // // .transition().duration(200)
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.labels
+  .transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
+  vis.peoplevr.transition().duration(200)
+  .attr("opacity", function() {
+    if (vis.currInd >=6) {
+      return .7;
+    } else {
+      return 0;
+    }
+  })
 }
 
 PersonChart.prototype.resize = function() {
@@ -180,6 +208,12 @@ PersonChart.prototype.getColor = function(num) {
   var vis = this;
 
   return vis.colors[num];
+}
+
+PersonChart.prototype.getColorVR = function(num) {
+  var vis = this;
+
+  return vis.colorsvr[num];
 }
 
 // x, y define the bottom center point, p is the percent value
