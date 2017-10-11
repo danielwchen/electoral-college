@@ -14,10 +14,10 @@
   this.fin_datavr;
   this.text_labels = ["Baseline", "White", "Black/Afr. American", "Hispanic/Latino", "Asian"]
   this.opacities = [[1,0,0,0,0],
-                    [1,1,0,0,0],
-                    [1,1,1,0,0],
-                    [1,1,1,1,0],
-                    [1,1,1,1,1]];
+  [1,1,0,0,0],
+  [1,1,1,0,0],
+  [1,1,1,1,0],
+  [1,1,1,1,1]];
   this.colors = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.colorsvr = ["gray","lightblue","lightblue","lightblue","lightblue"]
   this.positions;
@@ -108,36 +108,36 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","1");
 
-  // vis.bot_line = vis.svg.append("line")
-  // .style("stroke", "black")
-  // .attr("x1", vis.positions[0] - 50)  
-  // .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-  // .attr("y1", vis.height - 100)
-  // .attr("y2", vis.height - 100);
+  vis.bot_line = vis.svg.append("line")
+  .style("stroke", "black")
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
+  .attr("y1", vis.height - 100)
+  .attr("y2", vis.height - 100);
 
-  // vis.labels = vis.svg.selectAll(".textlabels")
-  // .data(vis.fin_data)
-  // .enter().append("text")
-  // .attr("class", "textlabels")
-  // .text(function(d,i) {
-  //   return vis.text_labels[i];
-  // })
-  // .attr("transform", function(d,i) {
-  //   return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
-  // })
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.labels = vis.svg.selectAll(".textlabels")
+  .data(vis.fin_data)
+  .enter().append("text")
+  .attr("class", "textlabels")
+  .text(function(d,i) {
+    return vis.text_labels[i];
+  })
+  .attr("transform", function(d,i) {
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+  })
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
 };
 
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  vis.people.transition().duration(200)
-  .attr("opacity", function(d, i) {
-    return vis.getOpacity(i);
-  });
+  // vis.people.transition().duration(200)
+  // .attr("opacity", function(d, i) {
+  //   return vis.getOpacity(i);
+  // });
 
   // vis.labels
   // .transition().duration(200)
@@ -153,6 +153,7 @@ PersonChart.prototype.updateVis = function() {
   //     return 0;
   //   }
   // });
+  
 }
 
 PersonChart.prototype.resize = function() {
@@ -170,19 +171,19 @@ PersonChart.prototype.resize = function() {
     return vis.getPersonPath (vis.getPosition(i), vis.height - 100, d.votingpower);
   });
 
-  // vis.top_line
-  // .attr("x1", vis.positions[0] - 50)   
-  // .attr("x2", vis.positions[vis.positions.length - 1] + 50);
+  vis.top_line
+  .attr("x1", vis.positions[0] - 50)   
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50);
 
 
-  // vis.bot_line
-  // .attr("x1", vis.positions[0] - 50)  
-  // .attr("x2", vis.positions[vis.positions.length - 1] + 50);
+  vis.bot_line
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50);
 
-  // vis.labels
-  // .attr("transform", function(d,i) {
-  //   return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
-  // });
+  vis.labels
+  .attr("transform", function(d,i) {
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - 100 + 10) + ")rotate(45)";
+  });
 
   vis.updateVis;
 
