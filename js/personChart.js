@@ -119,11 +119,11 @@ PersonChart.prototype.updateVis = function() {
     return vis.getOpacity(i);
   });
 
-  vis.labels
-  // .transition().duration(200)
-  .attr("opacity", function(d, i) {
-    return vis.getOpacity(i);
-  });
+  // vis.labels
+  // // .transition().duration(200)
+  // .attr("opacity", function(d, i) {
+  //   return vis.getOpacity(i);
+  // });
 
 }
 
