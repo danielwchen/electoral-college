@@ -134,25 +134,25 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  // vis.people.transition().duration(200)
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.people.transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
-  // vis.labels
-  // .transition().duration(200)
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.labels
+  .transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
-  // vis.peoplevr.transition().duration(200)
-  // .attr("opacity", function() {
-  //   if (vis.currInd >=6) {
-  //     return .7;
-  //   } else {
-  //     return 0;
-  //   }
-  // });
+  vis.peoplevr.transition().duration(200)
+  .attr("opacity", function() {
+    if (vis.currInd >=6) {
+      return .7;
+    } else {
+      return 0;
+    }
+  });
   
 }
 
