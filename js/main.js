@@ -48,7 +48,7 @@ d3.graphScroll()
 .sections(d3.selectAll('#sections > div'))
 .on('active', function(i){ 
   electoralMap.updateInd(i);
-  console.log(i + 'th section active');
+  // console.log(i + 'th section active');
 })
 
 d3.graphScroll()
@@ -58,8 +58,8 @@ d3.graphScroll()
 .sections(d3.selectAll('.container-2 #sections > div'))
 .on('active', function(i){
   personChart.updateInd(i);
-  console.log(i + 'th section active') 
+  // console.log(i + 'th section active') 
 })
 
 
-console.log("updated10")
+console.log("updated11")
