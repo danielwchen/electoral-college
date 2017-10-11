@@ -260,5 +260,8 @@ PersonChart.prototype.updateInd = function(ind) {
 
   vis.currInd = ind;
 
-  vis.updateVis();
+  setTimeout(function() { vis.updateVis(); }, 100);
+
+
+  
 }
