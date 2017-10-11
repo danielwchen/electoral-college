@@ -69,7 +69,7 @@ PersonChart.prototype.createVis = function() {
   vis.tip = d3.tip()
   .attr("class", "d3-tip")
   .offset([-8, 0])
-  .html(function(d) { return "Voting power per person: " + d.votingrate; });
+  .html(function(d) { return "Voting power per person: " + d.votingpower; });
   vis.svg.call(vis.tip);
 
 
@@ -104,7 +104,9 @@ PersonChart.prototype.createVis = function() {
   })
   .attr("stroke", "black")
   .attr("stroke-width","1")
-  .on('mouseover', vis.tipvr.show)
+  .on('mouseover', function(d,i) {
+    if (vis.getOpacityVR(i) == 0) {}
+      else {vis.tipvr.show})
   .on('mouseout', vis.tipvr.hide);;
 
   vis.people = vis.svg.selectAll(".peoplebar")
@@ -122,7 +124,9 @@ PersonChart.prototype.createVis = function() {
   })
   .attr("stroke", "black")
   .attr("stroke-width","1")
-  .on('mouseover', vis.tip.show)
+  .on('mouseover', function(d,i) {
+    if (vis.getOpacity(i) == 0) {}
+      else {vis.tip.show})
   .on('mouseout', vis.tip.hide);;;
 
   vis.bot_line = vis.svg.append("line")
@@ -151,25 +155,21 @@ PersonChart.prototype.createVis = function() {
 PersonChart.prototype.updateVis = function() {
   var vis = this;
 
-  // vis.people.transition().duration(200)
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.people.transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
-  // vis.labels
-  // .transition().duration(200)
-  // .attr("opacity", function(d, i) {
-  //   return vis.getOpacity(i);
-  // });
+  vis.labels
+  .transition().duration(200)
+  .attr("opacity", function(d, i) {
+    return vis.getOpacity(i);
+  });
 
-  // vis.peoplevr.transition().duration(200)
-  // .attr("opacity", function() {
-  //   if (vis.currInd >=6) {
-  //     return .7;
-  //   } else {
-  //     return 0;
-  //   }
-  // });
+  vis.peoplevr.transition().duration(200)
+  .attr("opacity", function(d,i) {
+    return vis.getOpacityVR(i);
+  });
 
 }
 
@@ -217,6 +217,16 @@ PersonChart.prototype.getOpacity = function(num) {
 
   if (vis.opacities[vis.opacity_index[vis.currInd]][num] == 1) {
     return 1;
+  } else {
+    return 0;
+  }
+}
+
+PersonChart.prototype.getOpacityVR = function(num) {
+  var vis = this;
+
+  if (vis.currInd >=6) {
+    return .7;
   } else {
     return 0;
   }
