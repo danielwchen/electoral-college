@@ -43,7 +43,7 @@ body {
   max-width: 800px;
   position: absolute;
   top: 0px;
-  left: 40%;
+  right: 0px;
 
   background-color: #eee;
 }
@@ -51,7 +51,7 @@ body {
 .graph-scroll-fixed #graph{
   position: fixed;
   top: 0px;
-  left: 0px;
+  /*right: 0px;*/
 }
 
 .graph-scroll-below #graph{
