@@ -109,7 +109,6 @@ PersonChart.prototype.createVis = function() {
     // console.log(vis.getOpacityVR(i));
     if (vis.getOpacityVR(i) == 0) {}
     else {
-      console.log("test");
       vis.tipvr.show;}
   })
   // .on('mouseover', vis.tipvr.show)
