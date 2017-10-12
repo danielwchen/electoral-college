@@ -44,13 +44,14 @@ body {
   position: absolute;
   top: 0px;
   margin-left: 50%;
-
+  
   background-color: #eee;
 }
 
 .graph-scroll-fixed #graph{
   position: fixed;
   top: 0px;
+  margin-left: 50%;
 }
 
 .graph-scroll-below #graph{
