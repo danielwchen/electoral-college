@@ -69,6 +69,7 @@ PersonChart.prototype.createVis = function() {
   vis.tip = d3.tip()
   .attr("class", "d3-tip")
   .offset([-8, 0])
+  .style('z-index', '999999999');
   .html(function(d) { return "Voting power per person: " + d.votingpower; });
   vis.svg.call(vis.tip);
 
@@ -76,6 +77,7 @@ PersonChart.prototype.createVis = function() {
   vis.tipvr = d3.tip()
   .attr("class", "d3-tip")
   .offset([-8, 0])
+  .style('z-index', '999999999');
   .html(function(d) { return "Voting rate: " + d.rate; });
   vis.svg.call(vis.tipvr);
 

@@ -1,18 +1,28 @@
 
 /* YOUR CSS STYLES */
+
+
 #container{
   position: relative;
+  margin: 0 auto;
 }
 
 #sections{
-  width: 340px;
+  width: 40%;
 }
 
 #sections > div{
   background: white;
-  /*opacity: .2;*/
-  margin-bottom: 400px;
+  padding: 10px;
+  border: 3px solid;
+  width: 80%;
+  max-width: 800px;
+  margin-bottom: 500px;
+  box-shadow: 0 0 12px 3px gray;
+  opacity: .8;
+  font-family: Georgia;
 }
+
 #sections > div:last-child{
   margin-bottom: 30px;
 }
@@ -55,10 +65,12 @@
   #sections div{
     background: rgba(255,255,255,.8);
     padding: 10px;
-    border: 1px solid;
-    width: 90%;
-    max-width: 400px;
+    border: 3px solid;
+    width: 80%;
+    max-width: 600px;
     margin-bottom: 500px;
+    box-shadow: 0 0 12px 3px gray;
+    opacity: .8;
   }
 }
 
@@ -66,7 +78,7 @@ h1{
   margin: 50px;
 }
 
-h1, h3{
+h1, h2, h3{
   text-align: center;
 }
 
@@ -96,48 +108,12 @@ body{
   font-size: 20px;
 }
 
-#sections > div{
-  width: 80%;
-  max-width: 600px;
-  margin: 0px auto 300px auto;
-  background-color: white;
-  padding: 1rem;
-  box-shadow: 0 0 12px 3px gray;
-  border-radius: 3px;
-  opacity: .8;
-} 
-
-#sections div.graph-scroll-active{
-  opacity: 1;
-}
-
-#container{
-  position: relative;
-}
-
-#sections{
-  font-family: "Georgia";
-}
-
 #graph{
   width: 100%;
   position: absolute;
   top: 0px;
   z-index: -1;
 }
-
-.graph-scroll-fixed #graph{
-  position: fixed;
-}
-
-.graph-scroll-below #graph{
-  position: absolute;
-  bottom: 0px;
-}
-
-.state:hover {
-  opacity: 1;
-}*/
 
 /*.peoplebar:hover {
   fill: blue;
@@ -150,7 +126,7 @@ body{
 
 .textlabels {
   font-size: 14px;
-  font-family: Arial; 
+  font-family: Times; 
 }
 
 .d3-tip {
