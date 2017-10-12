@@ -37,6 +37,8 @@
   position: absolute;
   top: 0px;
   margin-left: 380px;
+
+  background-color: #eee;
 }
 
 .graph-scroll-fixed #graph{
