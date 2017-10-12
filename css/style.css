@@ -24,7 +24,7 @@
 }
 
 #sections > div:last-child{
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 #sections > div.graph-scroll-active{
   opacity: 1;
@@ -61,14 +61,14 @@
     width: 90%;
     position: relative;
     margin: 0px auto;
-    padding-top: 400px;
+    padding-top: 0px;
   }
 
   #sections div{
     background: rgba(255,255,255,.8);
     padding: 10px;
     border: 2px solid;
-    width: 90%;
+    width: 80%;
     max-width: 600px;
     margin-bottom: 500px;
     box-shadow: 0 0 12px 3px gray;
