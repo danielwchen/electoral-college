@@ -126,8 +126,9 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke-width","1")
   .on('mouseover', function(d,i) {
     if (vis.getOpacity(i) == 0) {}
-      else {vis.tip.show})
-  .on('mouseout', vis.tip.hide);;;
+      else {vis.tip.show}
+    })
+  .on('mouseout', vis.tip.hide);
 
   vis.bot_line = vis.svg.append("line")
   .style("stroke", "black")
