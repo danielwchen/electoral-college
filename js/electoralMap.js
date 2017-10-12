@@ -141,12 +141,12 @@ ElectoralMap.prototype.updateVis = function() {
     + "scale(" + vis.getScale(d.properties.name) + ")"
     + "translate(" + -x + "," + -y + ")";
   })
+  .attr("opacity", function() {
+    return vis.getOpacity();
+  })
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
   .attr("stroke-width", function(d) {
     return vis.getStroke(d.properties.name);
-  })
-  .attr("opacity", function() {
-    return vis.getOpacity();
   })
   ;
 
