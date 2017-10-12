@@ -151,7 +151,7 @@ PersonChart.prototype.createVis = function() {
     return vis.text_labels[i];
   })
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 10) + ")rotate(30)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 15) + ")rotate(30)";
   })
   .attr("opacity", function(d, i) {
     return vis.getOpacity(i);
@@ -212,7 +212,7 @@ PersonChart.prototype.resize = function() {
 
   vis.labels
   .attr("transform", function(d,i) {
-    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 10) + ")rotate(30)";
+    return "translate(" + (vis.positions[i]-5) + "," + (vis.height - vis.bottomoffset + 15) + ")rotate(30)";
   });
 
   vis.updateVis;

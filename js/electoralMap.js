@@ -73,7 +73,9 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
   //   return sum / 2;
   // }
 
-  // fin_json.forEach
+  fin_json.forEach(function(d) {
+    console.log(d);
+  })
 
   // console.log(vis.fin_json);
   // console.log(vis.fin_data);
