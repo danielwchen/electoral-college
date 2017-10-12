@@ -105,6 +105,8 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","1")
   .on('mouseover', function(d,i) {
+    console.log("test");
+    console.log(vis.getOpacityVR(i));
     if (vis.getOpacityVR(i) == 0) {}
       else {vis.tipvr.show}})
   .on('mouseout', vis.tipvr.hide);;
