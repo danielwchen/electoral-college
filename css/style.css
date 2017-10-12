@@ -16,7 +16,7 @@ body {
 }
 
 #sections{
-  width: 50%;
+  width: 40%;
 }
 
 #sections > div{
@@ -39,19 +39,19 @@ body {
 }
 
 #graph{
-  width: 50%;
+  width: 60%;
   max-width: 800px;
   position: absolute;
   top: 0px;
-  margin-left: 50%;
-  
+  left: 60%;
+
   background-color: #eee;
 }
 
 .graph-scroll-fixed #graph{
   position: fixed;
   top: 0px;
-  margin-left: 50%;
+  left: 0px;
 }
 
 .graph-scroll-below #graph{
