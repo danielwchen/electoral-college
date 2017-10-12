@@ -84,7 +84,7 @@ PersonChart.prototype.createVis = function() {
   vis.top_line = vis.svg.append("line")
   .style("stroke", "black")
   .style("stroke-dasharray", ("5, 5"))
-  .attr("stroke-width", 2)
+  .attr("stroke-width", 3)
   .attr("x1", vis.positions[0] - 50)  
   .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
   .attr("y1", vis.height - vis.bottomoffset - 132)
@@ -140,6 +140,7 @@ PersonChart.prototype.createVis = function() {
 
   vis.bot_line = vis.svg.append("line")
   .style("stroke", "black")
+  .style("stroke-width", 3)
   .attr("x1", vis.positions[0] - 50)  
   .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
   .attr("y1", vis.height - vis.bottomoffset)
