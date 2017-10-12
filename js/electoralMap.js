@@ -75,8 +75,8 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
 
   // fin_json.forEach
 
-  console.log(vis.fin_json);
-  console.log(vis.fin_data);
+  // console.log(vis.fin_json);
+  // console.log(vis.fin_data);
 
   vis.createVis();
 
@@ -240,7 +240,8 @@ ElectoralMap.prototype.getScale = function(state) {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
-    return vis.fin_data[state].electoralvotesfactor;
+    // return vis.fin_data[state].electoralvotesfactor;
+    return 1;
   } else if (vis.section_scale[vis.currInd] == 2) {
     return vis.fin_data[state].electoralpower;
   } else {
