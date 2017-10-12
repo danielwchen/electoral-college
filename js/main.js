@@ -62,4 +62,4 @@ d3.graphScroll()
 })
 
 
-console.log("updated17")
+console.log("updated18")
