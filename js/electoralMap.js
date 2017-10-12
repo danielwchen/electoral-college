@@ -124,6 +124,12 @@ ElectoralMap.prototype.updateVis = function() {
 
   var x, y;
 
+
+
+  vis.bg_map
+  .transition().duration(500)
+  .attr("d", vis.path);
+
   vis.map
   .transition().duration(500)
   .attr("d", vis.path)
@@ -159,9 +165,6 @@ ElectoralMap.prototype.resize = function() {
 
   vis.path = d3.geoPath()
   .projection(vis.projection);
-
-  vis.bg_map.attr("d", vis.path);
-
 
 
   vis.updateVis();
