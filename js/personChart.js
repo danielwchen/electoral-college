@@ -105,7 +105,7 @@ PersonChart.prototype.createVis = function() {
     return vis.getColorVR(i);
   })
   .attr("stroke", "black")
-  .attr("stroke-width","1")
+  .attr("stroke-width","3")
   .on('mouseover', function(d,i) {
     // console.log("test");
     // console.log(vis.getOpacityVR(i));
@@ -130,7 +130,7 @@ PersonChart.prototype.createVis = function() {
     return vis.getColor(i);
   })
   .attr("stroke", "black")
-  .attr("stroke-width","1")
+  .attr("stroke-width","3")
   .on('mouseover', function(d,i) {
     if (vis.getOpacity(i) == 0) {}
       else {vis.tip.show}
