@@ -4,13 +4,19 @@ body {
   font-family: Georgia;
 }
 
-#container{
-  position: relative;
+.interlude {
+  width: 80%;
   margin: 0 auto;
 }
 
+#container{
+  position: relative;
+  margin: 50px auto 0px auto;
+  width: 90%;
+}
+
 #sections{
-  width: 40%;
+  width: 50%;
 }
 
 #sections > div{
@@ -37,7 +43,7 @@ body {
   max-width: 800px;
   position: absolute;
   top: 0px;
-  margin-left: 40%;
+  margin-left: 50%;
 
   background-color: #eee;
 }

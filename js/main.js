@@ -1,6 +1,9 @@
 /**
  * Created by Daniel on 7/27/17.
  */
+
+console.log("updated18")
+
  var w = window,
  d = document,
  e = d.documentElement,
@@ -60,6 +63,3 @@ d3.graphScroll()
   personChart.updateInd(i);
   // console.log(i + 'th section active') 
 })
-
-
-console.log("updated18")
