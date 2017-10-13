@@ -16,7 +16,7 @@ body {
 }
 
 #sections{
-  width: 40%;
+  width: 50%;
 }
 
 #sections > div{
@@ -39,11 +39,11 @@ body {
 }
 
 #graph{
-  width: 60%;
+  width: 50%;
   max-width: 800px;
   position: absolute;
   top: 0px;
-  right: 0px;
+  margin-left: 50%
 
   background-color: #eee;
 }
