@@ -19,7 +19,7 @@
   this.fin_data = [];
 
   // ["none", "electoralvotesfactor","electoralpower"]
-  this.section_scale = [0,0,0,0,0,0,0,0,0,2,2,2]
+  this.section_scale = [0,0,0,0,0,0,0,0,2,2,2,2]
 
 
   // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates", "votemethodr", "wyoming", "california"]
