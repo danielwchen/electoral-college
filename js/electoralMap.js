@@ -110,7 +110,11 @@ ElectoralMap.prototype.updateVis = function() {
 
   vis.bg_map
   .transition().duration(500)
-  .attr("d", vis.path);
+  .attr("d", vis.path)
+  .attr("stroke-width", function(d) {
+    return vis.getStroke(d.properties.name);
+  })
+  ;
 
   vis.map
   .transition().duration(500)
@@ -125,10 +129,12 @@ ElectoralMap.prototype.updateVis = function() {
   })
   .attr("opacity", vis.getOpacity())
   .attr("fill", function(d) {return vis.getColor(d.properties.name);})
-  .attr("stroke-width", function(d) {
-    return vis.getStroke(d.properties.name);
-  })
+  // .attr("stroke-width", function(d) {
+  //   return vis.getStroke(d.properties.name);
+  // })
   ;
+
+
 
 }
 
@@ -214,8 +220,8 @@ ElectoralMap.prototype.getStroke = function(state) {
     else { return 1/vis.getScale(state); }
 
   } else if (vis.color_scale[vis.currInd] == 6) {
-    if (vis.fin_data[state].votingmethod == "WTA") { return 1/vis.getScale(state); }
-    else { return 3/vis.getScale(state); }
+    if (vis.fin_data[state].votingmethod == "WTA") { return 3/vis.getScale(state); }
+    else { return 1/vis.getScale(state); }
   
   } else {
     return 1/vis.getScale(state);
