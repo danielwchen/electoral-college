@@ -233,11 +233,11 @@ ElectoralMap.prototype.getOpacity = function() {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
-    return 0.3;
+    return 0.6;
   } else if (vis.section_scale[vis.currInd] == 2) {
-    return 0.3;
+    return 0.6;
   } else {
-    return 0.7;
+    return 0.6;
   }
 }
 
