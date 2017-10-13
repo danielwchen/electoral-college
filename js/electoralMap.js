@@ -22,8 +22,8 @@
   this.section_scale = [0,0,0,0,0,0,0,0,0,2,2,2]
 
 
-  // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates", "votemethodr"]
-  this.color_scale   = [1,1,3,6,2,4,5,0,0,0,1,1]
+  // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates", "votemethodr", "wyoming", "california"]
+  this.color_scale   = [1,1,3,6,2,4,5,0,7,8,1,1]
 
   this.initVis();
 };
@@ -190,6 +190,15 @@ ElectoralMap.prototype.getColor = function(state) {
 
   } else if (vis.color_scale[vis.currInd] == 6) {
     if (vis.fin_data[state].votingmethod == "WTA") { return "orange"; }
+    else { return "gray"; }
+
+  } else if (vis.color_scale[vis.currInd] == 7) {
+    if (state == "Wyoming") { return "orange"; }
+    else { return "gray"; }
+
+  } else if (vis.color_scale[vis.currInd] == 8) {
+    if (state == "Wyoming") { return "orange"; }
+    else if (state = "California") { return "green"; }
     else { return "gray"; }
 
   } else {
