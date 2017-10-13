@@ -22,8 +22,8 @@
   this.section_scale = [0,0,0,0,0,0,0,0,0,2,2,2]
 
 
-  // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
-  this.color_scale   = [1,1,3,2,2,4,5,0,0,1,1,1]
+  // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates", "votemethodr"]
+  this.color_scale   = [1,1,3,6,2,4,5,0,0,0,1,1]
 
   this.initVis();
 };
@@ -166,7 +166,7 @@ ElectoralMap.prototype.getColor = function(state) {
 
   } else if (vis.color_scale[vis.currInd] == 2) {
     if (vis.fin_data[state].votingmethod == "CD") { return "green"; }
-    else { return "gray"; }
+    else { return "orange"; }
   
   } else if (vis.color_scale[vis.currInd] == 3) {
     if (vis.fin_data[state].bigstate == "Y") { return "green"; }
@@ -180,6 +180,10 @@ ElectoralMap.prototype.getColor = function(state) {
   } else if (vis.color_scale[vis.currInd] == 5) {
     if (vis.fin_data[state].topfour == "Y") { return "green"; }
     else if (vis.fin_data[state].topeleven == "Y") {return "orange"; }
+    else { return "gray"; }
+
+  } else if (vis.color_scale[vis.currInd] == 6) {
+    if (vis.fin_data[state].votingmethod == "WTA") { return "orange"; }
     else { return "gray"; }
 
   } else {
@@ -207,9 +211,12 @@ ElectoralMap.prototype.getStroke = function(state) {
 
   } else if (vis.color_scale[vis.currInd] == 5) {
     if (vis.fin_data[state].topfour == "Y") { return 3/vis.getScale(state); }
-    else if (vis.fin_data[state].topeleven == "Y") {return 3/vis.getScale(state); }
     else { return 1/vis.getScale(state); }
 
+  } else if (vis.color_scale[vis.currInd] == 6) {
+    if (vis.fin_data[state].votingmethod == "WTA") { return 1/vis.getScale(state); }
+    else { return 3/vis.getScale(state); }
+  
   } else {
     return 1/vis.getScale(state);
   }
@@ -234,11 +241,11 @@ ElectoralMap.prototype.getOpacity = function() {
   var vis = this;
 
   if (vis.section_scale[vis.currInd] == 1) {
-    return 0.6;
+    return 0.5;
   } else if (vis.section_scale[vis.currInd] == 2) {
-    return 0.6;
+    return 0.5;
   } else {
-    return 0.6;
+    return 0.5;
   }
 }
 
