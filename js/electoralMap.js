@@ -59,24 +59,23 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
   vis.fin_json = json;
 
 
-  // function polygonArea(points) {
-  //   var sum = 0.0;
-  //   var length = points.length;
-  //   if (length < 3) {
-  //     return sum;
-  //   }
-  //   points.forEach(function(d1, i1) {
-  //     i2 = (i1 + 1) % length;
-  //     d2 = points[i2];
-  //     sum += (d2[1] * d1[0]) - (d1[1] * d2[0]);
-  //   });
-  //   return sum / 2;
-  // }
+  function polygonArea(points) {
+    var sum = 0.0;
+    var length = points.length;
+    if (length < 3) {
+      return sum;
+    }
+    points.forEach(function(d1, i1) {
+      i2 = (i1 + 1) % length;
+      d2 = points[i2];
+      sum += (d2[1] * d1[0]) - (d1[1] * d2[0]);
+    });
+    return sum / 2;
+  }
 
-  // fin_json.forEach
-
-  // console.log(vis.fin_json);
-  // console.log(vis.fin_data);
+  fin_json.forEach(function(d) {
+    console.log(d);
+  });
 
   vis.createVis();
 
