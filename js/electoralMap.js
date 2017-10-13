@@ -59,27 +59,6 @@ ElectoralMap.prototype.wrangleData = function(json, data) {
   vis.fin_json = json;
 
 
-  // function polygonArea(points) {
-  //   var sum = 0.0;
-  //   var length = points.length;
-  //   if (length < 3) {
-  //     return sum;
-  //   }
-  //   points.forEach(function(d1, i1) {
-  //     i2 = (i1 + 1) % length;
-  //     d2 = points[i2];
-  //     sum += (d2[1] * d1[0]) - (d1[1] * d2[0]);
-  //   });
-  //   return sum / 2;
-  // };
-
-  // vis.fin_json.forEach(function(d) {
-  //   console.log(d);
-  // });
-
-  // console.log(vis.fin_json);
-  // console.log(vis.fin_data);
-
   vis.createVis();
 
 };
@@ -191,16 +170,16 @@ ElectoralMap.prototype.getColor = function(state) {
   
   } else if (vis.color_scale[vis.currInd] == 3) {
     if (vis.fin_data[state].bigstate == "Y") { return "green"; }
-    else if (vis.fin_data[state].smallstate == "Y") {return "yellow"; }
+    else if (vis.fin_data[state].smallstate == "Y") {return "orange"; }
     else { return "gray"; }
 
   } else if (vis.color_scale[vis.currInd] == 4) {
-    if (vis.fin_data[state].topeleven == "Y") { return "yellow"; }
+    if (vis.fin_data[state].topeleven == "Y") { return "orange"; }
     else { return "gray"; }
 
   } else if (vis.color_scale[vis.currInd] == 5) {
     if (vis.fin_data[state].topfour == "Y") { return "green"; }
-    else if (vis.fin_data[state].topeleven == "Y") {return "yellow"; }
+    else if (vis.fin_data[state].topeleven == "Y") {return "orange"; }
     else { return "gray"; }
 
   } else {
