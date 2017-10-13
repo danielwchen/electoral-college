@@ -198,7 +198,7 @@ ElectoralMap.prototype.getColor = function(state) {
 
   } else if (vis.color_scale[vis.currInd] == 8) {
     if (state == "Wyoming") { return "orange"; }
-    else if (state = "California") { return "green"; }
+    else if (state == "California") { return "green"; }
     else { return "gray"; }
 
   } else {
