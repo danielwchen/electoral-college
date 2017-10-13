@@ -12,66 +12,54 @@
 <body>
   <h1>How the Electoral College Skews Voting Power</h1>
   <!-- <a href="oldindex.html">Old vis</a> -->
+  <div class='interlude'>
+    <p>If you're American and over the age of 18, you have probably become very familiar with this map. It shows the results of the 2016 Presidential Election, with each state colored by its winner. Though Donald Trump recieved almost 3 million fewer votes than Hillary Clinton, key wins in Michigan, Florida, and Pennsylvania alllowed him to achieve the 270 electoral votes necessary to win the election. This makes Trump the 5th person to ever become the president of the US while losing the popular vote.</p>
+    <p>This was possible due to the Electoral College.</p>
+  </div>
   <div id='container'>
     <div id='graph'>
       <div id="map-vis"></div>
     </div>
     <div id='sections'>
       <!-- 0 -->
-      <div>If you're American and over the age of 18, you have probably become very familiar with this map in the past year. It shows the results of the 2016 Presidential Election, with each state colored by its winner.</div>
+      <div>The Electoral College, a system intentionally formed as a buffer between the popular vote and the presidential selection, imbalances voters' access to candidates and individual voting power.</div>
       <!-- 1 -->
-      <div>Though Trump recieved almost 3 million fewer votes across the country than his opponent, key wins in Michigan, Florida, and Pennsylvania alllowed him to achieve the 270 electoral votes necessary to win the election.</div>
+      <div>Each state has a number of electors equal to its total number of Congresspeople.</div>
       <!-- 2 -->
-      <div>This makes Trump the 5th person to ever become the president of the US while losing the popular vote, joining the ranks of John Quincy Adams (1824), Rutherford B. Hayes (1876), Benjamin Harrison (1888), and George W. Bush (2000).</div>
+      <div>One criticism of the Electoral College is that it concentrates electoral power in large states. The <font color="green"><b>four most populated states</b></font>--California (55), Texas (38), Florida (29), and New York (29)--hold a total of 151 electoral votes, or 28% of the 538 electoral votes, while <font color="orange"><b>eight regions</b></font> (seven states and Washington DC) have just 3 votes each.</div>
       <!-- 3 -->
-      <div>These discrepencies are possible due to the Electoral College, in which each state (and Washington DC) cast proxy votes for the voters in their state. Each state has a number of electors equal to its total number of Congressionalpeople.</div>
+      <div>Only two states use a <font color="green"><b>Congressional District</b></font> system. Maine and Nebraska award one vote to the winner of each of their congressional districts. The remaining two votes in each state are then assigned to the overall winner in the state.</div>
       <!-- 4 -->
       <div>Most states assign their electors using a <font color="orange"><b>Winner Takes All</b></font> system. As the name suggests, the candidate who gets more votes in the general election receives <b>all</b> of the state's electoral votes, regardless of the winning margin.</div>
       <!-- 5 -->
-      <div>Only two states use a <font color="green"><b>Congressional District</b></font> system. Maine and Nebraska award one vote to the winner of each of their congressional districts. The remaining two votes in each state are then assigned to the overall winner in the state.</div>
-      <!-- 6 -->
-      <div>In this map, the area of each state is proportional to the number of electors it has. This perspective, and other <a href="http://www-personal.umich.edu/~mejn/election/2012/">cartograms</a>, or maps that rescale the area of states based on their number of votes, like it, makes it look like states with high populations have a disproportionate voting power.</div>
-      <!-- 7 -->
-      <div>One criticism of the Electoral College is that it concentrates electoral power in large states. The <font color="green"><b>four most populated states</b></font>--California (55), Texas (38), Florida (29), and New York (29)--hold a total of 151 electoral votes, or 28% of the 538 electoral votes, while <font color="orange"><b>eight regions</b></font> (seven states and Washington DC) have just 3 votes each.</div>
-      <!-- 8 -->
       <div>Because of this, campaigns typically focus on a small number of states that are moderate and have a significant number of electoral votes. In the 2016 election, for example, 90% of campaign events by Clinton and Trump were concentrated in just <font color="orange"><b>11 states</b></font>, according to <a href="https://docs.google.com/spreadsheets/d/14Lxw0vc4YBUwQ8cZouyewZvOGg6PyzS2mArWNe3iJcY/">FairVote</a>.</div>
-      <!-- 9 -->
+      <!-- 6 -->
       <div>Just <font color="green"><b>four states</b></font> made up 70% of all Clinton campaign events and about half of Trump's.</div>
+      <!-- 7 -->
+      <div>Not only does the Electoral College cause campaigns to be distributed unevenly, it also distributes voting power unequally.</div>
+      <!-- 8 -->
+      <div>Dividing a state's number of electoral votes by its population (from 2015 estimates from the US Census Bureau) allows each state's voting power per person to be approximated and compared to a one-person-one-vote system. <font color="orange"><b>Wyoming</b></font>, for example, has a rating of 3.09, which means that each person voting in Wyoming has three times the voting power in the Electoral College than in a popular vote.</div>
+      <!-- 9 -->
+      <div>In this map the area of each state is scaled by its voting power per person. <font color="orange"><b>Wyoming</b></font> has its area scaled to three times the original value. California's area, on the other hand, has an area that is 84% of its original.</div>
       <!-- 10 -->
-      <div></div>
+      <div>Of course, this analysis simplifies certain notable variables. Voting in a swing state, for example, gives a voter much more impact than in a state that has a consistent voting history. Voting rates also differ between states. However, this map illustrates how the Electoral College unequally distributes voting power.</div>
       <!-- 11 -->
-      <div></div>
-      <!-- 12 -->
-      <div>An alternative analysis of the electoral college tells a different, though equally problematic, story.</div>
-      <!-- 13 -->
-      <div>By dividing a state's number of electoral votes by its population (from 2015 estimates from the US Census Bureau), each state's voting power per person can be approximated. For example, Wyoming has a rating of 3.09, meaning each voter in Wyoming has the power that three people would have in a simple one-person-one-vote system. California, on the other hand, has a rating of 0.84, meaning it takes 4 voters in California to overcome the voting power of one person in Wyoming.</div>
-      <!-- 14 -->
-      <div>Thus, this map instead scales the area of each state by its voting power per person. States with lower populations have significantly higher power than states with higher populations. Wyoming is the most extreme example, but voters in Alaska, North Dakota, South Dakota, Vermont, Rhode Island, and Washington D.C. enjoy ratings over 2.</div>
-      <!-- 15 -->
-      <div>Admittedly, this analysis simplifies certain notable variables. It fails to account for the voting record for each state. In that respect, a voter in Wyoming, which has voted for the Republican candidate every year since 1964, could be considered to have a lower <i>chance to be the deciding electoral vote</i>, and thus a lower effective voting power, while a swing voter in a swing state holds a disproportional amount of power.</div>
-      <!-- 16 -->
-      <div>However, this visualization shows how the electoral college distorts the voting power of citizens based along state lines. It also, incidentally, helps illustrate how a candidate who loses the popular vote can still win by succeeding in states with fewer voters, but higher electoral power per voter.</div>
-      <!-- 17 -->
       <div>In a country that holds the ideal that all Americans should be given an equal vote, it seems to make little sense to that the weight of each person's vote should be based on their geographic location, a factor that is <a href="https://www.census.gov/newsroom/releases/archives/mobility_of_the_population/cb11-193.html">more likely to be determined by birth than by choice</a>.</div>
-      <!-- 18 -->
-      <!-- <div></div> -->
     </div>
   </div>
 
-
-
-
   <h1>How the Electoral College Impacts Power by Demographics</h1>
-      <div class='interlude'>Because of the uneven demographic distribution across the country, the compartmentalization has less obvious effects as well. The distribution of people by race, for example, causes </div>
+  <div class='interlude'><p>Another negative side effect of the Electoral College is its suppression of minority voting power. The distribution of minorities across different states compounds the already difficult challenge of making minority voices heard.</p>
+    <p>By applying the voting power per voter for each state and race statistics from the US Census Bureau's data for 2015, it is possible to estimate the potential voting power per voter by race.</p></div>
   <div id='container' class='container-2'>
     <div id='graph'>
       <div id="per-vis"></div>
     </div>
     <div id='sections'>
       <!-- 0 -->
-      <div>This gray person represents the voting power of one person if the presidential election were based solely on the popular vote.</div>
+      <div>This gray person represents the voting power that one person would have if the presidential election were based on the popular vote.</div>
       <!-- 1 -->
-      <div>The voting power of White Americans is increased by 3%.</div>
+      <div>The voting power of White Americans is increased by 3% by the Electoral College.</div>
       <!-- 2 -->
       <div>The voting power of Black Americans is about the same, with a slight increase of 0.4%.</div>
       <!-- 3 -->
@@ -79,39 +67,38 @@
       <!-- 4 -->
       <div>And the voting power of Asian Americans is decreased by 12%.</div>
       <!-- 5 -->
-      <div>Furthermore, these statistics are calculated as <i>potential</i> electoral voting power. In other words, if <i>every</i> eligible voter cast a ballot in a presidential election, then, on average, it would take 117 Asian American votes to equal the votes of 100 White Americans. However, minority voters tend to vote at a lower rate. This may be due to a variety of <a href="https://www.americanprogress.org/issues/race/news/2014/11/06/100627/why-young-minority-and-low-income-citizens-dont-vote/">economic</a> or <a href="http://www.newsweek.com/voter-id-laws-texas-minority-voters-strict-states-582405">institutional</a> reasons.</div>
+      <div>Remember, these statistics are calculated as <b>potential</b> electoral voting power. In other words, if every eligible voter cast a ballot in a presidential election, then, on average, it would take 17 extra Asian American votes to equal the votes of 100 White Americans. However, minority voters tend to vote at a lower rate. This can be due to a variety of <a href="https://www.americanprogress.org/issues/race/news/2014/11/06/100627/why-young-minority-and-low-income-citizens-dont-vote/">economic</a> or <a href="http://www.newsweek.com/voter-id-laws-texas-minority-voters-strict-states-582405">institutional</a> reasons.</div>
       <!-- 6 -->
-      <div>This time, the people added to the chart (with a gray outline) represent the voting rate by race. Again, the gray person represents the average voting rate for all Americans.</div>
+      <div>The figures added to the chart represent the voting rate by race. The baseline figure represents the average voting rate for all Americans.</div>
       <!-- 7 -->
-      <div>In the presidential elections, minority voters in American already vote at a lower rate than White Americans, according to the <a href="https://docs.google.com/spreadsheets/d/1l5fpK7ysQhQbZPv9hnZ_-PO1J1zBVPXSSQjNejTXecY/edit#gid=0">United States Elections Project</a>. The electoral college further reinforces that problem by reducing the voting power each minority voter is able to exert.</div>
+      <div>Minority voters in American already vote at a lower rate than White Americans, according to the <a href="https://docs.google.com/spreadsheets/d/1l5fpK7ysQhQbZPv9hnZ_-PO1J1zBVPXSSQjNejTXecY/edit#gid=0">United States Elections Project</a>. The Electoral College further exacerbates that problem by reducing the voting power each minority voter exerts.</div>
     </div>
   </div>
 
   <h1>Just sore losers?</h1>
   <div class='interlude'>
-  <div>Ending the electoral college should be an issue that spans party lines.</div>
-  <div>Yes, Hillary Clinton has called for ending the electoral college in <a href="http://www.cnn.com/2017/09/13/politics/hillary-clinton-anderson-cooper-electoral-college-cnntv/">an interview with CNN</a>...</div>
-  <div>But so, too, did Donald Trump in 2012.
+    <p>Ending the Electoral College should be an issue that concerns people of all parties, not just Democrats.</p>
+    <p>
+      Both <a href="http://www.cnn.com/2017/09/13/politics/hillary-clinton-anderson-cooper-electoral-college-cnntv/">Hillary Clinton</a> and <a href="https://twitter.com/9realDonaldTrump/status/266038556504494082">Donald Trump</a> have criticized the Electoral College.
     <blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">The electoral college is a disaster for a democracy.</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/9realDonaldTrump/status/266038556504494082">November 7, 2012</a></blockquote>
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
+    <p>Both parties have tried, and failed, to beseech the Electoral College to carry out its original purpose, a task that would be a Constitutional crisis. Almost 5 million Democratic voters <a href="https://www.change.org/p/electoral-college-make-hillary-clinton-president-on-december-19-4a78160a-023c-4ff0-9069-53cee2a095a8">petitioned electors</a> to defy their Electoral College mandates in 2016, as did Republicans <a href="http://thehill.com/blogs/pundits-blog/presidential-campaign/308379-remember-when-republicans-tried-to-stop-obama-with">leverage electors in 2008</a> to vote against Barack Obama.</p>
+    <p>Instead, the call for obolishing the outdated Electoral College should be an issue motivated by restoring the one person, one vote ideal that holds all Americans equal in the eyes of the government.</p>
   </div>
-  <div>Yes, almost 5 million Democratic voters <a href="https://www.change.org/p/electoral-college-make-hillary-clinton-president-on-december-19-4a78160a-023c-4ff0-9069-53cee2a095a8">petitioned electors</a> to defy their electoral college mandates, but so, too, did Republicans <a href="http://thehill.com/blogs/pundits-blog/presidential-campaign/308379-remember-when-republicans-tried-to-stop-obama-with">lobby electors in 2008</a> to vote against Barack Obama in spite of their mandates.</div>
-  <div>Instead, the call for obolishing the outdated electoral college is an issue motivated by restoring the one person, one vote ideal that holds all Americans equal in the eyes of the government.</div>
-  <div>Of course, all voting systems have their flaws, but rethinking the importance of the electoral college just might make America's a little more equitable.</div>
-</div>
 
 </div>
 
-  <!-- Load JS libraries -->
-  <script src="js/libs/jquery.min.js"></script>
-  <script src="js/libs/d3.min.js"></script>
-  <script src="js/libs/d3v4.tip.js"></script>
-  <script src="js/libs/queue.js"></script>
-  <script src="js/libs/graph-scroll.js"></script>
+<!-- Load JS libraries -->
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/d3.min.js"></script>
+<script src="js/libs/d3v4.tip.js"></script>
+<script src="js/libs/queue.js"></script>
+<script src="js/libs/graph-scroll.js"></script>
 
-  <script src="js/electoralMap.js"></script>
-  <script src="js/personChart.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/electoralMap.js"></script>
+<script src="js/personChart.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

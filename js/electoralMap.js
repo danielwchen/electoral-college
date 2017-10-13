@@ -19,10 +19,11 @@
   this.fin_data = [];
 
   // ["none", "electoralvotesfactor","electoralpower"]
-  this.section_scale = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2]
+  this.section_scale = [0,0,0,0,0,0,0,0,0,2,2,2]
+
 
   // ["none", "2016votes", "votemethod", "bigstates", "elevenstates", "fourstates"]
-  this.color_scale   = [1, 1, 1, 1, 2, 0, 3, 0, 4, 5, 5, 0, 0, 0, 1, 1, 1]
+  this.color_scale   = [1,1,3,2,2,4,5,0,0,1,1,1]
 
   this.initVis();
 };

@@ -18,7 +18,7 @@ function graphScroll(){
       containerStart = 0,
       belowStart,
       eventId = Math.random(),
-      offset = 200;
+      offset = 400;
 
   function reposition(){
     var i1 = 0;
