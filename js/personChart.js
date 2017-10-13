@@ -81,18 +81,6 @@ PersonChart.prototype.createVis = function() {
   .html(function(d) { return "Voting rate: " + d.rate; });
   vis.svg.call(vis.tipvr);
 
-  vis.top_line = vis.svg.append("line")
-  .style("stroke", "black")
-  .style("stroke-dasharray", ("5, 5"))
-  .attr("stroke-width", 3)
-  .attr("x1", vis.positions[0] - 50)  
-  .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
-  .attr("y1", vis.height - vis.bottomoffset - 132)
-  .attr("y2", vis.height - vis.bottomoffset - 132);
-
-
-
-
   vis.peoplevr = vis.svg.selectAll(".peoplebarvr")
   .data(vis.fin_datavr)
   .enter().append("path")
@@ -107,14 +95,20 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke", "black")
   .attr("stroke-width","3")
   .on('mouseover', function(d,i) {
-    // console.log("test");
-    // console.log(vis.getOpacityVR(i));
     if (vis.getOpacityVR(i) == 0) {}
     else {
-      vis.tipvr.show;}
+      vis.tipvr.show(d);}
   })
-  // .on('mouseover', vis.tipvr.show)
-  .on('mouseout', vis.tipvr.hide);;
+  .on('mouseout', vis.tipvr.hide);
+
+  vis.top_line = vis.svg.append("line")
+  .style("stroke", "black")
+  .style("stroke-dasharray", ("5, 5"))
+  .attr("stroke-width", 3)
+  .attr("x1", vis.positions[0] - 50)  
+  .attr("x2", vis.positions[vis.positions.length - 1] + 50)  
+  .attr("y1", vis.height - vis.bottomoffset - 132)
+  .attr("y2", vis.height - vis.bottomoffset - 132);
 
   vis.people = vis.svg.selectAll(".peoplebar")
   .data(vis.fin_data)
@@ -133,9 +127,8 @@ PersonChart.prototype.createVis = function() {
   .attr("stroke-width","3")
   .on('mouseover', function(d,i) {
     if (vis.getOpacity(i) == 0) {}
-      else {vis.tip.show}
+      else {vis.tip.show(d)}
     })
-  // .on('mouseover', vis.tip.show)
   .on('mouseout', vis.tip.hide);
 
   vis.bot_line = vis.svg.append("line")
@@ -236,7 +229,7 @@ PersonChart.prototype.getOpacityVR = function(num) {
   var vis = this;
 
   if (vis.currInd >=6) {
-    return .7;
+    return .5;
   } else {
     return 0;
   }
